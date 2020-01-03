@@ -1,0 +1,23 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/Detectors/ITSMFT/ITS/tracking/hip/src/DeviceStoreVertexerHIP.hip.cxx" name="/home/travis/build/AliceO2Group/AliceO2/Detectors/ITSMFT/ITS/tracking/hip/src/DeviceStoreVertexerHIP.hip.cxx">
+<area shape="rect" id="node3" href="$d4/d1e/DeviceStoreVertexerHIP_8h.html" title="This class serves as memory interface for GPU vertexer. It will access needed data structures from de..." alt="" coords="1274,139,1462,180"/>
+<area shape="rect" id="node23" href="$d3/d59/Configuration_8h.html" title="ITStracking/Configuration.h" alt="" coords="164,541,345,568"/>
+<area shape="rect" id="node5" href="$da/d7f/Detectors_2ITSMFT_2ITS_2tracking_2include_2ITStracking_2Cluster_8h.html" title="ITStracking/Cluster.h" alt="" coords="641,467,788,493"/>
+<area shape="rect" id="node8" href="$df/d21/GPUCommonDef_8h.html" title="GPUCommonDef.h" alt="" coords="1573,780,1709,807"/>
+<area shape="rect" id="node18" href="$d0/d86/Detectors_2ITSMFT_2ITS_2tracking_2include_2ITStracking_2Constants_8h.html" title="ITStracking/Constants.h" alt="" coords="347,623,511,650"/>
+<area shape="rect" id="node24" href="$da/dc0/Tracklet_8h.html" title="ITStracking/Tracklet.h" alt="" coords="1406,392,1557,419"/>
+<area shape="rect" id="node25" href="$df/d50/ClusterLines_8h.html" title="ITStracking/ClusterLines.h" alt="" coords="834,317,1011,344"/>
+<area shape="rect" id="node26" href="$de/d49/ArrayHIP_8h.html" title="ITStrackingHIP/ArrayHIP.h" alt="" coords="1507,235,1688,262"/>
+<area shape="rect" id="node28" href="$d2/dc8/ClusterLinesHIP_8h.html" title="GPU&#45;compliant version of ClusterLines, for the moment separated, might create a common traits for Clu..." alt="" coords="1091,228,1280,269"/>
+<area shape="rect" id="node29" href="$d1/d7c/UniquePointerHIP_8h.html" title="ITStrackingHIP/UniquePointer\lHIP.h" alt="" coords="1805,616,2003,657"/>
+<area shape="rect" id="node33" href="$dd/dda/VectorHIP_8h.html" title="ITStrackingHIP/VectorHIP.h" alt="" coords="2033,623,2221,650"/>
+<area shape="rect" id="node7" href="$df/d3d/Definitions_8h.html" title="ITStracking/Definitions.h" alt="" coords="625,705,791,732"/>
+<area shape="rect" id="node11" href="$dc/d3e/MathUtils_8h.html" title="ITStracking/MathUtils.h" alt="" coords="999,541,1159,568"/>
+<area shape="rect" id="node21" href="$dc/ddf/ITS_2tracking_2include_2ITStracking_2IndexTableUtils_8h.html" title="ITStracking/IndexTableUtils.h" alt="" coords="617,541,812,568"/>
+<area shape="rect" id="node9" href="$d5/d93/GPUCommonDefSettings_8h.html" title="GPUCommonDefSettings.h" alt="" coords="1743,855,1927,881"/>
+<area shape="rect" id="node10" href="$da/d5a/GPUCommonDefAPI_8h.html" title="GPUCommonDefAPI.h" alt="" coords="1559,855,1718,881"/>
+<area shape="rect" id="node14" href="$d9/d52/Common_2MathUtils_2include_2MathUtils_2Utils_8h.html" title="MathUtils/Utils.h" alt="" coords="1019,623,1139,650"/>
+<area shape="rect" id="node15" href="$d6/da2/GPUCommonMath_8h.html" title="GPUCommonMath.h" alt="" coords="1283,705,1427,732"/>
+<area shape="rect" id="node17" href="$d6/d84/MathConstants_8h.html" title="useful math constants " alt="" coords="1019,705,1258,732"/>
+<area shape="rect" id="node30" href="$d8/d28/UtilsHIP_8h.html" title="ITStrackingHIP/UtilsHIP.h" alt="" coords="1907,705,2085,732"/>
+<area shape="rect" id="node31" href="$d4/dac/StreamHIP_8h.html" title="ITStrackingHIP/StreamHIP.h" alt="" coords="2033,780,2225,807"/>
+</map>

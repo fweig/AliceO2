@@ -1,0 +1,49 @@
+digraph "/home/travis/build/AliceO2Group/AliceO2/Detectors/MUON/MCH/Tracking/src/TrackFinder.h"
+{
+ // INTERACTIVE_SVG=YES
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/MUON/MCH/Tracking\l/src/TrackFinder.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="chrono",height=0.2,width=0.4,color="grey75"];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="unordered_map",height=0.2,width=0.4,color="grey75"];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="unordered_set",height=0.2,width=0.4,color="grey75"];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="list",height=0.2,width=0.4,color="grey75"];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="array",height=0.2,width=0.4,color="grey75"];
+  Node1 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="vector",height=0.2,width=0.4,color="grey75"];
+  Node1 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="utility",height=0.2,width=0.4,color="grey75"];
+  Node1 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="Cluster.h",height=0.2,width=0.4,color="black",URL="$d5/d88/Detectors_2MUON_2MCH_2Tracking_2src_2Cluster_8h.html"];
+  Node9 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="iostream",height=0.2,width=0.4,color="grey75"];
+  Node9 -> Node11 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="string",height=0.2,width=0.4,color="grey75"];
+  Node9 -> Node12 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="MCHBase/ClusterBlock.h",height=0.2,width=0.4,color="black",URL="$d3/db8/ClusterBlock_8h.html",tooltip="Definition of the MCH cluster minimal structure. "];
+  Node12 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node13 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 [label="Track.h",height=0.2,width=0.4,color="black",URL="$d8/d80/Detectors_2MUON_2MCH_2Tracking_2src_2Track_8h.html"];
+  Node13 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 -> Node14 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node14 [label="memory",height=0.2,width=0.4,color="grey75"];
+  Node13 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 -> Node15 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node15 [label="TrackParam.h",height=0.2,width=0.4,color="black",URL="$de/d4b/TrackParam_8h.html",tooltip="Definition of the MCH track parameters for internal use. "];
+  Node15 -> Node16 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node16 [label="TMatrixD.h",height=0.2,width=0.4,color="grey75"];
+  Node15 -> Node17 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node17 [label="MCHBase/TrackBlock.h",height=0.2,width=0.4,color="black",URL="$d6/d45/TrackBlock_8h.html",tooltip="Definition of the MCH track parameters minimal structure. "];
+  Node17 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node18 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node18 [label="TrackFitter.h",height=0.2,width=0.4,color="black",URL="$d4/d9c/TrackFitter_8h.html",tooltip="Definition of a class to fit a track to a set of clusters. "];
+  Node18 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node18 -> Node13 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node18 -> Node15 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

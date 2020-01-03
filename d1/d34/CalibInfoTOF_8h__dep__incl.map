@@ -1,0 +1,10 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/DataFormats/Detectors/TOF/include/DataFormatsTOF/CalibInfoTOF.h" name="/home/travis/build/AliceO2Group/AliceO2/DataFormats/Detectors/TOF/include/DataFormatsTOF/CalibInfoTOF.h">
+<area shape="rect" id="node2" href="$da/d1f/CalibInfoTOF_8cxx.html" title="Class to store the output of the matching to TOF for calibration. " alt="" coords="5,146,187,217"/>
+<area shape="rect" id="node3" href="$d8/d60/CollectCalibInfoTOF_8h.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/GlobalTracking\l/include/GlobalTracking/CollectCalib\lInfoTOF.h" alt="" coords="211,139,445,224"/>
+<area shape="rect" id="node5" href="$d0/d74/MatchTOF_8h.html" title="Class to perform TOF calibration. " alt="" coords="469,146,704,217"/>
+<area shape="rect" id="node8" href="$dc/d9f/TOFCalibWriterSpec_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/GlobalTrackingWorkflow\l/tofworkflow/src/TOFCalibWriterSpec.cxx" alt="" coords="729,146,994,217"/>
+<area shape="rect" id="node9" href="$d1/dd9/TOFMatchedWriterSpec_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/GlobalTrackingWorkflow\l/tofworkflow/src/TOFMatchedWriterSpec.cxx" alt="" coords="1019,146,1304,217"/>
+<area shape="rect" id="node4" href="$d0/dd5/CollectCalibInfoTOF_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/GlobalTracking\l/src/CollectCalibInfoTOF.cxx" alt="" coords="232,272,424,343"/>
+<area shape="rect" id="node6" href="$db/d6a/MatchTOF_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/GlobalTracking\l/src/MatchTOF.cxx" alt="" coords="474,272,649,343"/>
+<area shape="rect" id="node7" href="$d8/d84/RecoWorkflowSpec_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/GlobalTrackingWorkflow\l/tofworkflow/src/RecoWorkflowSpec.cxx" alt="" coords="673,272,933,343"/>
+</map>

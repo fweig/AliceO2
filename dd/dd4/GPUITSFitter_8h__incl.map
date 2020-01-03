@@ -1,0 +1,17 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/GPU/GPUTracking/ITS/GPUITSFitter.h" name="/home/travis/build/AliceO2Group/AliceO2/GPU/GPUTracking/ITS/GPUITSFitter.h">
+<area shape="rect" id="node2" href="$d6/d57/GPUProcessor_8h.html" title="GPUProcessor.h" alt="" coords="632,259,753,285"/>
+<area shape="rect" id="node14" href="$dc/db2/GPUITSTrack_8h.html" title="GPUITSTrack.h" alt="" coords="767,109,883,136"/>
+<area shape="rect" id="node3" href="$df/d21/GPUCommonDef_8h.html" title="GPUCommonDef.h" alt="" coords="861,408,997,435"/>
+<area shape="rect" id="node6" href="$d2/d6d/GPUDef_8h.html" title="GPUDef.h" alt="" coords="511,333,594,360"/>
+<area shape="rect" id="node4" href="$d5/d93/GPUCommonDefSettings_8h.html" title="GPUCommonDefSettings.h" alt="" coords="1018,483,1202,509"/>
+<area shape="rect" id="node5" href="$da/d5a/GPUCommonDefAPI_8h.html" title="GPUCommonDefAPI.h" alt="" coords="835,483,993,509"/>
+<area shape="rect" id="node7" href="$d2/d37/GPUDefConstantsAndSettings_8h.html" title="GPUDefConstantsAndSettings.h" alt="" coords="5,408,220,435"/>
+<area shape="rect" id="node8" href="$dc/de9/GPUDefGPUParameters_8h.html" title="GPUDefGPUParameters.h" alt="" coords="245,408,423,435"/>
+<area shape="rect" id="node9" href="$d3/d4c/GPUDefOpenCL12Templates_8h.html" title="GPUDefOpenCL12Templates.h" alt="" coords="448,408,655,435"/>
+<area shape="rect" id="node10" href="$d2/d45/GPUCommonRtypes_8h.html" title="GPUCommonRtypes.h" alt="" coords="679,408,837,435"/>
+<area shape="rect" id="node15" href="$d8/d33/GPUTPCGMTrackParam_8h.html" title="GPUTPCGMTrackParam.h" alt="" coords="790,184,971,211"/>
+<area shape="rect" id="node16" href="$da/dab/GPUTPCDef_8h.html" title="GPUTPCDef.h" alt="" coords="497,259,608,285"/>
+<area shape="rect" id="node17" href="$d3/dcc/GPUTPCGMMergedTrackHit_8h.html" title="GPUTPCGMMergedTrackHit.h" alt="" coords="1047,333,1250,360"/>
+<area shape="rect" id="node18" href="$d6/da2/GPUCommonMath_8h.html" title="GPUCommonMath.h" alt="" coords="829,259,973,285"/>
+<area shape="rect" id="node20" href="$d3/d1f/GPUdEdxInfo_8h.html" title="GPUdEdxInfo.h" alt="" coords="997,259,1111,285"/>
+</map>

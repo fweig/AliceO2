@@ -1,0 +1,13 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/Detectors/CPV/base/include/CPVBase/Hit.h" name="/home/travis/build/AliceO2Group/AliceO2/Detectors/CPV/base/include/CPVBase/Hit.h">
+<area shape="rect" id="node2" href="$d5/d34/Detectors_2CPV_2base_2include_2CPVBase_2Digit_8h.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/CPV/base/include\l/CPVBase/Digit.h" alt="" coords="195,124,387,195"/>
+<area shape="rect" id="node4" href="$d4/d37/CPV_2simulation_2include_2CPVSimulation_2Digitizer_8h.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/CPV/simulation\l/include/CPVSimulation/Digitizer.h" alt="" coords="199,243,421,313"/>
+<area shape="rect" id="node5" href="$d7/dff/CPV_2simulation_2include_2CPVSimulation_2DigitizerTask_8h.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/CPV/simulation\l/include/CPVSimulation/Digitizer\lTask.h" alt="" coords="277,361,489,447"/>
+<area shape="rect" id="node6" href="$de/de0/CPV_2simulation_2src_2DigitizerTask_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/CPV/simulation\l/src/DigitizerTask.cxx" alt="" coords="294,495,473,565"/>
+<area shape="rect" id="node8" href="$d2/dfe/Detectors_2CPV_2base_2src_2Hit_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/CPV/base/src\l/Hit.cxx" alt="" coords="564,124,733,195"/>
+<area shape="rect" id="node9" href="$d3/de1/CPV_2simulation_2include_2CPVSimulation_2Detector_8h.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/CPV/simulation\l/include/CPVSimulation/Detector.h" alt="" coords="808,124,1033,195"/>
+<area shape="rect" id="node10" href="$de/de0/CPV_2simulation_2src_2Detector_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/CPV/simulation\l/src/Detector.cxx" alt="" coords="682,243,861,313"/>
+<area shape="rect" id="node3" href="$d9/da9/Detectors_2CPV_2base_2src_2Digit_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/CPV/base/src\l/Digit.cxx" alt="" coords="5,243,175,313"/>
+<area shape="rect" id="node7" href="$d3/d11/CPV_2simulation_2src_2Digitizer_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/CPV/simulation\l/src/Digitizer.cxx" alt="" coords="74,369,253,439"/>
+<area shape="rect" id="node11" href="$db/d50/O2HitMerger_8h.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/run/O2HitMerger.h" alt="" coords="885,250,1042,306"/>
+<area shape="rect" id="node12" href="$d9/d16/O2HitMergerRunner_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/run/O2HitMergerRunner.cxx" alt="" coords="869,376,1058,432"/>
+</map>

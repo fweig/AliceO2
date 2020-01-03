@@ -1,0 +1,33 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/Detectors/ITSMFT/MFT/simulation/src/DigitizerTask.cxx" name="/home/travis/build/AliceO2Group/AliceO2/Detectors/ITSMFT/MFT/simulation/src/DigitizerTask.cxx">
+<area shape="rect" id="node2" href="$dd/d11/ITSMFT_2MFT_2simulation_2include_2MFTSimulation_2DigitizerTask_8h.html" title="MFTSimulation/DigitizerTask.h" alt="" coords="3213,124,3415,151"/>
+<area shape="rect" id="node21" href="$d9/d4e/Detectors_2ITSMFT_2common_2simulation_2include_2ITSMFTSimulation_2Hit_8h.html" title="ITSMFTSimulation/Hit.h" alt="" coords="1441,281,1603,307"/>
+<area shape="rect" id="node51" href="$d9/d52/Common_2MathUtils_2include_2MathUtils_2Utils_8h.html" title="MathUtils/Utils.h" alt="" coords="3891,549,4011,575"/>
+<area shape="rect" id="node7" href="$d9/dce/Detectors_2ITSMFT_2common_2simulation_2include_2ITSMFTSimulation_2DigiParams_8h.html" title="ITSMFTSimulation/DigiParams.h" alt="" coords="564,281,779,307"/>
+<area shape="rect" id="node9" href="$d7/d9c/ITSMFT_2common_2simulation_2include_2ITSMFTSimulation_2Digitizer_8h.html" title="ITSMFTSimulation/Digitizer.h" alt="" coords="2251,199,2446,225"/>
+<area shape="rect" id="node14" href="$d7/dcd/MCCompLabel_8h.html" title="SimulationDataFormat\l/MCCompLabel.h" alt="" coords="2118,452,2270,493"/>
+<area shape="rect" id="node65" href="$db/d14/MCTruthContainer_8h.html" title="Definition of a container to keep Monte Carlo truth external to simulation objects. " alt="" coords="3650,363,3802,404"/>
+<area shape="rect" id="node8" href="$d1/d47/AlpideSignalTrapezoid_8h.html" title="Simple class describing ALPIDE signal time shape. " alt="" coords="572,363,779,404"/>
+<area shape="rect" id="node13" href="$da/d93/ChipDigitsContainer_8h.html" title="transient container for single chip digits accumulation " alt="" coords="2176,273,2372,315"/>
+<area shape="rect" id="node18" href="$dc/d1a/AlpideSimResponse_8h.html" title="Definition of the ITSMFT Alpide simulated response parametrization. " alt="" coords="2631,363,2826,404"/>
+<area shape="rect" id="node42" href="$d0/d2d/common_2base_2include_2ITSMFTBase_2GeometryTGeo_8h.html" title="ITSMFTBase/GeometryTGeo.h" alt="" coords="2924,281,3128,307"/>
+<area shape="rect" id="node59" href="$d6/d24/Detectors_2ITSMFT_2common_2base_2include_2ITSMFTBase_2Digit_8h.html" title="ITSMFTBase/Digit.h" alt="" coords="1957,281,2100,307"/>
+<area shape="rect" id="node61" href="$d0/dc6/ITSMFT_2common_2include_2DataFormatsITSMFT_2ROFRecord_8h.html" title="DataFormatsITSMFT/ROFRecord.h" alt="" coords="1236,370,1467,397"/>
+<area shape="rect" id="node16" href="$d2/d53/PreDigit_8h.html" title="Definition of the digit contribution from single hit. " alt="" coords="2227,370,2420,397"/>
+<area shape="rect" id="node15" href="$d2/d45/GPUCommonRtypes_8h.html" title="GPUCommonRtypes.h" alt="" coords="2807,549,2965,575"/>
+<area shape="rect" id="node22" href="$d4/d25/BaseHits_8h.html" title="SimulationDataFormat\l/BaseHits.h" alt="" coords="1542,363,1694,404"/>
+<area shape="rect" id="node35" href="$d0/d91/ShmAllocator_8h.html" title="CommonUtils/ShmAllocator.h" alt="" coords="1017,370,1211,397"/>
+<area shape="rect" id="node23" href="$dd/d76/Cartesian3D_8h.html" title="MathUtils/Cartesian3D.h" alt="" coords="1927,459,2093,486"/>
+<area shape="rect" id="node31" href="$d2/dd0/Cartesian2D_8h.html" title="MathUtils/Cartesian2D.h" alt="" coords="3091,549,3257,575"/>
+<area shape="rect" id="node36" href="$de/d61/ShmManager_8h.html" title="CommonUtils/ShmManager.h" alt="" coords="299,459,494,486"/>
+<area shape="rect" id="node44" href="$d4/d20/DetMatrixCache_8h.html" title="DetectorsCommonDataFormats\l/DetMatrixCache.h" alt="" coords="2850,363,3058,404"/>
+<area shape="rect" id="node45" href="$df/d5b/GPUCommonLogger_8h.html" title="GPUCommonLogger.h" alt="" coords="3706,459,3861,486"/>
+<area shape="rect" id="node47" href="$d6/d31/DetID_8h.html" title="DetectorsCommonDataFormats\l/DetID.h" alt="" coords="3474,452,3682,493"/>
+<area shape="rect" id="node53" href="$df/d21/GPUCommonDef_8h.html" title="GPUCommonDef.h" alt="" coords="3918,720,4054,747"/>
+<area shape="rect" id="node56" href="$d6/da2/GPUCommonMath_8h.html" title="GPUCommonMath.h" alt="" coords="3663,638,3807,665"/>
+<area shape="rect" id="node58" href="$d6/d84/MathConstants_8h.html" title="useful math constants " alt="" coords="3832,638,4071,665"/>
+<area shape="rect" id="node54" href="$d5/d93/GPUCommonDefSettings_8h.html" title="GPUCommonDefSettings.h" alt="" coords="3797,795,3981,821"/>
+<area shape="rect" id="node55" href="$da/d5a/GPUCommonDefAPI_8h.html" title="GPUCommonDefAPI.h" alt="" coords="4005,795,4164,821"/>
+<area shape="rect" id="node62" href="$d6/ddf/EvIndex_8h.html" title="Class to store event ID and index in the event for objects like track, cluster... ..." alt="" coords="933,459,1140,486"/>
+<area shape="rect" id="node63" href="$d9/d80/InteractionRecord_8h.html" title="CommonDataFormat/Interaction\lRecord.h" alt="" coords="1179,452,1388,493"/>
+<area shape="rect" id="node64" href="$d4/dc6/LHCConstants_8h.html" title="Header to collect LHC related constants. " alt="" coords="955,549,1193,575"/>
+</map>

@@ -1,0 +1,17 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/Detectors/ITSMFT/MFT/simulation/include/MFTSimulation/Detector.h" name="/home/travis/build/AliceO2Group/AliceO2/Detectors/ITSMFT/MFT/simulation/include/MFTSimulation/Detector.h">
+<area shape="rect" id="node4" href="$d1/d3a/Base_2include_2DetectorsBase_2Detector_8h.html" title="DetectorsBase/Detector.h" alt="" coords="942,146,1117,173"/>
+<area shape="rect" id="node27" href="$d6/d31/DetID_8h.html" title="DetectorsCommonDataFormats\l/DetID.h" alt="" coords="1872,139,2080,180"/>
+<area shape="rect" id="node39" href="$d9/d4e/Detectors_2ITSMFT_2common_2simulation_2include_2ITSMFTSimulation_2Hit_8h.html" title="ITSMFTSimulation/Hit.h" alt="" coords="2333,146,2496,173"/>
+<area shape="rect" id="node10" href="$d0/d9a/MaterialManager_8h.html" title="DetectorsBase/MaterialManager.h" alt="" coords="139,235,359,262"/>
+<area shape="rect" id="node18" href="$de/d61/ShmManager_8h.html" title="CommonUtils/ShmManager.h" alt="" coords="995,317,1189,344"/>
+<area shape="rect" id="node23" href="$d0/d91/ShmAllocator_8h.html" title="CommonUtils/ShmAllocator.h" alt="" coords="1660,235,1855,262"/>
+<area shape="rect" id="node31" href="$d9/d52/Common_2MathUtils_2include_2MathUtils_2Utils_8h.html" title="MathUtils/Utils.h" alt="" coords="2247,235,2367,262"/>
+<area shape="rect" id="node33" href="$df/d21/GPUCommonDef_8h.html" title="GPUCommonDef.h" alt="" coords="2301,399,2437,426"/>
+<area shape="rect" id="node36" href="$d6/da2/GPUCommonMath_8h.html" title="GPUCommonMath.h" alt="" coords="2451,317,2595,344"/>
+<area shape="rect" id="node38" href="$d6/d84/MathConstants_8h.html" title="useful math constants " alt="" coords="2187,317,2426,344"/>
+<area shape="rect" id="node34" href="$d5/d93/GPUCommonDefSettings_8h.html" title="GPUCommonDefSettings.h" alt="" coords="2180,489,2364,515"/>
+<area shape="rect" id="node35" href="$da/d5a/GPUCommonDefAPI_8h.html" title="GPUCommonDefAPI.h" alt="" coords="2389,489,2547,515"/>
+<area shape="rect" id="node40" href="$d4/d25/BaseHits_8h.html" title="SimulationDataFormat\l/BaseHits.h" alt="" coords="2741,228,2893,269"/>
+<area shape="rect" id="node41" href="$dd/d76/Cartesian3D_8h.html" title="MathUtils/Cartesian3D.h" alt="" coords="2939,317,3106,344"/>
+<area shape="rect" id="node49" href="$d2/dd0/Cartesian2D_8h.html" title="MathUtils/Cartesian2D.h" alt="" coords="3279,399,3446,426"/>
+</map>

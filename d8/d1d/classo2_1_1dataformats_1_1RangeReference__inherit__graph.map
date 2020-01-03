@@ -1,0 +1,4 @@
+<map id="o2::dataformats::RangeReference&lt; FirstEntry, NElem &gt;" name="o2::dataformats::RangeReference&lt; FirstEntry, NElem &gt;">
+<area shape="rect" id="node2" href="$d7/dc7/classo2_1_1dataformats_1_1RangeReference.html" title="{o2::dataformats::RangeReference\l\&lt; uint32_t, uint16_t \&gt;\n||+ RangeReference()\l+ RangeReference()\l+ RangeReference()\l+ ~RangeReference()\l+ set()\l+ getFirstEntry()\l+ getEntries()\l+ setFirstEntry()\l+ setEntries()\l+ changeEntriesBy()\l+ operator==()\l}" alt="" coords="5,307,224,545"/>
+<area shape="rect" id="node3" href="$d7/dc7/classo2_1_1dataformats_1_1RangeReference.html" title="{o2::dataformats::RangeReference\l\&lt; int \&gt;\n||+ RangeReference()\l+ RangeReference()\l+ RangeReference()\l+ ~RangeReference()\l+ set()\l+ getFirstEntry()\l+ getEntries()\l+ setFirstEntry()\l+ setEntries()\l+ changeEntriesBy()\l+ operator==()\l}" alt="" coords="248,307,467,545"/>
+</map>

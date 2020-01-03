@@ -1,0 +1,8 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/GPU/GPUTracking/SliceTracker/GPUTPCHit.h" name="/home/travis/build/AliceO2Group/AliceO2/GPU/GPUTracking/SliceTracker/GPUTPCHit.h">
+<area shape="rect" id="node2" href="$da/dae/GPUTPCHitArea_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/GPU/GPUTracking/SliceTracker\l/GPUTPCHitArea.cxx" alt="" coords="5,124,220,195"/>
+<area shape="rect" id="node5" href="$dd/d70/GPUTPCNeighboursFinder_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/GPU/GPUTracking/SliceTracker\l/GPUTPCNeighboursFinder.cxx" alt="" coords="244,124,459,195"/>
+<area shape="rect" id="node6" href="$d5/d85/GPUTPCSliceData_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/GPU/GPUTracking/SliceTracker\l/GPUTPCSliceData.cxx" alt="" coords="483,124,697,195"/>
+<area shape="rect" id="node7" href="$d7/d3e/GPUTPCTrackletConstructor_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/GPU/GPUTracking/SliceTracker\l/GPUTPCTrackletConstructor.cxx" alt="" coords="721,124,944,195"/>
+<area shape="rect" id="node3" href="$d0/d25/GPUReconstructionIncludesDevice_8h.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/GPU/GPUTracking/Base\l/GPUReconstructionIncludesDevice.h" alt="" coords="229,243,473,313"/>
+<area shape="rect" id="node4" href="$d3/d33/GPUReconstructionHIP_8hip_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/GPU/GPUTracking/Base\l/hip/GPUReconstructionHIP.hip.cxx" alt="" coords="235,361,468,432"/>
+</map>

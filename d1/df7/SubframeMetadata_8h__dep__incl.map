@@ -1,0 +1,11 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/DataFormats/Headers/include/Headers/SubframeMetadata.h" name="/home/travis/build/AliceO2Group/AliceO2/DataFormats/Headers/include/Headers/SubframeMetadata.h">
+<area shape="rect" id="node2" href="$df/d5b/EPNReceiverDevice_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Utilities/DataFlow/src\l/EPNReceiverDevice.cxx" alt="" coords="5,124,177,195"/>
+<area shape="rect" id="node3" href="$d6/d3d/FakeTimeframeGeneratorDevice_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Utilities/DataFlow/src\l/FakeTimeframeGeneratorDevice.cxx" alt="" coords="202,124,442,195"/>
+<area shape="rect" id="node4" href="$de/d5d/FLPSenderDevice_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Utilities/DataFlow/src\l/FLPSenderDevice.cxx" alt="" coords="466,124,623,195"/>
+<area shape="rect" id="node5" href="$d2/d68/SubframeBuilderDevice_8cxx.html" title="Demonstrator device for a subframe builder. " alt="" coords="648,124,836,195"/>
+<area shape="rect" id="node6" href="$d1/db0/TimeframeParser_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Utilities/DataFlow/src\l/TimeframeParser.cxx" alt="" coords="861,124,1018,195"/>
+<area shape="rect" id="node7" href="$da/d30/TimeframeReaderDevice_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Utilities/DataFlow/src\l/TimeframeReaderDevice.cxx" alt="" coords="1043,124,1239,195"/>
+<area shape="rect" id="node8" href="$db/dfa/TimeframeValidatorDevice_8cxx.html" title="Validator device for a full time frame. " alt="" coords="1263,124,1469,195"/>
+<area shape="rect" id="node9" href="$d7/d2f/TimeframeWriterDevice_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Utilities/DataFlow/src\l/TimeframeWriterDevice.cxx" alt="" coords="1493,124,1682,195"/>
+<area shape="rect" id="node10" href="$d7/d98/DataPublisherDevice_8cxx.html" title="Utility device for data publishing. " alt="" coords="1707,124,1903,195"/>
+</map>

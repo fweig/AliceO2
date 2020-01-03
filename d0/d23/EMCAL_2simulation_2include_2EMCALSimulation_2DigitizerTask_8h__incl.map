@@ -1,0 +1,20 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/Detectors/EMCAL/simulation/include/EMCALSimulation/DigitizerTask.h" name="/home/travis/build/AliceO2Group/AliceO2/Detectors/EMCAL/simulation/include/EMCALSimulation/DigitizerTask.h">
+<area shape="rect" id="node5" href="$d8/d16/Detectors_2EMCAL_2base_2include_2EMCALBase_2Hit_8h.html" title="EMCALBase/Hit.h" alt="" coords="907,199,1038,225"/>
+<area shape="rect" id="node25" href="$d8/d19/EMCAL_2simulation_2include_2EMCALSimulation_2Digitizer_8h.html" title="EMCALSimulation/Digitizer.h" alt="" coords="1450,124,1642,151"/>
+<area shape="rect" id="node6" href="$d4/d25/BaseHits_8h.html" title="SimulationDataFormat\l/BaseHits.h" alt="" coords="1470,273,1622,315"/>
+<area shape="rect" id="node18" href="$d0/d91/ShmAllocator_8h.html" title="CommonUtils/ShmAllocator.h" alt="" coords="855,281,1050,307"/>
+<area shape="rect" id="node7" href="$dd/d76/Cartesian3D_8h.html" title="MathUtils/Cartesian3D.h" alt="" coords="1659,370,1825,397"/>
+<area shape="rect" id="node15" href="$d2/dd0/Cartesian2D_8h.html" title="MathUtils/Cartesian2D.h" alt="" coords="563,459,729,486"/>
+<area shape="rect" id="node19" href="$de/d61/ShmManager_8h.html" title="CommonUtils/ShmManager.h" alt="" coords="299,370,494,397"/>
+<area shape="rect" id="node31" href="$d3/d6e/DataFormats_2Detectors_2EMCAL_2include_2DataFormatsEMCAL_2Digit_8h.html" title="DataFormatsEMCAL/Digit.h" alt="" coords="3225,281,3411,307"/>
+<area shape="rect" id="node39" href="$dd/da8/EMCAL_2base_2include_2EMCALBase_2Geometry_8h.html" title="EMCALBase/Geometry.h" alt="" coords="1942,281,2113,307"/>
+<area shape="rect" id="node46" href="$d5/d5e/GeometryBase_8h.html" title="EMCALBase/GeometryBase.h" alt="" coords="2427,370,2627,397"/>
+<area shape="rect" id="node47" href="$d0/df5/SimParam_8h.html" title="EMCALSimulation/SimParam.h" alt="" coords="2945,370,3150,397"/>
+<area shape="rect" id="node48" href="$d2/d41/LabeledDigit_8h.html" title="EMCALSimulation/LabeledDigit.h" alt="" coords="3341,199,3557,225"/>
+<area shape="rect" id="node50" href="$d7/dcd/MCCompLabel_8h.html" title="SimulationDataFormat\l/MCCompLabel.h" alt="" coords="3811,363,3963,404"/>
+<area shape="rect" id="node51" href="$db/d14/MCTruthContainer_8h.html" title="Definition of a container to keep Monte Carlo truth external to simulation objects. " alt="" coords="1219,273,1371,315"/>
+<area shape="rect" id="node33" href="$df/d5d/common_2include_2CommonDataFormat_2TimeStamp_8h.html" title="CommonDataFormat/TimeStamp.h" alt="" coords="3561,370,3787,397"/>
+<area shape="rect" id="node35" href="$dd/dda/DataFormats_2Detectors_2EMCAL_2include_2DataFormatsEMCAL_2Constants_8h.html" title="DataFormatsEMCAL/Constants.h" alt="" coords="2702,370,2921,397"/>
+<area shape="rect" id="node34" href="$d2/d45/GPUCommonRtypes_8h.html" title="GPUCommonRtypes.h" alt="" coords="3595,459,3753,486"/>
+<area shape="rect" id="node49" href="$d0/d1f/Detectors_2EMCAL_2simulation_2include_2EMCALSimulation_2MCLabel_8h.html" title="EMCALSimulation/MCLabel.h" alt="" coords="3588,281,3784,307"/>
+</map>

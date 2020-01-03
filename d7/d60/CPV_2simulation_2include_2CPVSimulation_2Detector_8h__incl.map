@@ -1,0 +1,10 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/Detectors/CPV/simulation/include/CPVSimulation/Detector.h" name="/home/travis/build/AliceO2Group/AliceO2/Detectors/CPV/simulation/include/CPVSimulation/Detector.h">
+<area shape="rect" id="node2" href="$d1/d3a/Base_2include_2DetectorsBase_2Detector_8h.html" title="DetectorsBase/Detector.h" alt="" coords="677,124,851,151"/>
+<area shape="rect" id="node26" href="$dd/d76/Cartesian3D_8h.html" title="MathUtils/Cartesian3D.h" alt="" coords="2094,288,2261,315"/>
+<area shape="rect" id="node37" href="$db/dd0/Detectors_2CPV_2base_2include_2CPVBase_2Hit_8h.html" title="CPVBase/Hit.h" alt="" coords="1872,124,1984,151"/>
+<area shape="rect" id="node9" href="$d0/d9a/MaterialManager_8h.html" title="DetectorsBase/MaterialManager.h" alt="" coords="1474,206,1694,233"/>
+<area shape="rect" id="node17" href="$de/d61/ShmManager_8h.html" title="CommonUtils/ShmManager.h" alt="" coords="99,288,293,315"/>
+<area shape="rect" id="node22" href="$d0/d91/ShmAllocator_8h.html" title="CommonUtils/ShmAllocator.h" alt="" coords="1204,206,1399,233"/>
+<area shape="rect" id="node34" href="$d2/dd0/Cartesian2D_8h.html" title="MathUtils/Cartesian2D.h" alt="" coords="1869,370,2035,397"/>
+<area shape="rect" id="node38" href="$d4/d25/BaseHits_8h.html" title="SimulationDataFormat\l/BaseHits.h" alt="" coords="1852,199,2004,240"/>
+</map>

@@ -1,0 +1,16 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/Detectors/ITSMFT/MFT/base/src/GeometryTGeo.cxx" name="/home/travis/build/AliceO2Group/AliceO2/Detectors/ITSMFT/MFT/base/src/GeometryTGeo.cxx">
+<area shape="rect" id="node2" href="$d3/dba/SegmentationAlpide_8h.html" title="Definition of the SegmentationAlpide class. " alt="" coords="1387,124,1618,151"/>
+<area shape="rect" id="node4" href="$dd/d76/Cartesian3D_8h.html" title="MathUtils/Cartesian3D.h" alt="" coords="1013,206,1179,233"/>
+<area shape="rect" id="node15" href="$d6/d2e/ITSMFT_2MFT_2base_2include_2MFTBase_2Geometry_8h.html" title="MFTBase/Geometry.h" alt="" coords="2633,124,2783,151"/>
+<area shape="rect" id="node18" href="$db/dcc/Detectors_2Base_2include_2DetectorsBase_2GeometryManager_8h.html" title="DetectorsBase/GeometryManager.h" alt="" coords="2099,124,2330,151"/>
+<area shape="rect" id="node12" href="$d2/dd0/Cartesian2D_8h.html" title="MathUtils/Cartesian2D.h" alt="" coords="909,295,1075,322"/>
+<area shape="rect" id="node26" href="$d6/d31/DetID_8h.html" title="DetectorsCommonDataFormats\l/DetID.h" alt="" coords="2087,199,2295,240"/>
+<area shape="rect" id="node41" href="$db/dba/MatCell_8h.html" title="Declarations for material properties of the cell (voxel) " alt="" coords="1679,206,1849,233"/>
+<area shape="rect" id="node32" href="$d9/d52/Common_2MathUtils_2include_2MathUtils_2Utils_8h.html" title="MathUtils/Utils.h" alt="" coords="2211,295,2331,322"/>
+<area shape="rect" id="node34" href="$df/d21/GPUCommonDef_8h.html" title="GPUCommonDef.h" alt="" coords="2083,467,2219,493"/>
+<area shape="rect" id="node37" href="$d6/da2/GPUCommonMath_8h.html" title="GPUCommonMath.h" alt="" coords="2199,385,2343,411"/>
+<area shape="rect" id="node39" href="$d6/d84/MathConstants_8h.html" title="useful math constants " alt="" coords="2367,385,2606,411"/>
+<area shape="rect" id="node35" href="$d5/d93/GPUCommonDefSettings_8h.html" title="GPUCommonDefSettings.h" alt="" coords="1961,541,2145,568"/>
+<area shape="rect" id="node36" href="$da/d5a/GPUCommonDefAPI_8h.html" title="GPUCommonDefAPI.h" alt="" coords="2170,541,2329,568"/>
+<area shape="rect" id="node42" href="$d2/d45/GPUCommonRtypes_8h.html" title="GPUCommonRtypes.h" alt="" coords="1685,295,1843,322"/>
+</map>

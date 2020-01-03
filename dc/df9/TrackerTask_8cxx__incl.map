@@ -1,0 +1,28 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/Detectors/ITSMFT/MFT/reconstruction/src/TrackerTask.cxx" name="/home/travis/build/AliceO2Group/AliceO2/Detectors/ITSMFT/MFT/reconstruction/src/TrackerTask.cxx">
+<area shape="rect" id="node2" href="$d2/de5/TrackerTask_8h.html" title="Task driving the track finding from MFT clusters. " alt="" coords="2251,124,2437,165"/>
+<area shape="rect" id="node52" href="$d1/d62/DataFormats_2Detectors_2ITSMFT_2common_2include_2DataFormatsITSMFT_2Cluster_8h.html" title="DataFormatsITSMFT/Cluster.h" alt="" coords="1704,213,1907,240"/>
+<area shape="rect" id="node53" href="$d7/dcd/MCCompLabel_8h.html" title="SimulationDataFormat\l/MCCompLabel.h" alt="" coords="2521,124,2673,165"/>
+<area shape="rect" id="node54" href="$db/d14/MCTruthContainer_8h.html" title="Definition of a container to keep Monte Carlo truth external to simulation objects. " alt="" coords="3025,541,3177,583"/>
+<area shape="rect" id="node4" href="$db/dd0/TrackMFT_8h.html" title="DataFormatsMFT/TrackMFT.h" alt="" coords="2428,288,2628,315"/>
+<area shape="rect" id="node46" href="$d6/d36/ITSMFT_2MFT_2reconstruction_2include_2MFTReconstruction_2Tracker_8h.html" title="MFTReconstruction/Tracker.h" alt="" coords="2186,213,2382,240"/>
+<area shape="rect" id="node47" href="$d0/dc6/ITSMFT_2common_2include_2DataFormatsITSMFT_2ROFRecord_8h.html" title="DataFormatsITSMFT/ROFRecord.h" alt="" coords="1855,370,2086,397"/>
+<area shape="rect" id="node6" href="$d7/d8b/DataFormats_2Reconstruction_2include_2ReconstructionDataFormats_2Track_8h.html" title="ReconstructionDataFormats\l/Track.h" alt="" coords="2536,363,2723,404"/>
+<area shape="rect" id="node44" href="$de/d64/RangeReference_8h.html" title="Class to refer to the 1st entry and N elements of some group in the continuous container. " alt="" coords="2203,370,2461,397"/>
+<area shape="rect" id="node7" href="$d2/d45/GPUCommonRtypes_8h.html" title="GPUCommonRtypes.h" alt="" coords="2203,638,2360,665"/>
+<area shape="rect" id="node15" href="$d4/de2/BaseCluster_8h.html" title="ReconstructionDataFormats\l/BaseCluster.h" alt="" coords="1681,452,1868,493"/>
+<area shape="rect" id="node28" href="$d9/d52/Common_2MathUtils_2include_2MathUtils_2Utils_8h.html" title="MathUtils/Utils.h" alt="" coords="2489,727,2609,754"/>
+<area shape="rect" id="node33" href="$d6/d84/MathConstants_8h.html" title="useful math constants " alt="" coords="2587,817,2826,843"/>
+<area shape="rect" id="node20" href="$d4/d20/DetMatrixCache_8h.html" title="DetectorsCommonDataFormats\l/DetMatrixCache.h" alt="" coords="1819,541,2027,583"/>
+<area shape="rect" id="node34" href="$dd/d76/Cartesian3D_8h.html" title="MathUtils/Cartesian3D.h" alt="" coords="1101,638,1267,665"/>
+<area shape="rect" id="node21" href="$df/d5b/GPUCommonLogger_8h.html" title="GPUCommonLogger.h" alt="" coords="1637,638,1792,665"/>
+<area shape="rect" id="node24" href="$d6/d31/DetID_8h.html" title="DetectorsCommonDataFormats\l/DetID.h" alt="" coords="2384,631,2592,672"/>
+<area shape="rect" id="node29" href="$df/d21/GPUCommonDef_8h.html" title="GPUCommonDef.h" alt="" coords="2311,899,2447,925"/>
+<area shape="rect" id="node32" href="$d6/da2/GPUCommonMath_8h.html" title="GPUCommonMath.h" alt="" coords="2368,817,2512,843"/>
+<area shape="rect" id="node30" href="$d5/d93/GPUCommonDefSettings_8h.html" title="GPUCommonDefSettings.h" alt="" coords="2189,973,2373,1000"/>
+<area shape="rect" id="node31" href="$da/d5a/GPUCommonDefAPI_8h.html" title="GPUCommonDefAPI.h" alt="" coords="2398,973,2557,1000"/>
+<area shape="rect" id="node41" href="$d2/dd0/Cartesian2D_8h.html" title="MathUtils/Cartesian2D.h" alt="" coords="1307,727,1474,754"/>
+<area shape="rect" id="node51" href="$dc/de5/Detectors_2ITSMFT_2MFT_2base_2include_2MFTBase_2Constants_8h.html" title="MFTBase/Constants.h" alt="" coords="2249,288,2404,315"/>
+<area shape="rect" id="node48" href="$d6/ddf/EvIndex_8h.html" title="Class to store event ID and index in the event for objects like track, cluster... ..." alt="" coords="1915,459,2122,486"/>
+<area shape="rect" id="node49" href="$d9/d80/InteractionRecord_8h.html" title="CommonDataFormat/Interaction\lRecord.h" alt="" coords="1817,631,2026,672"/>
+<area shape="rect" id="node50" href="$d4/dc6/LHCConstants_8h.html" title="Header to collect LHC related constants. " alt="" coords="1812,727,2049,754"/>
+</map>

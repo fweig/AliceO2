@@ -1,0 +1,8 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/Detectors/ITSMFT/MFT/base/include/MFTBase/Segmentation.h" name="/home/travis/build/AliceO2Group/AliceO2/Detectors/ITSMFT/MFT/base/include/MFTBase/Segmentation.h">
+<area shape="rect" id="node2" href="$d2/d77/HalfSegmentation_8h.html" title="Segmentation class for each half of the ALICE Muon Forward Tracker. " alt="" coords="376,124,655,195"/>
+<area shape="rect" id="node3" href="$de/d37/ITSMFT_2MFT_2base_2src_2Geometry_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/ITSMFT/MFT\l/base/src/Geometry.cxx" alt="" coords="5,243,172,313"/>
+<area shape="rect" id="node4" href="$df/d83/GeometryBuilder_8cxx.html" title="Class describing MFT Geometry Builder. " alt="" coords="197,243,399,313"/>
+<area shape="rect" id="node7" href="$d7/d41/ITSMFT_2MFT_2base_2src_2Segmentation_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/ITSMFT/MFT\l/base/src/Segmentation.cxx" alt="" coords="861,243,1047,313"/>
+<area shape="rect" id="node5" href="$d3/d36/HalfDetector_8cxx.html" title="Class Building the geometry of one half of the ALICE Muon Forward Tracker. " alt="" coords="658,243,837,313"/>
+<area shape="rect" id="node6" href="$d1/d7f/HalfSegmentation_8cxx.html" title="Segmentation class for each half of the ALICE Muon Forward Tracker. " alt="" coords="424,243,633,313"/>
+</map>

@@ -1,0 +1,28 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/Detectors/TPC/reconstruction/test/testTPCHwClusterer.cxx" name="/home/travis/build/AliceO2Group/AliceO2/Detectors/TPC/reconstruction/test/testTPCHwClusterer.cxx">
+<area shape="rect" id="node3" href="$d9/d7c/DataFormats_2Detectors_2TPC_2include_2DataFormatsTPC_2Helpers_8h.html" title="DataFormatsTPC/Helpers.h" alt="" coords="436,199,621,225"/>
+<area shape="rect" id="node8" href="$d0/d4f/Detectors_2TPC_2base_2include_2TPCBase_2Digit_8h.html" title="TPCBase/Digit.h" alt="" coords="2348,124,2469,151"/>
+<area shape="rect" id="node13" href="$d5/d1d/TPC_2base_2include_2TPCBase_2Mapper_8h.html" title="TPCBase/Mapper.h" alt="" coords="1108,437,1245,464"/>
+<area shape="rect" id="node42" href="$de/df6/HwClusterer_8h.html" title="Class for TPC HW cluster finding. " alt="" coords="1303,124,1528,151"/>
+<area shape="rect" id="node45" href="$db/d14/MCTruthContainer_8h.html" title="Definition of a container to keep Monte Carlo truth external to simulation objects. " alt="" coords="757,273,909,315"/>
+<area shape="rect" id="node51" href="$d7/dcd/MCCompLabel_8h.html" title="SimulationDataFormat\l/MCCompLabel.h" alt="" coords="2122,273,2274,315"/>
+<area shape="rect" id="node6" href="$d3/dc4/ClusterHardware_8h.html" title="Class of a TPC cluster as produced by the hardware cluster finder (needs a postprocessing step to con..." alt="" coords="409,281,648,307"/>
+<area shape="rect" id="node9" href="$df/d5d/common_2include_2CommonDataFormat_2TimeStamp_8h.html" title="CommonDataFormat/TimeStamp.h" alt="" coords="2350,281,2577,307"/>
+<area shape="rect" id="node10" href="$d2/d45/GPUCommonRtypes_8h.html" title="GPUCommonRtypes.h" alt="" coords="2349,363,2506,389"/>
+<area shape="rect" id="node19" href="$d1/d73/Defs_8h.html" title="Common definitions for 2D coordinates. " alt="" coords="1142,811,1310,837"/>
+<area shape="rect" id="node31" href="$de/d41/PadPos_8h.html" title="TPCBase/PadPos.h" alt="" coords="1048,661,1188,688"/>
+<area shape="rect" id="node32" href="$dd/d0b/PadSecPos_8h.html" title="TPCBase/PadSecPos.h" alt="" coords="925,587,1087,613"/>
+<area shape="rect" id="node33" href="$d3/dd6/Sector_8h.html" title="TPCBase/Sector.h" alt="" coords="651,736,783,763"/>
+<area shape="rect" id="node35" href="$da/d61/PadROCPos_8h.html" title="TPCBase/PadROCPos.h" alt="" coords="730,587,901,613"/>
+<area shape="rect" id="node37" href="$d3/d54/DigitPos_8h.html" title="TPCBase/DigitPos.h" alt="" coords="821,512,965,539"/>
+<area shape="rect" id="node39" href="$d1/d1f/FECInfo_8h.html" title="TPCBase/FECInfo.h" alt="" coords="428,736,571,763"/>
+<area shape="rect" id="node40" href="$da/d9d/PadRegionInfo_8h.html" title="TPCBase/PadRegionInfo.h" alt="" coords="1237,512,1417,539"/>
+<area shape="rect" id="node41" href="$d6/d42/PartitionInfo_8h.html" title="TPCBase/PartitionInfo.h" alt="" coords="1441,512,1605,539"/>
+<area shape="rect" id="node20" href="$d2/dd0/Cartesian2D_8h.html" title="MathUtils/Cartesian2D.h" alt="" coords="723,967,889,994"/>
+<area shape="rect" id="node23" href="$dd/d76/Cartesian3D_8h.html" title="MathUtils/Cartesian3D.h" alt="" coords="1159,885,1325,912"/>
+<area shape="rect" id="node34" href="$d0/dda/DataFormats_2Detectors_2TPC_2include_2DataFormatsTPC_2Constants_8h.html" title="DataFormatsTPC/Constants.h" alt="" coords="617,811,817,837"/>
+<area shape="rect" id="node36" href="$dc/d14/ROC_8h.html" title="TPCBase/ROC.h" alt="" coords="681,661,805,688"/>
+<area shape="rect" id="node38" href="$df/d26/CRU_8h.html" title="TPCBase/CRU.h" alt="" coords="581,587,705,613"/>
+<area shape="rect" id="node44" href="$db/db1/TPC_2reconstruction_2include_2TPCReconstruction_2Clusterer_8h.html" title="TPCReconstruction/Clusterer.h" alt="" coords="1431,199,1637,225"/>
+<area shape="rect" id="node52" href="$d6/d2b/TPC_2base_2include_2TPCBase_2CalDet_8h.html" title="TPCBase/CalDet.h" alt="" coords="1351,281,1485,307"/>
+<area shape="rect" id="node56" href="$db/d9b/CalArray_8h.html" title="TPCBase/CalArray.h" alt="" coords="1456,363,1601,389"/>
+</map>

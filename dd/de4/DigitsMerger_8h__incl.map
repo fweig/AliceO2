@@ -1,0 +1,12 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/Detectors/MUON/MID/Simulation/include/MIDSimulation/DigitsMerger.h" name="/home/travis/build/AliceO2Group/AliceO2/Detectors/MUON/MID/Simulation/include/MIDSimulation/DigitsMerger.h">
+<area shape="rect" id="node3" href="$db/d14/MCTruthContainer_8h.html" title="Definition of a container to keep Monte Carlo truth external to simulation objects. " alt="" coords="388,124,540,165"/>
+<area shape="rect" id="node12" href="$d3/d53/ColumnData_8h.html" title="Strip pattern (aka digits) " alt="" coords="1041,221,1252,247"/>
+<area shape="rect" id="node15" href="$d2/df9/MUON_2MID_2include_2DataFormatsMID_2ROFRecord_8h.html" title="Definition of the MID event record. " alt="" coords="757,131,965,158"/>
+<area shape="rect" id="node21" href="$d0/d00/ColumnDataMC_8h.html" title="Strip pattern (aka digits) for simulations. " alt="" coords="1041,131,1258,158"/>
+<area shape="rect" id="node24" href="$de/da1/Detectors_2MUON_2MID_2Simulation_2include_2MIDSimulation_2MCLabel_8h.html" title="Label for MID. " alt="" coords="1398,131,1573,158"/>
+<area shape="rect" id="node16" href="$d9/d80/InteractionRecord_8h.html" title="CommonDataFormat/Interaction\lRecord.h" alt="" coords="757,213,966,255"/>
+<area shape="rect" id="node20" href="$d4/dc6/LHCConstants_8h.html" title="Header to collect LHC related constants. " alt="" coords="779,303,1016,329"/>
+<area shape="rect" id="node22" href="$df/d5d/common_2include_2CommonDataFormat_2TimeStamp_8h.html" title="CommonDataFormat/TimeStamp.h" alt="" coords="1276,221,1503,247"/>
+<area shape="rect" id="node23" href="$d2/d45/GPUCommonRtypes_8h.html" title="GPUCommonRtypes.h" alt="" coords="1311,303,1468,329"/>
+<area shape="rect" id="node25" href="$d7/dcd/MCCompLabel_8h.html" title="SimulationDataFormat\l/MCCompLabel.h" alt="" coords="1527,213,1679,255"/>
+</map>

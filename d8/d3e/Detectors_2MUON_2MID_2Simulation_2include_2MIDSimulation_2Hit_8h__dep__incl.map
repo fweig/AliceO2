@@ -1,0 +1,13 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/Detectors/MUON/MID/Simulation/include/MIDSimulation/Hit.h" name="/home/travis/build/AliceO2Group/AliceO2/Detectors/MUON/MID/Simulation/include/MIDSimulation/Hit.h">
+<area shape="rect" id="node2" href="$df/d06/MUON_2MID_2Simulation_2include_2MIDSimulation_2Detector_8h.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/MUON/MID/Simulation\l/include/MIDSimulation/Detector.h" alt="" coords="700,243,923,313"/>
+<area shape="rect" id="node6" href="$da/de1/MUON_2MID_2Simulation_2include_2MIDSimulation_2Digitizer_8h.html" title="Digitizer for MID. " alt="" coords="279,124,501,195"/>
+<area shape="rect" id="node8" href="$d6/d45/testSimulation_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/MUON/MID/Simulation\l/test/testSimulation.cxx" alt="" coords="453,243,676,313"/>
+<area shape="rect" id="node10" href="$d0/d2e/MID_2Simulation_2include_2MIDSimulation_2Stepper_8h.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/MUON/MID/Simulation\l/include/MIDSimulation/Stepper.h" alt="" coords="700,124,923,195"/>
+<area shape="rect" id="node12" href="$d9/dab/Detectors_2MUON_2MID_2Simulation_2src_2Hit_8cxx.html" title="Implementation of hit for MID. " alt="" coords="947,124,1169,195"/>
+<area shape="rect" id="node3" href="$db/dac/MUON_2MID_2Simulation_2src_2Detector_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/MUON/MID/Simulation\l/src/Detector.cxx" alt="" coords="593,361,816,432"/>
+<area shape="rect" id="node4" href="$db/d50/O2HitMerger_8h.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/run/O2HitMerger.h" alt="" coords="841,369,998,425"/>
+<area shape="rect" id="node5" href="$d9/d16/O2HitMergerRunner_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/run/O2HitMergerRunner.cxx" alt="" coords="825,480,1014,536"/>
+<area shape="rect" id="node7" href="$d6/df9/MUON_2MID_2Simulation_2src_2Digitizer_8cxx.html" title="Implementation of the digitizer for MID. " alt="" coords="5,243,228,313"/>
+<area shape="rect" id="node9" href="$d4/dd3/MIDDigitizerSpec_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Steer/DigitizerWorkflow\l/src/MIDDigitizerSpec.cxx" alt="" coords="253,243,429,313"/>
+<area shape="rect" id="node11" href="$d0/d8d/MID_2Simulation_2src_2Stepper_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/MUON/MID/Simulation\l/src/Stepper.cxx" alt="" coords="947,243,1169,313"/>
+</map>

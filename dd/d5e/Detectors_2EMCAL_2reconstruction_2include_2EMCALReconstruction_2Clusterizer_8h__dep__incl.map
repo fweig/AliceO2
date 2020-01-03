@@ -1,0 +1,8 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/Detectors/EMCAL/reconstruction/include/EMCALReconstruction/Clusterizer.h" name="/home/travis/build/AliceO2Group/AliceO2/Detectors/EMCAL/reconstruction/include/EMCALReconstruction/Clusterizer.h">
+<area shape="rect" id="node2" href="$d8/dc0/ClusterizerTask_8h.html" title="Definition of the EMCAL clusterizer task. " alt="" coords="5,139,224,224"/>
+<area shape="rect" id="node4" href="$d6/de5/Detectors_2EMCAL_2reconstruction_2src_2Clusterizer_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/EMCAL/reconstruction\l/src/Clusterizer.cxx" alt="" coords="248,146,467,217"/>
+<area shape="rect" id="node5" href="$d2/dd1/EMCAL_2workflow_2include_2EMCALWorkflow_2ClusterizerSpec_8h.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/EMCAL/workflow\l/include/EMCALWorkflow/Clusterizer\lSpec.h" alt="" coords="491,139,730,224"/>
+<area shape="rect" id="node3" href="$d6/da0/ClusterizerTask_8cxx.html" title="Implementation of the EMCAL cluster finder task. " alt="" coords="5,272,224,343"/>
+<area shape="rect" id="node6" href="$d7/d67/EMCAL_2workflow_2src_2ClusterizerSpec_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/EMCAL/workflow\l/src/ClusterizerSpec.cxx" alt="" coords="409,272,599,343"/>
+<area shape="rect" id="node7" href="$d2/dbf/EMCAL_2workflow_2src_2RecoWorkflow_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/EMCAL/workflow\l/src/RecoWorkflow.cxx" alt="" coords="623,272,812,343"/>
+</map>

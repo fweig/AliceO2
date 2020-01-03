@@ -1,0 +1,17 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/Detectors/MUON/MCH/Tracking/src/TrackFitter.cxx" name="/home/travis/build/AliceO2Group/AliceO2/Detectors/MUON/MCH/Tracking/src/TrackFitter.cxx">
+<area shape="rect" id="node2" href="$d4/d9c/TrackFitter_8h.html" title="Definition of a class to fit a track to a set of clusters. " alt="" coords="608,124,704,151"/>
+<area shape="rect" id="node15" href="$db/d4b/MagneticField_8h.html" title="Definition of the MagF class. " alt="" coords="1059,124,1205,151"/>
+<area shape="rect" id="node41" href="$d8/d9c/TrackExtrap_8h.html" title="Definition of tools for track extrapolation. " alt="" coords="1787,124,1891,151"/>
+<area shape="rect" id="node3" href="$d5/d88/Detectors_2MUON_2MCH_2Tracking_2src_2Cluster_8h.html" title="Cluster.h" alt="" coords="653,273,728,300"/>
+<area shape="rect" id="node7" href="$d8/d80/Detectors_2MUON_2MCH_2Tracking_2src_2Track_8h.html" title="Track.h" alt="" coords="587,199,653,225"/>
+<area shape="rect" id="node10" href="$de/d4b/TrackParam_8h.html" title="Definition of the MCH track parameters for internal use. " alt="" coords="431,273,535,300"/>
+<area shape="rect" id="node6" href="$d3/db8/ClusterBlock_8h.html" title="Definition of the MCH cluster minimal structure. " alt="" coords="604,348,777,375"/>
+<area shape="rect" id="node12" href="$d6/d45/TrackBlock_8h.html" title="Definition of the MCH track parameters minimal structure. " alt="" coords="365,348,529,375"/>
+<area shape="rect" id="node17" href="$d3/d91/MagFieldParam_8h.html" title="Definition of the MagFieldParam: container for ALICE mag. field parameters. " alt="" coords="1277,199,1433,225"/>
+<area shape="rect" id="node20" href="$dd/dfb/MagneticWrapperChebyshev_8h.html" title="Field/MagneticWrapperChebyshev.h" alt="" coords="1474,199,1707,225"/>
+<area shape="rect" id="node28" href="$da/df4/MagFieldFast_8h.html" title="Definition of the fast magnetic field parametrization MagFieldFast. " alt="" coords="893,273,1037,300"/>
+<area shape="rect" id="node24" href="$d8/d64/Chebyshev3D_8h.html" title="MathUtils/Chebyshev3D.h" alt="" coords="1628,273,1804,300"/>
+<area shape="rect" id="node26" href="$d4/d08/Chebyshev3DCalc_8h.html" title="MathUtils/Chebyshev3DCalc.h" alt="" coords="1804,348,2007,375"/>
+<area shape="rect" id="node29" href="$dd/d76/Cartesian3D_8h.html" title="MathUtils/Cartesian3D.h" alt="" coords="881,348,1047,375"/>
+<area shape="rect" id="node37" href="$d2/dd0/Cartesian2D_8h.html" title="MathUtils/Cartesian2D.h" alt="" coords="1262,430,1429,457"/>
+</map>

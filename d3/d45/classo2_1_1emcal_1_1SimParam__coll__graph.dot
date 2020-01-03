@@ -1,0 +1,8 @@
+digraph "o2::emcal::SimParam"
+{
+ // INTERACTIVE_SVG=YES
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="{o2::emcal::SimParam\n||+ ~SimParam()\l+ setDigitThreshold()\l+ getDigitThreshold()\l+ setPinNoise()\l+ getPinNoise()\l+ setTimeNoise()\l+ getTimeNoise()\l+ setTimeDelay()\l+ getTimeDelay()\l+ setTimeDelayFromOCDB()\l+ isTimeDelayFromOCDB()\l+ setTimeResolutionPar0()\l+ getTimeResolutionPar0()\l+ setTimeResolutionPar1()\l+ getTimeResolutionPar1()\l+ getTimeResolution()\l+ setNADCEC()\l+ setNADCEC()\l+ setMeanPhotonElectron()\l+ getMeanPhotonElectron()\l+ setGainFluctuations()\l+ getGainFluctuations()\l+ setTimeResponseTau()\l+ getTimeResponseTau()\l+ setTimeResponsePower()\l+ getTimeResponsePower()\l+ setTimeResponseThreshold()\l+ getTimeResponseThreshold()\l+ setA()\l+ getA()\l+ setB()\l+ getB()\l+ setECPrimaryThreshold()\l+ getECPrimaryThreshold()\l+ PrintStream()\l+ getInstance()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+}

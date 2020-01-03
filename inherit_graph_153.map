@@ -1,0 +1,15 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$d3/d60/classGPUCA__NAMESPACE_1_1gpu_1_1GPUKernelTemplate.html" title="GPUCA_NAMESPACE::gpu\l::GPUKernelTemplate" alt="" coords="5,365,196,407"/>
+<area shape="rect" id="node2" href="$d8/dba/classGPUCA__NAMESPACE_1_1gpu_1_1GPUITSFitterKernel.html" title="GPUCA_NAMESPACE::gpu\l::GPUITSFitterKernel" alt="" coords="253,5,443,47"/>
+<area shape="rect" id="node3" href="$da/d27/classGPUCA__NAMESPACE_1_1gpu_1_1GPUMemClean16.html" title="GPUCA_NAMESPACE::gpu\l::GPUMemClean16" alt="" coords="253,71,443,112"/>
+<area shape="rect" id="node4" href="$d8/d88/classGPUCA__NAMESPACE_1_1gpu_1_1GPUTPCClusterFinderKernels.html" title="GPUCA_NAMESPACE::gpu\l::GPUTPCClusterFinderKernels" alt="" coords="244,136,452,177"/>
+<area shape="rect" id="node5" href="$d0/d6b/classGPUCA__NAMESPACE_1_1gpu_1_1GPUTPCCompressionKernels.html" title="GPUCA_NAMESPACE::gpu\l::GPUTPCCompressionKernels" alt="" coords="245,201,451,243"/>
+<area shape="rect" id="node6" href="$d8/dc8/classGPUCA__NAMESPACE_1_1gpu_1_1GPUTPCConvertKernel.html" title="GPUCA_NAMESPACE::gpu\l::GPUTPCConvertKernel" alt="" coords="253,267,443,308"/>
+<area shape="rect" id="node7" href="$db/d09/classGPUCA__NAMESPACE_1_1gpu_1_1GPUTPCGMMergerTrackFit.html" title="GPUCA_NAMESPACE::gpu\l::GPUTPCGMMergerTrackFit" alt="" coords="251,332,445,373"/>
+<area shape="rect" id="node8" href="$d2/d8c/classGPUCA__NAMESPACE_1_1gpu_1_1GPUTPCNeighboursCleaner.html" title="GPUCA_NAMESPACE::gpu\l::GPUTPCNeighboursCleaner" alt="" coords="249,397,447,439"/>
+<area shape="rect" id="node9" href="$d7/dd4/classGPUCA__NAMESPACE_1_1gpu_1_1GPUTPCNeighboursFinder.html" title="GPUCA_NAMESPACE::gpu\l::GPUTPCNeighboursFinder" alt="" coords="253,463,443,504"/>
+<area shape="rect" id="node10" href="$d1/d4a/classGPUCA__NAMESPACE_1_1gpu_1_1GPUTPCStartHitsFinder.html" title="GPUCA_NAMESPACE::gpu\l::GPUTPCStartHitsFinder" alt="" coords="253,528,443,569"/>
+<area shape="rect" id="node11" href="$dc/d09/classGPUCA__NAMESPACE_1_1gpu_1_1GPUTPCStartHitsSorter.html" title="GPUCA_NAMESPACE::gpu\l::GPUTPCStartHitsSorter" alt="" coords="253,593,443,635"/>
+<area shape="rect" id="node12" href="$d7/d66/classGPUCA__NAMESPACE_1_1gpu_1_1GPUTPCTrackletSelector.html" title="GPUCA_NAMESPACE::gpu\l::GPUTPCTrackletSelector" alt="" coords="253,659,443,700"/>
+<area shape="rect" id="node13" href="$d0/d6c/classGPUCA__NAMESPACE_1_1gpu_1_1GPUTRDTrackerGPU.html" title="GPUCA_NAMESPACE::gpu\l::GPUTRDTrackerGPU" alt="" coords="253,724,443,765"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="GPUCA_NAMESPACE::gpu::GPUTPCClusterFinderKernels::GPUTPCSharedMemory" name="GPUCA_NAMESPACE::gpu::GPUTPCClusterFinderKernels::GPUTPCSharedMemory">
+<area shape="rect" id="node2" href="$dc/d7b/structGPUCA__NAMESPACE_1_1gpu_1_1GPUTPCSharedMemoryData_1_1count__t.html" title="{GPUCA_NAMESPACE::gpu\l::GPUTPCSharedMemoryData\l::count_t\n||}" alt="" coords="5,403,208,509"/>
+<area shape="rect" id="node3" href="$dd/d68/structGPUCA__NAMESPACE_1_1gpu_1_1ChargePos.html" title="{GPUCA_NAMESPACE::gpu\l::ChargePos\n||}" alt="" coords="415,197,606,289"/>
+<area shape="rect" id="node6" href="$dc/d3c/structGPUCA__NAMESPACE_1_1gpu_1_1GPUTPCSharedMemoryData_1_1build__t.html" title="{GPUCA_NAMESPACE::gpu\l::GPUTPCSharedMemoryData\l::build_t\n||}" alt="" coords="232,403,435,509"/>
+<area shape="rect" id="node9" href="$d4/dc9/structGPUCA__NAMESPACE_1_1gpu_1_1GPUTPCSharedMemoryData_1_1search__t.html" title="{GPUCA_NAMESPACE::gpu\l::GPUTPCSharedMemoryData\l::search_t\n||}" alt="" coords="845,403,1048,509"/>
+<area shape="rect" id="node11" href="$d1/d92/structGPUCA__NAMESPACE_1_1gpu_1_1GPUTPCSharedMemoryData_1_1noise__t.html" title="{GPUCA_NAMESPACE::gpu\l::GPUTPCSharedMemoryData\l::noise_t\n||}" alt="" coords="459,403,661,509"/>
+<area shape="rect" id="node7" href="$da/dca/classGPUCA__NAMESPACE_1_1gpu_1_1PackedCharge.html" title="{GPUCA_NAMESPACE::gpu\l::PackedCharge\n|+ mVal\l|+ PackedCharge()\l+ GPUdi()\l+ GPUdi()\l+ GPUdi()\l+ GPUdi()\l+ GPUdi()\l}" alt="" coords="723,160,914,325"/>
+</map>

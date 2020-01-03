@@ -1,0 +1,28 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/Detectors/ZDC/simulation/src/Digitizer.cxx" name="/home/travis/build/AliceO2Group/AliceO2/Detectors/ZDC/simulation/src/Digitizer.cxx">
+<area shape="rect" id="node2" href="$d5/df3/BasicCCDBManager_8h.html" title="CCDB/BasicCCDBManager.h" alt="" coords="2794,206,2993,233"/>
+<area shape="rect" id="node11" href="$da/d86/CCDBTimeStampUtils_8h.html" title="CCDB/CCDBTimeStampUtils.h" alt="" coords="2982,295,3191,322"/>
+<area shape="rect" id="node12" href="$db/de7/ZDC_2simulation_2include_2ZDCSimulation_2Digitizer_8h.html" title="ZDCSimulation/Digitizer.h" alt="" coords="1246,124,1421,151"/>
+<area shape="rect" id="node13" href="$dd/de7/Detectors_2ZDC_2simulation_2include_2ZDCSimulation_2Hit_8h.html" title="ZDCSimulation/Hit.h" alt="" coords="2447,206,2590,233"/>
+<area shape="rect" id="node59" href="$d7/d5a/SimCondition_8h.html" title="ZDCSimulation/SimCondition.h" alt="" coords="1515,206,1719,233"/>
+<area shape="rect" id="node60" href="$d2/d82/ZDCSimParam_8h.html" title="ZDCSimulation/ZDCSimParam.h" alt="" coords="3067,124,3282,151"/>
+<area shape="rect" id="node3" href="$dd/d3e/CcdbApi_8h.html" title="CCDB/CcdbApi.h" alt="" coords="2779,295,2906,322"/>
+<area shape="rect" id="node34" href="$d7/d7a/Detectors_2ZDC_2simulation_2include_2ZDCSimulation_2MCLabel_8h.html" title="ZDCSimulation/MCLabel.h" alt="" coords="476,206,655,233"/>
+<area shape="rect" id="node37" href="$d4/d8c/ModuleConfig_8h.html" title="ZDCBase/ModuleConfig.h" alt="" coords="1183,206,1358,233"/>
+<area shape="rect" id="node44" href="$d6/d7b/ChannelData_8h.html" title="Container class to store NTimeBinsPerBC ADC values of single ZDC channel. " alt="" coords="942,206,1159,233"/>
+<area shape="rect" id="node45" href="$d9/d41/BCData_8h.html" title="Class to describe fired triggered and/or stored channels for the BC and to refer to channel data..." alt="" coords="730,206,918,233"/>
+<area shape="rect" id="node46" href="$d9/d80/InteractionRecord_8h.html" title="CommonDataFormat/Interaction\lRecord.h" alt="" coords="555,288,765,329"/>
+<area shape="rect" id="node51" href="$db/d14/MCTruthContainer_8h.html" title="Definition of a container to keep Monte Carlo truth external to simulation objects. " alt="" coords="1783,288,1935,329"/>
+<area shape="rect" id="node14" href="$d4/d25/BaseHits_8h.html" title="SimulationDataFormat\l/BaseHits.h" alt="" coords="2543,288,2695,329"/>
+<area shape="rect" id="node27" href="$d0/d91/ShmAllocator_8h.html" title="CommonUtils/ShmAllocator.h" alt="" coords="2320,295,2515,322"/>
+<area shape="rect" id="node15" href="$dd/d76/Cartesian3D_8h.html" title="MathUtils/Cartesian3D.h" alt="" coords="2539,385,2706,411"/>
+<area shape="rect" id="node24" href="$d2/dd0/Cartesian2D_8h.html" title="MathUtils/Cartesian2D.h" alt="" coords="2539,474,2706,501"/>
+<area shape="rect" id="node28" href="$de/d61/ShmManager_8h.html" title="CommonUtils/ShmManager.h" alt="" coords="2320,385,2515,411"/>
+<area shape="rect" id="node35" href="$d7/dcd/MCCompLabel_8h.html" title="SimulationDataFormat\l/MCCompLabel.h" alt="" coords="5,288,157,329"/>
+<area shape="rect" id="node36" href="$d2/d45/GPUCommonRtypes_8h.html" title="GPUCommonRtypes.h" alt="" coords="232,385,389,411"/>
+<area shape="rect" id="node38" href="$d3/dd7/Detectors_2ZDC_2base_2include_2ZDCBase_2Constants_8h.html" title="ZDCBase/Constants.h" alt="" coords="1192,295,1347,322"/>
+<area shape="rect" id="node39" href="$d3/d9d/PhysicsConstants_8h.html" title="Header to collect physics constants. " alt="" coords="1234,385,1491,411"/>
+<area shape="rect" id="node49" href="$de/d64/RangeReference_8h.html" title="Class to refer to the 1st entry and N elements of some group in the continuous container. " alt="" coords="182,295,439,322"/>
+<area shape="rect" id="node48" href="$d4/dc6/LHCConstants_8h.html" title="Header to collect LHC related constants. " alt="" coords="540,385,777,411"/>
+<area shape="rect" id="node61" href="$db/d2c/ConfigurableParam_8h.html" title="SimConfig/ConfigurableParam.h" alt="" coords="3215,295,3425,322"/>
+<area shape="rect" id="node65" href="$da/d6b/ConfigurableParamHelper_8h.html" title="SimConfig/ConfigurableParam\lHelper.h" alt="" coords="3299,199,3498,240"/>
+</map>

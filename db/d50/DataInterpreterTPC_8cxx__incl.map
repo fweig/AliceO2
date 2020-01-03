@@ -1,0 +1,45 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/EventVisualisation/Detectors/src/DataInterpreterTPC.cxx" name="/home/travis/build/AliceO2Group/AliceO2/EventVisualisation/Detectors/src/DataInterpreterTPC.cxx">
+<area shape="rect" id="node2" href="$d5/d20/VisualisationCluster_8h.html" title="EventVisualisationDataConverter\l/VisualisationCluster.h" alt="" coords="369,392,584,433"/>
+<area shape="rect" id="node11" href="$dc/df2/DataInterpreterTPC_8h.html" title="converting TPC data to Event Visualisation primitives " alt="" coords="286,124,472,165"/>
+<area shape="rect" id="node14" href="$d0/d35/VisualisationEvent_8h.html" title="EventVisualisationDataConverter\l/VisualisationEvent.h" alt="" coords="357,303,572,344"/>
+<area shape="rect" id="node16" href="$db/d9e/ConfigurationManager_8h.html" title="EventVisualisationBase\l/ConfigurationManager.h" alt="" coords="3004,124,3168,165"/>
+<area shape="rect" id="node25" href="$d5/d1d/TPC_2base_2include_2TPCBase_2Mapper_8h.html" title="TPCBase/Mapper.h" alt="" coords="1340,131,1477,158"/>
+<area shape="rect" id="node50" href="$d5/dc9/TrackTPC_8h.html" title="DataFormatsTPC/TrackTPC.h" alt="" coords="2728,131,2928,158"/>
+<area shape="rect" id="node76" href="$d0/ddd/DataFormats_2Detectors_2TPC_2include_2DataFormatsTPC_2ClusterNative_8h.html" title="DataFormatsTPC/ClusterNative.h" alt="" coords="2589,489,2809,515"/>
+<area shape="rect" id="node80" href="$d1/d2b/ClusterNativeHelper_8h.html" title="Helper class to read the binary format of TPC ClusterNative. " alt="" coords="2025,392,2234,433"/>
+<area shape="rect" id="node3" href="$d0/d40/VisualisationTrack_8h.html" title="EventVisualisationDataConverter\l/VisualisationTrack.h" alt="" coords="369,481,584,523"/>
+<area shape="rect" id="node4" href="$de/ddf/ConversionConstants_8h.html" title="ConversionConstants.h" alt="" coords="420,571,578,597"/>
+<area shape="rect" id="node12" href="$dd/dbf/DataInterpreter_8h.html" title="EventVisualisationBase\l/DataInterpreter.h" alt="" coords="223,213,383,255"/>
+<area shape="rect" id="node13" href="$d6/d7c/VisualisationConstants_8h.html" title="EventVisualisationBase\l/VisualisationConstants.h" alt="" coords="26,303,196,344"/>
+<area shape="rect" id="node27" href="$d1/d73/Defs_8h.html" title="Common definitions for 2D coordinates. " alt="" coords="1230,571,1398,597"/>
+<area shape="rect" id="node39" href="$de/d41/PadPos_8h.html" title="TPCBase/PadPos.h" alt="" coords="1341,399,1481,426"/>
+<area shape="rect" id="node40" href="$dd/d0b/PadSecPos_8h.html" title="TPCBase/PadSecPos.h" alt="" coords="1448,310,1611,337"/>
+<area shape="rect" id="node41" href="$d3/dd6/Sector_8h.html" title="TPCBase/Sector.h" alt="" coords="1265,489,1397,515"/>
+<area shape="rect" id="node43" href="$da/d61/PadROCPos_8h.html" title="TPCBase/PadROCPos.h" alt="" coords="850,310,1020,337"/>
+<area shape="rect" id="node45" href="$d3/d54/DigitPos_8h.html" title="TPCBase/DigitPos.h" alt="" coords="1104,221,1248,247"/>
+<area shape="rect" id="node47" href="$d1/d1f/FECInfo_8h.html" title="TPCBase/FECInfo.h" alt="" coords="1469,645,1612,672"/>
+<area shape="rect" id="node48" href="$da/d9d/PadRegionInfo_8h.html" title="TPCBase/PadRegionInfo.h" alt="" coords="1193,310,1373,337"/>
+<area shape="rect" id="node49" href="$d6/d42/PartitionInfo_8h.html" title="TPCBase/PartitionInfo.h" alt="" coords="1548,221,1712,247"/>
+<area shape="rect" id="node28" href="$d2/dd0/Cartesian2D_8h.html" title="MathUtils/Cartesian2D.h" alt="" coords="1693,727,1860,754"/>
+<area shape="rect" id="node31" href="$dd/d76/Cartesian3D_8h.html" title="MathUtils/Cartesian3D.h" alt="" coords="2245,645,2412,672"/>
+<area shape="rect" id="node42" href="$d0/dda/DataFormats_2Detectors_2TPC_2include_2DataFormatsTPC_2Constants_8h.html" title="DataFormatsTPC/Constants.h" alt="" coords="2050,571,2250,597"/>
+<area shape="rect" id="node44" href="$dc/d14/ROC_8h.html" title="TPCBase/ROC.h" alt="" coords="913,399,1037,426"/>
+<area shape="rect" id="node46" href="$df/d26/CRU_8h.html" title="TPCBase/CRU.h" alt="" coords="1045,310,1169,337"/>
+<area shape="rect" id="node51" href="$d7/d8b/DataFormats_2Reconstruction_2include_2ReconstructionDataFormats_2Track_8h.html" title="ReconstructionDataFormats\l/Track.h" alt="" coords="3570,213,3756,255"/>
+<area shape="rect" id="node75" href="$de/d64/RangeReference_8h.html" title="Class to refer to the 1st entry and N elements of some group in the continuous container. " alt="" coords="4232,399,4489,426"/>
+<area shape="rect" id="node78" href="$d5/da8/dEdxInfo_8h.html" title="DataFormatsTPC/dEdxInfo.h" alt="" coords="3898,221,4090,247"/>
+<area shape="rect" id="node52" href="$d2/d45/GPUCommonRtypes_8h.html" title="GPUCommonRtypes.h" alt="" coords="3963,571,4120,597"/>
+<area shape="rect" id="node56" href="$d4/de2/BaseCluster_8h.html" title="ReconstructionDataFormats\l/BaseCluster.h" alt="" coords="3020,303,3207,344"/>
+<area shape="rect" id="node69" href="$d9/d52/Common_2MathUtils_2include_2MathUtils_2Utils_8h.html" title="MathUtils/Utils.h" alt="" coords="3619,571,3739,597"/>
+<area shape="rect" id="node74" href="$d6/d84/MathConstants_8h.html" title="useful math constants " alt="" coords="3649,645,3888,672"/>
+<area shape="rect" id="node61" href="$d4/d20/DetMatrixCache_8h.html" title="DetectorsCommonDataFormats\l/DetMatrixCache.h" alt="" coords="3282,392,3490,433"/>
+<area shape="rect" id="node62" href="$df/d5b/GPUCommonLogger_8h.html" title="GPUCommonLogger.h" alt="" coords="3420,489,3575,515"/>
+<area shape="rect" id="node65" href="$d6/d31/DetID_8h.html" title="DetectorsCommonDataFormats\l/DetID.h" alt="" coords="3087,481,3295,523"/>
+<area shape="rect" id="node70" href="$df/d21/GPUCommonDef_8h.html" title="GPUCommonDef.h" alt="" coords="3375,727,3511,754"/>
+<area shape="rect" id="node73" href="$d6/da2/GPUCommonMath_8h.html" title="GPUCommonMath.h" alt="" coords="3480,645,3624,672"/>
+<area shape="rect" id="node71" href="$d5/d93/GPUCommonDefSettings_8h.html" title="GPUCommonDefSettings.h" alt="" coords="3252,817,3436,843"/>
+<area shape="rect" id="node72" href="$da/d5a/GPUCommonDefAPI_8h.html" title="GPUCommonDefAPI.h" alt="" coords="3461,817,3620,843"/>
+<area shape="rect" id="node81" href="$d8/dc8/ClusterGroupAttribute_8h.html" title="Meta data for a group describing it by sector number and global padrow. " alt="" coords="2358,481,2565,523"/>
+<area shape="rect" id="node82" href="$db/d14/MCTruthContainer_8h.html" title="Definition of a container to keep Monte Carlo truth external to simulation objects. " alt="" coords="1979,481,2131,523"/>
+<area shape="rect" id="node87" href="$d7/dcd/MCCompLabel_8h.html" title="SimulationDataFormat\l/MCCompLabel.h" alt="" coords="3802,481,3954,523"/>
+</map>

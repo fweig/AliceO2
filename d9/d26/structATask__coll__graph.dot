@@ -1,0 +1,39 @@
+digraph "ATask"
+{
+ // INTERACTIVE_SVG=YES
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="{ATask\n||+ process()\l+ process()\l+ process()\l+ process()\l+ init()\l+ process()\l+ process()\l+ process()\l+ process()\l+ init()\l+ process()\l+ process()\l+ ATask()\l+ init()\l+ run()\l+ ATask()\l+ init()\l+ run()\l+ process()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node2 [label="{o2::framework::Task\n||+ ~Task()\l+ init()\l+ run()\l+ endOfStream()\l}",height=0.2,width=0.4,color="black",URL="$de/dac/classo2_1_1framework_1_1Task.html"];
+  Node3 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +etaphipt" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node3 [label="{o2::framework::Produces\l\< aod::EtaPhiPt \>\n||}",height=0.2,width=0.4,color="black",URL="$d6/d86/structo2_1_1framework_1_1Produces.html"];
+  Node4 -> Node3 [dir="back",color="orange",fontsize="10",style="solid",label=" \< aod::EtaPhiPt \>" ,fontname="Helvetica"];
+  Node4 [label="{o2::framework::Produces\< T \>\n||}",height=0.2,width=0.4,color="black",URL="$d6/d86/structo2_1_1framework_1_1Produces.html"];
+  Node5 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +etaphi" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node5 [label="{o2::framework::Produces\l\< aod::EtaPhis \>\n||}",height=0.2,width=0.4,color="black",URL="$d6/d86/structo2_1_1framework_1_1Produces.html"];
+  Node4 -> Node5 [dir="back",color="orange",fontsize="10",style="solid",label=" \< aod::EtaPhis \>" ,fontname="Helvetica"];
+  Node6 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +phiH\n+etaH" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node6 [label="{o2::framework::OutputObj\l\< TH1F \>\n||+ OutputObj()\l+ OutputObj()\l+ setObject()\l+ setObject()\l+ setObject()\l+ spec()\l+ operator-\>()\l+ operator*()\l+ ref()\l}",height=0.2,width=0.4,color="black",URL="$d4/d79/structo2_1_1framework_1_1OutputObj.html"];
+  Node7 -> Node6 [color="grey25",fontsize="10",style="solid",label=" +policy" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node7 [label="{OutputObjHandlingPolicy\n||}",height=0.2,width=0.4,color="grey75"];
+  Node8 -> Node6 [color="grey25",fontsize="10",style="solid",label=" +label" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node8 [label="{string\n||}",height=0.2,width=0.4,color="grey75"];
+  Node9 -> Node6 [color="grey25",fontsize="10",style="solid",label=" +object" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node9 [label="{shared_ptr\< TH1F \>\n||}",height=0.2,width=0.4,color="grey75"];
+  Node10 -> Node6 [dir="back",color="orange",fontsize="10",style="solid",label=" \< TH1F \>" ,fontname="Helvetica"];
+  Node10 [label="{o2::framework::OutputObj\< T \>\n||+ OutputObj()\l+ OutputObj()\l+ setObject()\l+ setObject()\l+ setObject()\l+ spec()\l+ operator-\>()\l+ operator*()\l+ ref()\l}",height=0.2,width=0.4,color="black",URL="$d4/d79/structo2_1_1framework_1_1OutputObj.html"];
+  Node7 -> Node10 [color="grey25",fontsize="10",style="solid",label=" +policy" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node11 -> Node10 [color="grey25",fontsize="10",style="solid",label=" +object" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node11 [label="{shared_ptr\< T \>\n||}",height=0.2,width=0.4,color="grey75"];
+  Node8 -> Node10 [color="grey25",fontsize="10",style="solid",label=" +label" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node12 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +count" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node12 [label="{size_t\n||}",height=0.2,width=0.4,color="grey75"];
+  Node13 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +foobars" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node13 [label="{o2::framework::Produces\l\< aod::FooBars \>\n||}",height=0.2,width=0.4,color="black",URL="$d6/d86/structo2_1_1framework_1_1Produces.html"];
+  Node4 -> Node13 [dir="back",color="orange",fontsize="10",style="solid",label=" \< aod::FooBars \>" ,fontname="Helvetica"];
+  Node14 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +etaphi" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node14 [label="{o2::framework::Produces\l\< aod::EtaPhi \>\n||}",height=0.2,width=0.4,color="black",URL="$d6/d86/structo2_1_1framework_1_1Produces.html"];
+  Node4 -> Node14 [dir="back",color="orange",fontsize="10",style="solid",label=" \< aod::EtaPhi \>" ,fontname="Helvetica"];
+}

@@ -1,0 +1,15 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/Detectors/PHOS/reconstruction/src/Clusterer.cxx" name="/home/travis/build/AliceO2Group/AliceO2/Detectors/PHOS/reconstruction/src/Clusterer.cxx">
+<area shape="rect" id="node2" href="$d1/d34/PHOS_2reconstruction_2include_2PHOSReconstruction_2Clusterer_8h.html" title="PHOSReconstruction\l/Clusterer.h" alt="" coords="5,288,153,329"/>
+<area shape="rect" id="node4" href="$d9/dad/Detectors_2PHOS_2reconstruction_2include_2PHOSReconstruction_2Cluster_8h.html" title="PHOSReconstruction\l/Cluster.h" alt="" coords="180,124,328,165"/>
+<area shape="rect" id="node5" href="$da/d14/Detectors_2PHOS_2base_2include_2PHOSBase_2Digit_8h.html" title="PHOSBase/Digit.h" alt="" coords="296,213,428,240"/>
+<area shape="rect" id="node29" href="$d7/d7f/PHOS_2base_2include_2PHOSBase_2Geometry_8h.html" title="PHOSBase/Geometry.h" alt="" coords="403,131,566,158"/>
+<area shape="rect" id="node8" href="$d7/dcd/MCCompLabel_8h.html" title="SimulationDataFormat\l/MCCompLabel.h" alt="" coords="178,288,330,329"/>
+<area shape="rect" id="node6" href="$df/d5d/common_2include_2CommonDataFormat_2TimeStamp_8h.html" title="CommonDataFormat/TimeStamp.h" alt="" coords="354,295,581,322"/>
+<area shape="rect" id="node9" href="$db/dad/Detectors_2PHOS_2base_2include_2PHOSBase_2Hit_8h.html" title="PHOSBase/Hit.h" alt="" coords="899,295,1022,322"/>
+<area shape="rect" id="node7" href="$d2/d45/GPUCommonRtypes_8h.html" title="GPUCommonRtypes.h" alt="" coords="175,385,333,411"/>
+<area shape="rect" id="node10" href="$d4/d25/BaseHits_8h.html" title="SimulationDataFormat\l/BaseHits.h" alt="" coords="885,377,1037,419"/>
+<area shape="rect" id="node22" href="$d0/d91/ShmAllocator_8h.html" title="CommonUtils/ShmAllocator.h" alt="" coords="1922,385,2117,411"/>
+<area shape="rect" id="node11" href="$dd/d76/Cartesian3D_8h.html" title="MathUtils/Cartesian3D.h" alt="" coords="877,467,1044,493"/>
+<area shape="rect" id="node19" href="$d2/dd0/Cartesian2D_8h.html" title="MathUtils/Cartesian2D.h" alt="" coords="1301,549,1468,575"/>
+<area shape="rect" id="node23" href="$de/d61/ShmManager_8h.html" title="CommonUtils/ShmManager.h" alt="" coords="1922,467,2117,493"/>
+</map>

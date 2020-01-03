@@ -1,0 +1,5 @@
+<map id="o2::gpu::GPUO2InterfaceIOPtrs" name="o2::gpu::GPUO2InterfaceIOPtrs">
+<area shape="rect" id="node3" href="$dd/de2/classsize__t.html" title="{size_t\n||}" alt="" coords="228,673,285,751"/>
+<area shape="rect" id="node7" href="$dc/daa/classo2_1_1dataformats_1_1MCTruthContainer.html" title="{o2::dataformats::MCTruth\lContainer\&lt; o2::o2::MCCompLabel \&gt;\n||+ MCTruthContainer()\l+ MCTruthContainer()\l+ MCTruthContainer()\l+ ~MCTruthContainer()\l+ operator=()\l+ operator=()\l+ getMCTruthHeader()\l+ getElement()\l+ getIndexedSize()\l+ getNElements()\l+ getLabels()\l+ getLabels()\l+ clear()\l+ addElement()\l+ addElements()\l+ addElements()\l+ addElementRandomAccess()\l+ mergeAtBack()\l+ flatten_to()\l+ restore_from()\l+ print()\l+ inflate()\l+ deflate()\l+ ClassDefNV()\l}" alt="" coords="743,497,976,927"/>
+<area shape="rect" id="node8" href="$dc/daa/classo2_1_1dataformats_1_1MCTruthContainer.html" title="A container to hold and manage MC truth information/labels. " alt="" coords="757,5,961,435"/>
+</map>

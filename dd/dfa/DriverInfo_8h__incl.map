@@ -1,0 +1,57 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/Framework/Core/src/DriverInfo.h" name="/home/travis/build/AliceO2Group/AliceO2/Framework/Core/src/DriverInfo.h">
+<area shape="rect" id="node8" href="$dd/d0f/ChannelConfigurationPolicy_8h.html" title="Framework/ChannelConfiguration\lPolicy.h" alt="" coords="601,109,817,151"/>
+<area shape="rect" id="node86" href="$d0/d1c/ConfigParamSpec_8h.html" title="Framework/ConfigParamSpec.h" alt="" coords="306,437,514,464"/>
+<area shape="rect" id="node100" href="$d3/db3/DataProcessorInfo_8h.html" title="DataProcessorInfo.h" alt="" coords="244,363,387,389"/>
+<area shape="rect" id="node9" href="$d6/d05/ChannelConfigurationPolicyHelpers_8h.html" title="Framework/ChannelConfiguration\lPolicyHelpers.h" alt="" coords="529,199,745,240"/>
+<area shape="rect" id="node10" href="$d6/d72/ChannelSpec_8h.html" title="Framework/ChannelSpec.h" alt="" coords="463,288,643,315"/>
+<area shape="rect" id="node13" href="$df/de8/DeviceSpec_8h.html" title="Framework/DeviceSpec.h" alt="" coords="1515,206,1689,233"/>
+<area shape="rect" id="node14" href="$df/da1/WorkflowSpec_8h.html" title="Framework/WorkflowSpec.h" alt="" coords="1963,288,2150,315"/>
+<area shape="rect" id="node15" href="$d0/df4/DataProcessorSpec_8h.html" title="Framework/DataProcessorSpec.h" alt="" coords="2187,363,2406,389"/>
+<area shape="rect" id="node16" href="$d0/d14/AlgorithmSpec_8h.html" title="Framework/AlgorithmSpec.h" alt="" coords="2073,437,2259,464"/>
+<area shape="rect" id="node20" href="$d5/d19/InputRoute_8h.html" title="Framework/InputRoute.h" alt="" coords="1375,661,1541,688"/>
+<area shape="rect" id="node75" href="$d6/df4/OutputRoute_8h.html" title="Framework/OutputRoute.h" alt="" coords="2259,736,2435,763"/>
+<area shape="rect" id="node91" href="$d8/d62/ComputingResource_8h.html" title="Framework/ComputingResource.h" alt="" coords="873,587,1094,613"/>
+<area shape="rect" id="node92" href="$dd/de5/ChannelInfo_8h.html" title="Framework/ChannelInfo.h" alt="" coords="1184,363,1356,389"/>
+<area shape="rect" id="node93" href="$d2/d2c/DeviceControl_8h.html" title="Framework/DeviceControl.h" alt="" coords="548,900,733,927"/>
+<area shape="rect" id="node96" href="$d7/d12/ForwardRoute_8h.html" title="Framework/ForwardRoute.h" alt="" coords="1617,661,1801,688"/>
+<area shape="rect" id="node97" href="$df/dd6/CompletionPolicy_8h.html" title="Framework/CompletionPolicy.h" alt="" coords="5200,900,5404,927"/>
+<area shape="rect" id="node99" href="$da/de6/DispatchPolicy_8h.html" title="Framework/DispatchPolicy.h" alt="" coords="2207,900,2397,927"/>
+<area shape="rect" id="node19" href="$d5/dfb/DataRef_8h.html" title="Framework/DataRef.h" alt="" coords="6096,661,6247,688"/>
+<area shape="rect" id="node24" href="$d5/d3f/InputSpec_8h.html" title="Framework/InputSpec.h" alt="" coords="1719,736,1880,763"/>
+<area shape="rect" id="node57" href="$d1/d28/DataAllocator_8h.html" title="Framework/DataAllocator.h" alt="" coords="4603,661,4785,688"/>
+<area shape="rect" id="node76" href="$db/d2d/OutputSpec_8h.html" title="Framework/OutputSpec.h" alt="" coords="2850,818,3021,845"/>
+<area shape="rect" id="node90" href="$d1/df2/DataProcessorLabel_8h.html" title="Framework/DataProcessorLabel.h" alt="" coords="4771,437,4991,464"/>
+<area shape="rect" id="node17" href="$de/d6a/ProcessingContext_8h.html" title="Framework/ProcessingContext.h" alt="" coords="4243,512,4457,539"/>
+<area shape="rect" id="node81" href="$de/d9b/FunctionalHelpers_8h.html" title="Framework/FunctionalHelpers.h" alt="" coords="1671,900,1877,927"/>
+<area shape="rect" id="node83" href="$d7/dad/ErrorContext_8h.html" title="Framework/ErrorContext.h" alt="" coords="2907,512,3083,539"/>
+<area shape="rect" id="node85" href="$d4/d2b/InitContext_8h.html" title="Framework/InitContext.h" alt="" coords="2083,512,2249,539"/>
+<area shape="rect" id="node18" href="$d6/d5c/InputRecord_8h.html" title="Framework/InputRecord.h" alt="" coords="4263,587,4437,613"/>
+<area shape="rect" id="node26" href="$dc/dcd/DataHeader_8h.html" title="Headers/DataHeader.h" alt="" coords="3236,982,3392,1009"/>
+<area shape="rect" id="node33" href="$dc/d03/MemoryResources_8h.html" title="MemoryResources/MemoryResources.h" alt="" coords="3687,982,3944,1009"/>
+<area shape="rect" id="node41" href="$d0/d95/TypeTraits_8h.html" title="Framework/TypeTraits.h" alt="" coords="5683,900,5847,927"/>
+<area shape="rect" id="node42" href="$db/d31/Traits_8h.html" title="Framework/Traits.h" alt="" coords="5432,982,5567,1009"/>
+<area shape="rect" id="node45" href="$d7/d91/BoostSerializer_8h.html" title="Templatised boost serializer/deserializer for containers and base types. " alt="" coords="6325,900,6530,927"/>
+<area shape="rect" id="node21" href="$d2/dd9/ExpirationHandler_8h.html" title="Framework/ExpirationHandler.h" alt="" coords="1323,818,1529,845"/>
+<area shape="rect" id="node22" href="$dc/dca/Lifetime_8h.html" title="Framework/Lifetime.h" alt="" coords="2813,900,2961,927"/>
+<area shape="rect" id="node25" href="$d0/d1b/ConcreteDataMatcher_8h.html" title="Framework/ConcreteDataMatcher.h" alt="" coords="2559,900,2789,927"/>
+<area shape="rect" id="node31" href="$d3/da3/DataDescriptorMatcher_8h.html" title="Framework/DataDescriptor\lMatcher.h" alt="" coords="2257,811,2435,852"/>
+<area shape="rect" id="node32" href="$d4/d00/Headers_2include_2Headers_2Stack_8h.html" title="Headers/Stack.h" alt="" coords="3559,900,3679,927"/>
+<area shape="rect" id="node58" href="$df/d2f/ContextRegistry_8h.html" title="Framework/ContextRegistry.h" alt="" coords="4210,900,4407,927"/>
+<area shape="rect" id="node61" href="$dc/dc4/MessageContext_8h.html" title="Framework/MessageContext.h" alt="" coords="4736,818,4937,845"/>
+<area shape="rect" id="node62" href="$d8/d71/FairMQDeviceProxy_8h.html" title="Framework/FairMQDeviceProxy.h" alt="" coords="8288,982,8508,1009"/>
+<area shape="rect" id="node63" href="$d8/d3c/TMessageSerializer_8h.html" title="Framework/TMessageSerializer.h" alt="" coords="4584,900,4801,927"/>
+<area shape="rect" id="node68" href="$d2/d80/RootObjectContext_8h.html" title="Framework/RootObjectContext.h" alt="" coords="8641,900,8856,927"/>
+<area shape="rect" id="node69" href="$dd/df6/StringContext_8h.html" title="Framework/StringContext.h" alt="" coords="8075,900,8257,927"/>
+<area shape="rect" id="node70" href="$d8/da2/ArrowContext_8h.html" title="Framework/ArrowContext.h" alt="" coords="8435,900,8617,927"/>
+<area shape="rect" id="node71" href="$d8/d25/RawBufferContext_8h.html" title=" " alt="" coords="6322,818,6533,845"/>
+<area shape="rect" id="node73" href="$d3/ddf/Output_8h.html" title="Framework/Output.h" alt="" coords="3462,818,3603,845"/>
+<area shape="rect" id="node74" href="$d6/d5a/OutputRef_8h.html" title="Framework/OutputRef.h" alt="" coords="3627,818,3790,845"/>
+<area shape="rect" id="node77" href="$d7/d31/DataChunk_8h.html" title="Framework/DataChunk.h" alt="" coords="4438,736,4606,763"/>
+<area shape="rect" id="node78" href="$da/d2b/TimingInfo_8h.html" title="Framework/TimingInfo.h" alt="" coords="2611,736,2774,763"/>
+<area shape="rect" id="node79" href="$d1/d53/SerializationMethods_8h.html" title="Type wrappers for enfording a specific serialization method. " alt="" coords="5692,818,5915,845"/>
+<area shape="rect" id="node80" href="$d5/d98/TableBuilder_8h.html" title="Framework/TableBuilder.h" alt="" coords="2651,818,2825,845"/>
+<area shape="rect" id="node84" href="$d8/d17/ServiceRegistry_8h.html" title="Framework/ServiceRegistry.h" alt="" coords="3138,900,3333,927"/>
+<area shape="rect" id="node87" href="$de/d56/Variant_8h.html" title="Framework/Variant.h" alt="" coords="71,982,213,1009"/>
+<area shape="rect" id="node94" href="$d8/d4a/LogParsingHelpers_8h.html" title="Framework/LogParsingHelpers.h" alt="" coords="541,982,753,1009"/>
+<area shape="rect" id="node98" href="$d9/d32/PartRef_8h.html" title="Framework/PartRef.h" alt="" coords="5109,982,5255,1009"/>
+</map>

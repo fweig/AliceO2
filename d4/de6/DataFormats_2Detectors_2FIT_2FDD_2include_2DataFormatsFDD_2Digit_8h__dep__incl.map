@@ -1,0 +1,18 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/DataFormats/Detectors/FIT/FDD/include/DataFormatsFDD/Digit.h" name="/home/travis/build/AliceO2Group/AliceO2/DataFormats/Detectors/FIT/FDD/include/DataFormatsFDD/Digit.h">
+<area shape="rect" id="node2" href="$d8/d0c/RecPoint_8h.html" title="Definition of the FDD RecPoint class. " alt="" coords="469,139,700,224"/>
+<area shape="rect" id="node3" href="$d8/dbe/Reconstructor_8h.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/FIT/FDD/reconstruction\l/include/FDDReconstruction/Reconstructor.h" alt="" coords="44,272,328,343"/>
+<area shape="rect" id="node6" href="$d3/db6/ReconstructorSpec_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/FIT/FDD/workflow\l/src/ReconstructorSpec.cxx" alt="" coords="212,509,407,580"/>
+<area shape="rect" id="node11" href="$d3/d51/FIT_2FDD_2simulation_2include_2FDDSimulation_2Digitizer_8h.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/FIT/FDD/simulation\l/include/FDDSimulation/Digitizer.h" alt="" coords="937,146,1160,217"/>
+<area shape="rect" id="node13" href="$d2/d97/FDDDigitizerSpec_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Steer/DigitizerWorkflow\l/src/FDDDigitizerSpec.cxx" alt="" coords="1168,272,1347,343"/>
+<area shape="rect" id="node14" href="$dd/d24/FIT_2FDD_2workflow_2include_2FDDWorkflow_2DigitReaderSpec_8h.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/FIT/FDD/workflow\l/include/FDDWorkflow/DigitReaderSpec.h" alt="" coords="1250,146,1518,217"/>
+<area shape="rect" id="node16" href="$d8/dcd/FDDDigitWriterSpec_8h.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Steer/DigitizerWorkflow\l/src/FDDDigitWriterSpec.h" alt="" coords="1600,146,1779,217"/>
+<area shape="rect" id="node5" href="$d7/df4/ReconstructorSpec_8h.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/FIT/FDD/workflow\l/include/FDDWorkflow/ReconstructorSpec.h" alt="" coords="344,391,625,461"/>
+<area shape="rect" id="node8" href="$d7/da5/RecPointReaderSpec_8h.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/FIT/FDD/workflow\l/include/FDDWorkflow/RecPointReaderSpec.h" alt="" coords="622,272,917,343"/>
+<area shape="rect" id="node10" href="$df/d0a/RecPointWriterSpec_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/FIT/FDD/workflow\l/src/RecPointWriterSpec.cxx" alt="" coords="352,272,547,343"/>
+<area shape="rect" id="node4" href="$d8/d07/Reconstructor_8cxx.html" title="Implementation of the FDD reconstruction. " alt="" coords="73,391,298,461"/>
+<area shape="rect" id="node7" href="$d6/d61/FIT_2FDD_2workflow_2src_2RecoWorkflow_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/FIT/FDD/workflow\l/src/RecoWorkflow.cxx" alt="" coords="560,509,755,580"/>
+<area shape="rect" id="node9" href="$d5/d58/RecPointReaderSpec_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/FIT/FDD/workflow\l/src/RecPointReaderSpec.cxx" alt="" coords="670,391,869,461"/>
+<area shape="rect" id="node12" href="$d0/d8c/FIT_2FDD_2simulation_2src_2Digitizer_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/FIT/FDD/simulation\l/src/Digitizer.cxx" alt="" coords="942,272,1144,343"/>
+<area shape="rect" id="node15" href="$dc/d21/FIT_2FDD_2workflow_2src_2DigitReaderSpec_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/FIT/FDD/workflow\l/src/DigitReaderSpec.cxx" alt="" coords="1422,272,1616,343"/>
+<area shape="rect" id="node17" href="$d2/dd7/SimpleDigitizerWorkflow_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Steer/DigitizerWorkflow\l/src/SimpleDigitizerWorkflow.cxx" alt="" coords="1640,272,1856,343"/>
+</map>

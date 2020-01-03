@@ -1,0 +1,19 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/Detectors/TOF/simulation/include/TOFSimulation/DigitizerTask.h" name="/home/travis/build/AliceO2Group/AliceO2/Detectors/TOF/simulation/include/TOFSimulation/DigitizerTask.h">
+<area shape="rect" id="node4" href="$d1/d90/Detectors_2TOF_2base_2include_2TOFBase_2Digit_8h.html" title="TOFBase/Digit.h" alt="" coords="687,295,807,322"/>
+<area shape="rect" id="node9" href="$d5/d3c/TOF_2simulation_2include_2TOFSimulation_2Detector_8h.html" title="TOFSimulation/Detector.h" alt="" coords="1469,295,1644,322"/>
+<area shape="rect" id="node44" href="$d0/d85/TOF_2simulation_2include_2TOFSimulation_2Digitizer_8h.html" title="TOFSimulation/Digitizer.h" alt="" coords="661,139,833,165"/>
+<area shape="rect" id="node49" href="$db/d14/MCTruthContainer_8h.html" title="Definition of a container to keep Monte Carlo truth external to simulation objects. " alt="" coords="2515,377,2667,419"/>
+<area shape="rect" id="node6" href="$d4/d54/Geo_8h.html" title="TOFBase/Geo.h" alt="" coords="498,385,615,411"/>
+<area shape="rect" id="node7" href="$d4/dc6/LHCConstants_8h.html" title="Header to collect LHC related constants. " alt="" coords="266,467,503,493"/>
+<area shape="rect" id="node10" href="$d1/d3a/Base_2include_2DetectorsBase_2Detector_8h.html" title="DetectorsBase/Detector.h" alt="" coords="1469,385,1644,411"/>
+<area shape="rect" id="node29" href="$d0/d91/ShmAllocator_8h.html" title="CommonUtils/ShmAllocator.h" alt="" coords="1947,467,2142,493"/>
+<area shape="rect" id="node33" href="$d4/d25/BaseHits_8h.html" title="SimulationDataFormat\l/BaseHits.h" alt="" coords="2238,377,2390,419"/>
+<area shape="rect" id="node17" href="$d0/d9a/MaterialManager_8h.html" title="DetectorsBase/MaterialManager.h" alt="" coords="837,467,1057,493"/>
+<area shape="rect" id="node24" href="$de/d61/ShmManager_8h.html" title="CommonUtils/ShmManager.h" alt="" coords="1874,549,2069,575"/>
+<area shape="rect" id="node34" href="$dd/d76/Cartesian3D_8h.html" title="MathUtils/Cartesian3D.h" alt="" coords="2601,467,2768,493"/>
+<area shape="rect" id="node41" href="$d2/dd0/Cartesian2D_8h.html" title="MathUtils/Cartesian2D.h" alt="" coords="2403,549,2569,575"/>
+<area shape="rect" id="node45" href="$dd/d77/Strip_8h.html" title="TOFSimulation/Strip.h" alt="" coords="1912,213,2063,240"/>
+<area shape="rect" id="node55" href="$df/d5b/Detectors_2TOF_2simulation_2include_2TOFSimulation_2MCLabel_8h.html" title="TOFSimulation/MCLabel.h" alt="" coords="229,213,405,240"/>
+<area shape="rect" id="node56" href="$d7/dcd/MCCompLabel_8h.html" title="SimulationDataFormat\l/MCCompLabel.h" alt="" coords="205,288,357,329"/>
+<area shape="rect" id="node57" href="$d2/d45/GPUCommonRtypes_8h.html" title="GPUCommonRtypes.h" alt="" coords="165,385,322,411"/>
+</map>

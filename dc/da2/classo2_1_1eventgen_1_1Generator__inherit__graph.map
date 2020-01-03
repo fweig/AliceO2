@@ -1,0 +1,5 @@
+<map id="o2::eventgen::Generator" name="o2::eventgen::Generator">
+<area shape="rect" id="node3" href="$d4/d2f/classo2_1_1eventgen_1_1GeneratorHepMC.html" title="{o2::eventgen::GeneratorHepMC\n|# mStream\l# mFileName\l# mVersion\l# mReader\l# mEvent\l|+ GeneratorHepMC()\l+ GeneratorHepMC()\l+ ~GeneratorHepMC()\l+ Init()\l+ setVersion()\l+ setFileName()\l# GeneratorHepMC()\l# operator=()\l# generateEvent()\l# boostEvent()\l# addTracks()\l# getBoostedVector()\l# ClassDefOverride()\l}" alt="" coords="5,520,212,832"/>
+<area shape="rect" id="node4" href="$d2/d82/classo2_1_1eventgen_1_1GeneratorTGenerator.html" title="{o2::eventgen::GeneratorTGenerator\n|# mTGenerator\l# mParticles\l|+ GeneratorTGenerator()\l+ GeneratorTGenerator()\l+ ~GeneratorTGenerator()\l+ setTGenerator()\l+ getTGenerator()\l+ Init()\l# GeneratorTGenerator()\l# operator=()\l# generateEvent()\l# boostEvent()\l# addTracks()\l# ClassDefOverride()\l}" alt="" coords="237,549,463,803"/>
+<area shape="rect" id="node2" href="$df/d40/classFairGenerator.html" title="{FairGenerator\n||}" alt="" coords="178,5,279,83"/>
+</map>

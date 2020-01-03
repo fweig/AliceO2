@@ -1,0 +1,9 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/Detectors/ITSMFT/common/simulation/include/ITSMFTSimulation/PreDigit.h" name="/home/travis/build/AliceO2Group/AliceO2/Detectors/ITSMFT/common/simulation/include/ITSMFTSimulation/PreDigit.h">
+<area shape="rect" id="node2" href="$da/d93/ChipDigitsContainer_8h.html" title="transient container for single chip digits accumulation " alt="" coords="345,139,588,224"/>
+<area shape="rect" id="node3" href="$d7/d9c/ITSMFT_2common_2simulation_2include_2ITSMFTSimulation_2Digitizer_8h.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/ITSMFT/common\l/simulation/include/ITSMFTSimulation\l/Digitizer.h" alt="" coords="209,272,452,357"/>
+<area shape="rect" id="node8" href="$d8/d8c/ChipDigitsContainer_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/ITSMFT/common\l/simulation/src/ChipDigitsContainer.cxx" alt="" coords="476,279,729,350"/>
+<area shape="rect" id="node4" href="$dc/dbf/ITSMFT_2common_2simulation_2src_2Digitizer_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/ITSMFT/common\l/simulation/src/Digitizer.cxx" alt="" coords="5,413,195,483"/>
+<area shape="rect" id="node5" href="$dd/d11/ITSMFT_2MFT_2simulation_2include_2MFTSimulation_2DigitizerTask_8h.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/ITSMFT/MFT\l/simulation/include/MFTSimulation\l/DigitizerTask.h" alt="" coords="219,405,442,491"/>
+<area shape="rect" id="node7" href="$d3/d43/ITSMFTDigitizerSpec_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Steer/DigitizerWorkflow\l/src/ITSMFTDigitizerSpec.cxx" alt="" coords="466,413,665,483"/>
+<area shape="rect" id="node6" href="$d6/d87/ITSMFT_2MFT_2simulation_2src_2DigitizerTask_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/Detectors/ITSMFT/MFT\l/simulation/src/DigitizerTask.cxx" alt="" coords="224,539,437,609"/>
+</map>

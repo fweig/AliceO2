@@ -1,0 +1,13 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/DataFormats/Detectors/TPC/src/ClusterNativeHelper.cxx" name="/home/travis/build/AliceO2Group/AliceO2/DataFormats/Detectors/TPC/src/ClusterNativeHelper.cxx">
+<area shape="rect" id="node2" href="$d1/d2b/ClusterNativeHelper_8h.html" title="Helper class to read the binary format of TPC ClusterNative. " alt="" coords="1091,124,1301,165"/>
+<area shape="rect" id="node28" href="$d6/d0c/Parser_8h.html" title="Utilities for parsing of data sequences. " alt="" coords="1652,131,1783,158"/>
+<area shape="rect" id="node3" href="$d0/ddd/DataFormats_2Detectors_2TPC_2include_2DataFormatsTPC_2ClusterNative_8h.html" title="DataFormatsTPC/ClusterNative.h" alt="" coords="277,221,497,247"/>
+<area shape="rect" id="node6" href="$d0/dda/DataFormats_2Detectors_2TPC_2include_2DataFormatsTPC_2Constants_8h.html" title="DataFormatsTPC/Constants.h" alt="" coords="287,303,487,329"/>
+<area shape="rect" id="node10" href="$d8/dc8/ClusterGroupAttribute_8h.html" title="Meta data for a group describing it by sector number and global padrow. " alt="" coords="606,213,813,255"/>
+<area shape="rect" id="node11" href="$db/d14/MCTruthContainer_8h.html" title="Definition of a container to keep Monte Carlo truth external to simulation objects. " alt="" coords="843,213,995,255"/>
+<area shape="rect" id="node20" href="$d7/dcd/MCCompLabel_8h.html" title="SimulationDataFormat\l/MCCompLabel.h" alt="" coords="1120,213,1272,255"/>
+<area shape="rect" id="node7" href="$df/d21/GPUCommonDef_8h.html" title="GPUCommonDef.h" alt="" coords="127,303,263,329"/>
+<area shape="rect" id="node8" href="$d5/d93/GPUCommonDefSettings_8h.html" title="GPUCommonDefSettings.h" alt="" coords="5,377,189,404"/>
+<area shape="rect" id="node9" href="$da/d5a/GPUCommonDefAPI_8h.html" title="GPUCommonDefAPI.h" alt="" coords="214,377,373,404"/>
+<area shape="rect" id="node21" href="$d2/d45/GPUCommonRtypes_8h.html" title="GPUCommonRtypes.h" alt="" coords="1348,303,1505,329"/>
+</map>

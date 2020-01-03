@@ -1,0 +1,30 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/Detectors/TPC/base/src/CDBInterface.cxx" name="/home/travis/build/AliceO2Group/AliceO2/Detectors/TPC/base/src/CDBInterface.cxx">
+<area shape="rect" id="node5" href="$dc/df2/CDBInterface_8h.html" title="Simple interface to the CDB manager. " alt="" coords="249,124,423,151"/>
+<area shape="rect" id="node54" href="$db/dad/ParameterDetector_8h.html" title="Definition of the parameter class for the detector. " alt="" coords="2507,199,2711,225"/>
+<area shape="rect" id="node61" href="$d3/d47/ParameterElectronics_8h.html" title="Definition of the parameter class for the detector electronics. " alt="" coords="2061,199,2280,225"/>
+<area shape="rect" id="node62" href="$de/d2b/ParameterGEM_8h.html" title="Definition of the parameter class for the GEM stack. " alt="" coords="2736,199,2920,225"/>
+<area shape="rect" id="node63" href="$db/d5b/ParameterGas_8h.html" title="Definition of the parameter class for the detector gas. " alt="" coords="2304,199,2483,225"/>
+<area shape="rect" id="node7" href="$d4/dd1/IdPath_8h.html" title="CCDB/IdPath.h" alt="" coords="44,363,159,389"/>
+<area shape="rect" id="node11" href="$d5/df3/BasicCCDBManager_8h.html" title="CCDB/BasicCCDBManager.h" alt="" coords="237,281,435,307"/>
+<area shape="rect" id="node19" href="$d6/d2b/TPC_2base_2include_2TPCBase_2CalDet_8h.html" title="TPCBase/CalDet.h" alt="" coords="1129,199,1263,225"/>
+<area shape="rect" id="node12" href="$dd/d3e/CcdbApi_8h.html" title="CCDB/CcdbApi.h" alt="" coords="467,363,594,389"/>
+<area shape="rect" id="node18" href="$da/d86/CCDBTimeStampUtils_8h.html" title="CCDB/CCDBTimeStampUtils.h" alt="" coords="234,363,443,389"/>
+<area shape="rect" id="node24" href="$d1/d73/Defs_8h.html" title="Common definitions for 2D coordinates. " alt="" coords="1613,751,1781,777"/>
+<area shape="rect" id="node37" href="$d5/d1d/TPC_2base_2include_2TPCBase_2Mapper_8h.html" title="TPCBase/Mapper.h" alt="" coords="1127,363,1265,389"/>
+<area shape="rect" id="node41" href="$d3/dd6/Sector_8h.html" title="TPCBase/Sector.h" alt="" coords="1141,676,1273,703"/>
+<area shape="rect" id="node44" href="$dc/d14/ROC_8h.html" title="TPCBase/ROC.h" alt="" coords="1489,601,1613,628"/>
+<area shape="rect" id="node50" href="$db/d9b/CalArray_8h.html" title="TPCBase/CalArray.h" alt="" coords="1295,281,1441,307"/>
+<area shape="rect" id="node26" href="$d2/dd0/Cartesian2D_8h.html" title="MathUtils/Cartesian2D.h" alt="" coords="2087,907,2254,934"/>
+<area shape="rect" id="node29" href="$dd/d76/Cartesian3D_8h.html" title="MathUtils/Cartesian3D.h" alt="" coords="1407,825,1574,852"/>
+<area shape="rect" id="node39" href="$de/d41/PadPos_8h.html" title="TPCBase/PadPos.h" alt="" coords="1158,601,1298,628"/>
+<area shape="rect" id="node40" href="$dd/d0b/PadSecPos_8h.html" title="TPCBase/PadSecPos.h" alt="" coords="977,527,1140,553"/>
+<area shape="rect" id="node43" href="$da/d61/PadROCPos_8h.html" title="TPCBase/PadROCPos.h" alt="" coords="1465,527,1636,553"/>
+<area shape="rect" id="node45" href="$d3/d54/DigitPos_8h.html" title="TPCBase/DigitPos.h" alt="" coords="1124,445,1268,471"/>
+<area shape="rect" id="node47" href="$d1/d1f/FECInfo_8h.html" title="TPCBase/FECInfo.h" alt="" coords="658,676,801,703"/>
+<area shape="rect" id="node48" href="$da/d9d/PadRegionInfo_8h.html" title="TPCBase/PadRegionInfo.h" alt="" coords="1531,445,1711,471"/>
+<area shape="rect" id="node49" href="$d6/d42/PartitionInfo_8h.html" title="TPCBase/PartitionInfo.h" alt="" coords="1343,445,1507,471"/>
+<area shape="rect" id="node42" href="$d0/dda/DataFormats_2Detectors_2TPC_2include_2DataFormatsTPC_2Constants_8h.html" title="DataFormatsTPC/Constants.h" alt="" coords="1107,751,1307,777"/>
+<area shape="rect" id="node46" href="$df/d26/CRU_8h.html" title="TPCBase/CRU.h" alt="" coords="1317,527,1441,553"/>
+<area shape="rect" id="node55" href="$db/d2c/ConfigurableParam_8h.html" title="SimConfig/ConfigurableParam.h" alt="" coords="2429,363,2638,389"/>
+<area shape="rect" id="node59" href="$da/d6b/ConfigurableParamHelper_8h.html" title="SimConfig/ConfigurableParam\lHelper.h" alt="" coords="2190,273,2389,315"/>
+</map>

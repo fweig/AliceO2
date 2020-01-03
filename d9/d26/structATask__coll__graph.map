@@ -1,0 +1,10 @@
+<map id="ATask" name="ATask">
+<area shape="rect" id="node2" href="$de/dac/classo2_1_1framework_1_1Task.html" title="{o2::framework::Task\n||+ ~Task()\l+ init()\l+ run()\l+ endOfStream()\l}" alt="" coords="5,447,148,568"/>
+<area shape="rect" id="node3" href="$d6/d86/structo2_1_1framework_1_1Produces.html" title="{o2::framework::Produces\l\&lt; aod::EtaPhiPt \&gt;\n||}" alt="" coords="173,461,341,553"/>
+<area shape="rect" id="node4" href="$d6/d86/structo2_1_1framework_1_1Produces.html" title="{o2::framework::Produces\&lt; T \&gt;\n||}" alt="" coords="419,204,619,281"/>
+<area shape="rect" id="node5" href="$d6/d86/structo2_1_1framework_1_1Produces.html" title="{o2::framework::Produces\l\&lt; aod::EtaPhis \&gt;\n||}" alt="" coords="365,461,533,553"/>
+<area shape="rect" id="node13" href="$d6/d86/structo2_1_1framework_1_1Produces.html" title="{o2::framework::Produces\l\&lt; aod::FooBars \&gt;\n||}" alt="" coords="557,461,725,553"/>
+<area shape="rect" id="node14" href="$d6/d86/structo2_1_1framework_1_1Produces.html" title="{o2::framework::Produces\l\&lt; aod::EtaPhi \&gt;\n||}" alt="" coords="749,461,917,553"/>
+<area shape="rect" id="node6" href="$d4/d79/structo2_1_1framework_1_1OutputObj.html" title="{o2::framework::OutputObj\l\&lt; TH1F \&gt;\n||+ OutputObj()\l+ OutputObj()\l+ setObject()\l+ setObject()\l+ setObject()\l+ spec()\l+ operator&#45;\&gt;()\l+ operator*()\l+ ref()\l}" alt="" coords="941,403,1113,612"/>
+<area shape="rect" id="node10" href="$d4/d79/structo2_1_1framework_1_1OutputObj.html" title="{o2::framework::OutputObj\&lt; T \&gt;\n||+ OutputObj()\l+ OutputObj()\l+ setObject()\l+ setObject()\l+ setObject()\l+ spec()\l+ operator&#45;\&gt;()\l+ operator*()\l+ ref()\l}" alt="" coords="923,145,1127,340"/>
+</map>

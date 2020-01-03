@@ -1,0 +1,27 @@
+var classo2_1_1framework_1_1MessageContext =
+[
+    [ "ContainerRefObject", "db/d7e/classo2_1_1framework_1_1MessageContext_1_1ContainerRefObject.html", "db/d7e/classo2_1_1framework_1_1MessageContext_1_1ContainerRefObject" ],
+    [ "ContextObject", "d3/dc5/classo2_1_1framework_1_1MessageContext_1_1ContextObject.html", "d3/dc5/classo2_1_1framework_1_1MessageContext_1_1ContextObject" ],
+    [ "RootSerializedObject", "d4/db0/classo2_1_1framework_1_1MessageContext_1_1RootSerializedObject.html", "d4/db0/classo2_1_1framework_1_1MessageContext_1_1RootSerializedObject" ],
+    [ "ScopeHook", "d0/dc9/classo2_1_1framework_1_1MessageContext_1_1ScopeHook.html", "d0/dc9/classo2_1_1framework_1_1MessageContext_1_1ScopeHook" ],
+    [ "SpanObject", "d7/df1/classo2_1_1framework_1_1MessageContext_1_1SpanObject.html", "d7/df1/classo2_1_1framework_1_1MessageContext_1_1SpanObject" ],
+    [ "TrivialObject", "d3/dfd/classo2_1_1framework_1_1MessageContext_1_1TrivialObject.html", "d3/dfd/classo2_1_1framework_1_1MessageContext_1_1TrivialObject" ],
+    [ "VectorObject", "db/d4d/classo2_1_1framework_1_1MessageContext_1_1VectorObject.html", "db/d4d/classo2_1_1framework_1_1MessageContext_1_1VectorObject" ],
+    [ "ContextObjectScope", "da/daa/classo2_1_1framework_1_1MessageContext.html#ab31280b6182f4bf6ce5170dc72e7280a", null ],
+    [ "DispatchCallback", "da/daa/classo2_1_1framework_1_1MessageContext.html#a6bac82aa176f1726ef51bd3b07c85fa1", null ],
+    [ "Messages", "da/daa/classo2_1_1framework_1_1MessageContext.html#afca38d862ac785cadb4602242b0f2f0f", null ],
+    [ "MessageContext", "da/daa/classo2_1_1framework_1_1MessageContext.html#aaaaabe801b154db05843b063a098cb95", null ],
+    [ "MessageContext", "da/daa/classo2_1_1framework_1_1MessageContext.html#a91e209632c76651371eecaff4daba8d0", null ],
+    [ "add", "da/daa/classo2_1_1framework_1_1MessageContext.html#a3a0bf3e0fd90ef617f7b075d0a723fcd", null ],
+    [ "begin", "da/daa/classo2_1_1framework_1_1MessageContext.html#a1d9d8f666bbcc47aedfc375c284c157f", null ],
+    [ "clear", "da/daa/classo2_1_1framework_1_1MessageContext.html#a90d05f198e0c5c2c2090884abe2d4d5d", null ],
+    [ "createMessage", "da/daa/classo2_1_1framework_1_1MessageContext.html#a6e7f9f482d40616217586be0c5d1c941", null ],
+    [ "createMessage", "da/daa/classo2_1_1framework_1_1MessageContext.html#a684922205df3568e704a4398b15615ed", null ],
+    [ "end", "da/daa/classo2_1_1framework_1_1MessageContext.html#ae3ea5682616dafd3ac4bee79f7d18ac7", null ],
+    [ "init", "da/daa/classo2_1_1framework_1_1MessageContext.html#ad817fc565e733d09efa522bbf3659a7b", null ],
+    [ "make", "da/daa/classo2_1_1framework_1_1MessageContext.html#ac6c38f2515fd740faa48003b257385dd", null ],
+    [ "make_scoped", "da/daa/classo2_1_1framework_1_1MessageContext.html#a0b221561d2d54052f6be7cf230ab9210", null ],
+    [ "proxy", "da/daa/classo2_1_1framework_1_1MessageContext.html#afc356b6fc6b5cf46882dcf4ea913355a", null ],
+    [ "schedule", "da/daa/classo2_1_1framework_1_1MessageContext.html#a44a11e8dc8bcdf37cb863638e430a63d", null ],
+    [ "size", "da/daa/classo2_1_1framework_1_1MessageContext.html#abdfe6431ce0708473ffd716fb6b031ae", null ]
+];

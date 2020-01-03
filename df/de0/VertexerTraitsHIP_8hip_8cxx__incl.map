@@ -1,0 +1,26 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/Detectors/ITSMFT/ITS/tracking/hip/src/VertexerTraitsHIP.hip.cxx" name="/home/travis/build/AliceO2Group/AliceO2/Detectors/ITSMFT/ITS/tracking/hip/src/VertexerTraitsHIP.hip.cxx">
+<area shape="rect" id="node7" href="$dc/d3e/MathUtils_8h.html" title="ITStracking/MathUtils.h" alt="" coords="459,631,619,657"/>
+<area shape="rect" id="node21" href="$d3/d59/Configuration_8h.html" title="ITStracking/Configuration.h" alt="" coords="1431,631,1612,657"/>
+<area shape="rect" id="node22" href="$df/d50/ClusterLines_8h.html" title="ITStracking/ClusterLines.h" alt="" coords="899,407,1077,433"/>
+<area shape="rect" id="node26" href="$da/dc0/Tracklet_8h.html" title="ITStracking/Tracklet.h" alt="" coords="571,481,722,508"/>
+<area shape="rect" id="node27" href="$d8/d28/UtilsHIP_8h.html" title="ITStrackingHIP/UtilsHIP.h" alt="" coords="2498,407,2675,433"/>
+<area shape="rect" id="node28" href="$d4/dac/StreamHIP_8h.html" title="ITStrackingHIP/StreamHIP.h" alt="" coords="2383,481,2575,508"/>
+<area shape="rect" id="node30" href="$d2/dc8/ClusterLinesHIP_8h.html" title="GPU&#45;compliant version of ClusterLines, for the moment separated, might create a common traits for Clu..." alt="" coords="2139,317,2328,359"/>
+<area shape="rect" id="node32" href="$d6/dea/ContextHIP_8h.html" title="ITStrackingHIP/ContextHIP.h" alt="" coords="2162,481,2358,508"/>
+<area shape="rect" id="node34" href="$db/d14/VertexerTraitsHIP_8h.html" title="ITStrackingHIP/VertexerTraits\lHIP.h" alt="" coords="1095,139,1294,180"/>
+<area shape="rect" id="node10" href="$d9/d52/Common_2MathUtils_2include_2MathUtils_2Utils_8h.html" title="MathUtils/Utils.h" alt="" coords="533,705,653,732"/>
+<area shape="rect" id="node11" href="$df/d21/GPUCommonDef_8h.html" title="GPUCommonDef.h" alt="" coords="1681,855,1817,881"/>
+<area shape="rect" id="node14" href="$d6/da2/GPUCommonMath_8h.html" title="GPUCommonMath.h" alt="" coords="43,780,187,807"/>
+<area shape="rect" id="node17" href="$d0/d86/Detectors_2ITSMFT_2ITS_2tracking_2include_2ITStracking_2Constants_8h.html" title="ITStracking/Constants.h" alt="" coords="1566,705,1730,732"/>
+<area shape="rect" id="node16" href="$d6/d84/MathConstants_8h.html" title="useful math constants " alt="" coords="363,780,602,807"/>
+<area shape="rect" id="node12" href="$d5/d93/GPUCommonDefSettings_8h.html" title="GPUCommonDefSettings.h" alt="" coords="1560,929,1744,956"/>
+<area shape="rect" id="node13" href="$da/d5a/GPUCommonDefAPI_8h.html" title="GPUCommonDefAPI.h" alt="" coords="1769,929,1927,956"/>
+<area shape="rect" id="node20" href="$df/d3d/Definitions_8h.html" title="ITStracking/Definitions.h" alt="" coords="1222,780,1389,807"/>
+<area shape="rect" id="node23" href="$da/d7f/Detectors_2ITSMFT_2ITS_2tracking_2include_2ITStracking_2Cluster_8h.html" title="ITStracking/Cluster.h" alt="" coords="949,556,1096,583"/>
+<area shape="rect" id="node24" href="$dc/ddf/ITS_2tracking_2include_2ITStracking_2IndexTableUtils_8h.html" title="ITStracking/IndexTableUtils.h" alt="" coords="1060,631,1255,657"/>
+<area shape="rect" id="node35" href="$d2/dd6/VertexerTraits_8h.html" title="Class to compute the primary vertex in ITS from tracklets. " alt="" coords="1101,325,1288,351"/>
+<area shape="rect" id="node36" href="$d4/d1e/DeviceStoreVertexerHIP_8h.html" title="This class serves as memory interface for GPU vertexer. It will access needed data structures from de..." alt="" coords="1413,228,1601,269"/>
+<area shape="rect" id="node38" href="$d1/d7c/UniquePointerHIP_8h.html" title="ITStrackingHIP/UniquePointer\lHIP.h" alt="" coords="2558,317,2757,359"/>
+<area shape="rect" id="node37" href="$de/d49/ArrayHIP_8h.html" title="ITStrackingHIP/ArrayHIP.h" alt="" coords="2352,325,2533,351"/>
+<area shape="rect" id="node39" href="$dd/dda/VectorHIP_8h.html" title="ITStrackingHIP/VectorHIP.h" alt="" coords="1774,325,1962,351"/>
+</map>

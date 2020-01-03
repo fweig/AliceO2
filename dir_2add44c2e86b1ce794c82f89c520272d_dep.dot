@@ -1,0 +1,15 @@
+digraph "/home/travis/build/AliceO2Group/AliceO2/GPU/GPUTracking/TPCClusterFinder" {
+  bgcolor=transparent;
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_77030b149987c946eb2e85728f65acc0 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="GPUTracking" fontname="Helvetica", fontsize="10", URL="dir_77030b149987c946eb2e85728f65acc0.html"]
+  dir_2add44c2e86b1ce794c82f89c520272d [shape=box, label="TPCClusterFinder", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_2add44c2e86b1ce794c82f89c520272d.html"];
+  }
+  dir_ba48ca66118492a4424f86e9da0f6902 [shape=box label="Common" URL="dir_ba48ca66118492a4424f86e9da0f6902.html"];
+  dir_442920581a03c66cf8c08ae559108050 [shape=box label="Base" color="red" URL="dir_442920581a03c66cf8c08ae559108050.html"];
+  dir_442920581a03c66cf8c08ae559108050->dir_ba48ca66118492a4424f86e9da0f6902 [headlabel="27", labeldistance=1.5 headhref="dir_000576_000575.html"];
+  dir_2add44c2e86b1ce794c82f89c520272d->dir_ba48ca66118492a4424f86e9da0f6902 [headlabel="6", labeldistance=1.5 headhref="dir_000140_000575.html"];
+  dir_2add44c2e86b1ce794c82f89c520272d->dir_442920581a03c66cf8c08ae559108050 [headlabel="7", labeldistance=1.5 headhref="dir_000140_000576.html"];
+}

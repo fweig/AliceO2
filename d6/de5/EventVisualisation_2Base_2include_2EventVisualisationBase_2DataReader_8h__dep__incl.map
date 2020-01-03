@@ -1,0 +1,18 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/EventVisualisation/Base/include/EventVisualisationBase/DataReader.h" name="/home/travis/build/AliceO2Group/AliceO2/EventVisualisation/Base/include/EventVisualisationBase/DataReader.h">
+<area shape="rect" id="node2" href="$d1/deb/DataSourceOffline_8h.html" title="Grouping reading from file(s) " alt="" coords="486,139,696,224"/>
+<area shape="rect" id="node7" href="$d5/df4/DataReaderITS_8h.html" title="reading from file(s) " alt="" coords="1352,139,1588,224"/>
+<area shape="rect" id="node9" href="$df/da6/DataReaderTPC_8h.html" title="TPC Detector&#45;specific reading from file(s) " alt="" coords="1621,139,1857,224"/>
+<area shape="rect" id="node11" href="$d3/d28/DataReaderVSD_8h.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/EventVisualisation/Detectors\l/include/EventVisualisationDetectors\l/DataReaderVSD.h" alt="" coords="120,139,356,224"/>
+<area shape="rect" id="node13" href="$d8/d25/EventManager_8h.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/EventVisualisation/View\l/include/EventVisualisationView\l/EventManager.h" alt="" coords="962,139,1170,224"/>
+<area shape="rect" id="node3" href="$dc/db1/DataSourceOffline_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/EventVisualisation/Base\l/src/DataSourceOffline.cxx" alt="" coords="304,279,484,350"/>
+<area shape="rect" id="node4" href="$dd/d21/EventManager_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/EventVisualisation/View\l/src/EventManager.cxx" alt="" coords="508,279,674,350"/>
+<area shape="rect" id="node5" href="$d0/dc0/EventManagerFrame_8cxx.html" title="GUI (bottom buttons) for visualisation. " alt="" coords="168,405,363,476"/>
+<area shape="rect" id="node6" href="$df/d2a/Initializer_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/EventVisualisation/View\l/src/Initializer.cxx" alt="" coords="1104,405,1270,476"/>
+<area shape="rect" id="node8" href="$d8/d10/DataReaderITS_8cxx.html" title="ITS Detector&#45;specific reading from file(s) " alt="" coords="1507,279,1702,350"/>
+<area shape="rect" id="node10" href="$df/d85/DataReaderTPC_8cxx.html" title="TPC Detector&#45;specific reading from file(s) " alt="" coords="1776,279,1971,350"/>
+<area shape="rect" id="node12" href="$dd/d02/DataReaderVSD_8cxx.html" title="VSD specific reading from file(s) (Visualisation Summary Data) " alt="" coords="34,279,228,350"/>
+<area shape="rect" id="node14" href="$d9/d30/EventManagerFrame_8h.html" title="GUI (bottom buttons) for visualisation. " alt="" coords="699,272,907,357"/>
+<area shape="rect" id="node15" href="$d8/df3/Initializer_8h.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/EventVisualisation/View\l/include/EventVisualisationView\l/Initializer.h" alt="" coords="1224,272,1432,357"/>
+<area shape="rect" id="node17" href="$da/d7a/MultiView_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/EventVisualisation/View\l/src/MultiView.cxx" alt="" coords="982,279,1149,350"/>
+<area shape="rect" id="node16" href="$d5/d40/main_8cxx.html" title="/home/travis/build\l/AliceO2Group/AliceO2\l/EventVisualisation/View\l/src/main.cxx" alt="" coords="1294,405,1461,476"/>
+</map>

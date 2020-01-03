@@ -1,0 +1,26 @@
+var classo2_1_1itsmft_1_1Digitizer =
+[
+    [ "Digitizer", "d0/d77/classo2_1_1itsmft_1_1Digitizer.html#a066677e7d224e5e0197037f72e82419e", null ],
+    [ "~Digitizer", "d0/d77/classo2_1_1itsmft_1_1Digitizer.html#a478331ded10dd6edbb96b6296ddefd30", null ],
+    [ "Digitizer", "d0/d77/classo2_1_1itsmft_1_1Digitizer.html#a20d1101c1cc1b80792a6324de8f0bb17", null ],
+    [ "fillOutputContainer", "d0/d77/classo2_1_1itsmft_1_1Digitizer.html#ad60000b076c326ed847d014e7c2eeb10", null ],
+    [ "getDigitParams", "d0/d77/classo2_1_1itsmft_1_1Digitizer.html#a6b1ddea30e65e7717eb00b051a32636a", null ],
+    [ "getEndTimeOfROFMax", "d0/d77/classo2_1_1itsmft_1_1Digitizer.html#a61f6a01495c5747eb60bc9980ac03f74", null ],
+    [ "getEventROFrameMax", "d0/d77/classo2_1_1itsmft_1_1Digitizer.html#af4288a8e5e15ba5b5c6e370d4b61cc66", null ],
+    [ "getEventROFrameMin", "d0/d77/classo2_1_1itsmft_1_1Digitizer.html#a514eb796c037a90437d7da6668fcce16", null ],
+    [ "getEventTime", "d0/d77/classo2_1_1itsmft_1_1Digitizer.html#a9df18891e6884f4fd3324f7b93485aae", null ],
+    [ "getParams", "d0/d77/classo2_1_1itsmft_1_1Digitizer.html#a7161bea72d859fb54515f241fe6452b2", null ],
+    [ "getParams", "d0/d77/classo2_1_1itsmft_1_1Digitizer.html#a7e9102f8cb7e86c45fb404e581eebcd4", null ],
+    [ "init", "d0/d77/classo2_1_1itsmft_1_1Digitizer.html#ae79504d03f4e601ab160cce29500b123", null ],
+    [ "isContinuous", "d0/d77/classo2_1_1itsmft_1_1Digitizer.html#a890cea90382676e24c3728aea97b52d1", null ],
+    [ "operator=", "d0/d77/classo2_1_1itsmft_1_1Digitizer.html#aeba86cfeaa18a9cf50e3f528dc681f31", null ],
+    [ "process", "d0/d77/classo2_1_1itsmft_1_1Digitizer.html#ab01b85659117e5c912ac5db7e90fe937", null ],
+    [ "resetEventROFrames", "d0/d77/classo2_1_1itsmft_1_1Digitizer.html#a560580be9126e268155533afa5afbc33", null ],
+    [ "setContinuous", "d0/d77/classo2_1_1itsmft_1_1Digitizer.html#a46d0788803f71711b3685e45074a23a4", null ],
+    [ "setDigiParams", "d0/d77/classo2_1_1itsmft_1_1Digitizer.html#afda5eaa7ca1eeb7077e5bc7dff0b8df8", null ],
+    [ "setDigits", "d0/d77/classo2_1_1itsmft_1_1Digitizer.html#a5b1745c26b508c0897009e67aa87bd88", null ],
+    [ "setEventTime", "d0/d77/classo2_1_1itsmft_1_1Digitizer.html#a43b9d5eb29737f8ba58704e384717863", null ],
+    [ "setGeometry", "d0/d77/classo2_1_1itsmft_1_1Digitizer.html#a2b0e0529b93d96df568711a4dca1fc43", null ],
+    [ "setMCLabels", "d0/d77/classo2_1_1itsmft_1_1Digitizer.html#a38dc53a6f930c29c6ce118557beed5e9", null ],
+    [ "setROFRecords", "d0/d77/classo2_1_1itsmft_1_1Digitizer.html#a55c17743ec79f045917865edf990ac78", null ]
+];

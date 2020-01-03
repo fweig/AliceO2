@@ -1,0 +1,15 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/Detectors/MUON/MID/Raw/src/Decoder.cxx" name="/home/travis/build/AliceO2Group/AliceO2/Detectors/MUON/MID/Raw/src/Decoder.cxx">
+<area shape="rect" id="node2" href="$de/dc5/MUON_2MID_2Raw_2include_2MIDRaw_2Decoder_8h.html" title="Mid raw data decoder. " alt="" coords="564,124,702,151"/>
+<area shape="rect" id="node23" href="$dc/de4/DetectorParameters_8h.html" title="Useful detector parameters for MID. " alt="" coords="1350,124,1559,151"/>
+<area shape="rect" id="node25" href="$d2/da5/CrateParameters_8h.html" title="MID RO crate parameters. " alt="" coords="1498,273,1686,300"/>
+<area shape="rect" id="node6" href="$d3/d53/ColumnData_8h.html" title="Strip pattern (aka digits) " alt="" coords="980,273,1190,300"/>
+<area shape="rect" id="node9" href="$d2/df9/MUON_2MID_2include_2DataFormatsMID_2ROFRecord_8h.html" title="Definition of the MID event record. " alt="" coords="1214,273,1422,300"/>
+<area shape="rect" id="node15" href="$db/d83/CrateMapper_8h.html" title="Mapper to convert the RO Ids to a format suitable for O2. " alt="" coords="23,199,187,225"/>
+<area shape="rect" id="node17" href="$da/d46/CRUUserLogicDecoder_8h.html" title="MID CRU user logic decoder. " alt="" coords="444,199,670,225"/>
+<area shape="rect" id="node18" href="$d3/d4a/LocalBoardRO_8h.html" title="Structure to store the FEE local board information. " alt="" coords="780,273,955,300"/>
+<area shape="rect" id="node21" href="$df/db7/RawUnit_8h.html" title="Raw data format MID. " alt="" coords="616,273,756,300"/>
+<area shape="rect" id="node10" href="$d9/d80/InteractionRecord_8h.html" title="CommonDataFormat/Interaction\lRecord.h" alt="" coords="1214,348,1423,389"/>
+<area shape="rect" id="node14" href="$d4/dc6/LHCConstants_8h.html" title="Header to collect LHC related constants. " alt="" coords="1413,437,1650,464"/>
+<area shape="rect" id="node19" href="$db/d21/MUON_2MID_2Raw_2include_2MIDRaw_2RawBuffer_8h.html" title="Handler of the RAW buffer. " alt="" coords="390,273,540,300"/>
+<area shape="rect" id="node20" href="$d4/d78/DataFormats_2Headers_2include_2Headers_2RAWDataHeader_8h.html" title="Headers/RAWDataHeader.h" alt="" coords="407,355,595,382"/>
+</map>

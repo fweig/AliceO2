@@ -1,0 +1,10 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/Detectors/TPC/workflow/include/TPCWorkflow" name="/home/travis/build/AliceO2Group/AliceO2/Detectors/TPC/workflow/include/TPCWorkflow">
+<area shape="rect" id="node1" href="dir_24b8bac55cb140e3af9e30ab593ab26a.html" title="TPCWorkflow" alt="" coords="43,52,147,100"/>
+<area shape="rect" id="node2" href="dir_bcbb2cf9a3d3d83e5515c82071a07177.html" title="Framework" alt="" coords="11,148,98,196"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000344_000028.html" title="8" alt="" coords="75,127,83,142"/>
+<area shape="rect" id="node3" href="dir_2171f7ec022c5423887b07c69b2f5b48.html" title="DataFormats" alt="" coords="5,244,104,292"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000344_000052.html" title="4" alt="" coords="94,228,102,243"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000028_000052.html" title="67" alt="" coords="47,218,61,233"/>
+<area shape="rect" id="edge4-headlabel" href="dir_000052_000028.html" title="6" alt="" coords="51,208,59,222"/>
+<area shape="rect" id="clust1" href="dir_1ccc0e6feb2a9e42d8edde27429c6d63.html" title="include" alt="" coords="32,16,157,111"/>
+</map>

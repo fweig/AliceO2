@@ -1,0 +1,26 @@
+var structo2_1_1phos_1_1PHOSSimParams =
+[
+    [ "O2ParamDef", "d1/d8d/structo2_1_1phos_1_1PHOSSimParams.html#a3087178f7f6dc9f9ad75f1ddb7b5e2bb", null ],
+    [ "mADCwidth", "d1/d8d/structo2_1_1phos_1_1PHOSSimParams.html#a0b2101ba421eb035bea94c025136c9c8", null ],
+    [ "mAPDFactor", "d1/d8d/structo2_1_1phos_1_1PHOSSimParams.html#a276a2b16a18ce8d792ee05f4e87f05fe", null ],
+    [ "mAPDNoise", "d1/d8d/structo2_1_1phos_1_1PHOSSimParams.html#a8cb67430bf4abc167db840530317ffdf", null ],
+    [ "mApplyDecalibration", "d1/d8d/structo2_1_1phos_1_1PHOSSimParams.html#a8d9deaca68a892f82d068299c3250e4b", null ],
+    [ "mApplyDigitization", "d1/d8d/structo2_1_1phos_1_1PHOSSimParams.html#a4a076af0a7cba8e4cf99f0221ba10b69", null ],
+    [ "mApplyNonLinearity", "d1/d8d/structo2_1_1phos_1_1PHOSSimParams.html#a79fe48310b9e524bbdd20fef570e2fa1", null ],
+    [ "mApplyTimeResolution", "d1/d8d/structo2_1_1phos_1_1PHOSSimParams.html#a0ad49e282b61e5886a861a1cd810987a", null ],
+    [ "mCellNonLineaityA", "d1/d8d/structo2_1_1phos_1_1PHOSSimParams.html#ae822e7aef4bd0cb05d55db40800b2757", null ],
+    [ "mCellNonLineaityB", "d1/d8d/structo2_1_1phos_1_1PHOSSimParams.html#a7728aa30cc2bb699f6068b25d9714854", null ],
+    [ "mCellNonLineaityC", "d1/d8d/structo2_1_1phos_1_1PHOSSimParams.html#aaa6fa42d0b9d06af2bd15e612793c3dd", null ],
+    [ "mDigitThreshold", "d1/d8d/structo2_1_1phos_1_1PHOSSimParams.html#aa20ad1a5e28b86166290887cb48d4e23", null ],
+    [ "mIntrinsicAPDEfficiency", "d1/d8d/structo2_1_1phos_1_1PHOSSimParams.html#a1ae5c6a8f552b97af801df8e3639f38b", null ],
+    [ "mLightFactor", "d1/d8d/structo2_1_1phos_1_1PHOSSimParams.html#a1058c20a46b452fa1b92a69746f4742e", null ],
+    [ "mLightYieldMean", "d1/d8d/structo2_1_1phos_1_1PHOSSimParams.html#a5e4ab4f1af7d5f849f190e9b0145244d", null ],
+    [ "mMaxNoiseTime", "d1/d8d/structo2_1_1phos_1_1PHOSSimParams.html#a2da19a82ff2bdfdff35d5eb1b75f4e8e", null ],
+    [ "mMinNoiseTime", "d1/d8d/structo2_1_1phos_1_1PHOSSimParams.html#a3d117e5787242290ddf800c40eda9cad", null ],
+    [ "mTimeResolutionA", "d1/d8d/structo2_1_1phos_1_1PHOSSimParams.html#ae1a27a87b0a41bce6b01f5ebd6998f7b", null ],
+    [ "mTimeResolutionB", "d1/d8d/structo2_1_1phos_1_1PHOSSimParams.html#abc01b03307c1f3379b27b54566a30ba6", null ],
+    [ "mTimeResThreshold", "d1/d8d/structo2_1_1phos_1_1PHOSSimParams.html#a9d1c8495c658709d621f613cc35374c7", null ],
+    [ "mTOFa", "d1/d8d/structo2_1_1phos_1_1PHOSSimParams.html#a1b0d85d4d3cb50b5814edac7a40358c7", null ],
+    [ "mTOFb", "d1/d8d/structo2_1_1phos_1_1PHOSSimParams.html#a2446e980714b66764a9f95c195f9c8a1", null ],
+    [ "mZSthreshold", "d1/d8d/structo2_1_1phos_1_1PHOSSimParams.html#aa6b98d1cd955e1a44fc31135cca04017", null ]
+];

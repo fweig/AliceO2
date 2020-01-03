@@ -1,0 +1,25 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/Detectors/TPC/reconstruction/src/GBTFrameContainer.cxx" name="/home/travis/build/AliceO2Group/AliceO2/Detectors/TPC/reconstruction/src/GBTFrameContainer.cxx">
+<area shape="rect" id="node2" href="$db/d52/GBTFrameContainer_8h.html" title="Container class for the GBT Frames. " alt="" coords="2148,124,2353,165"/>
+<area shape="rect" id="node3" href="$d0/d4f/Detectors_2TPC_2base_2include_2TPCBase_2Digit_8h.html" title="TPCBase/Digit.h" alt="" coords="235,221,357,247"/>
+<area shape="rect" id="node8" href="$d5/d1d/TPC_2base_2include_2TPCBase_2Mapper_8h.html" title="TPCBase/Mapper.h" alt="" coords="906,221,1043,247"/>
+<area shape="rect" id="node37" href="$d5/d41/AdcClockMonitor_8h.html" title="Class to monitor the ADC smapling clock contained in the GBT frame. " alt="" coords="2219,213,2418,255"/>
+<area shape="rect" id="node40" href="$dc/dea/GBTFrame_8h.html" title="GBT Frame object. " alt="" coords="1367,221,1583,247"/>
+<area shape="rect" id="node41" href="$df/dc4/HalfSAMPAData_8h.html" title="Class for data from one half SAMPA. " alt="" coords="1607,221,1857,247"/>
+<area shape="rect" id="node42" href="$d1/df0/SyncPatternMonitor_8h.html" title="Class to monitor the data stream and detect synchronization patterns. " alt="" coords="1932,213,2145,255"/>
+<area shape="rect" id="node4" href="$df/d5d/common_2include_2CommonDataFormat_2TimeStamp_8h.html" title="CommonDataFormat/TimeStamp.h" alt="" coords="5,303,232,329"/>
+<area shape="rect" id="node5" href="$d2/d45/GPUCommonRtypes_8h.html" title="GPUCommonRtypes.h" alt="" coords="144,527,301,553"/>
+<area shape="rect" id="node14" href="$d1/d73/Defs_8h.html" title="Common definitions for 2D coordinates. " alt="" coords="1068,601,1236,628"/>
+<area shape="rect" id="node26" href="$de/d41/PadPos_8h.html" title="TPCBase/PadPos.h" alt="" coords="751,452,891,479"/>
+<area shape="rect" id="node27" href="$dd/d0b/PadSecPos_8h.html" title="TPCBase/PadSecPos.h" alt="" coords="575,377,737,404"/>
+<area shape="rect" id="node28" href="$d3/dd6/Sector_8h.html" title="TPCBase/Sector.h" alt="" coords="810,527,942,553"/>
+<area shape="rect" id="node30" href="$da/d61/PadROCPos_8h.html" title="TPCBase/PadROCPos.h" alt="" coords="1063,377,1233,404"/>
+<area shape="rect" id="node32" href="$d3/d54/DigitPos_8h.html" title="TPCBase/DigitPos.h" alt="" coords="903,303,1047,329"/>
+<area shape="rect" id="node34" href="$d1/d1f/FECInfo_8h.html" title="TPCBase/FECInfo.h" alt="" coords="1462,452,1605,479"/>
+<area shape="rect" id="node35" href="$da/d9d/PadRegionInfo_8h.html" title="TPCBase/PadRegionInfo.h" alt="" coords="1122,303,1302,329"/>
+<area shape="rect" id="node36" href="$d6/d42/PartitionInfo_8h.html" title="TPCBase/PartitionInfo.h" alt="" coords="411,303,575,329"/>
+<area shape="rect" id="node15" href="$d2/dd0/Cartesian2D_8h.html" title="MathUtils/Cartesian2D.h" alt="" coords="1641,758,1807,785"/>
+<area shape="rect" id="node18" href="$dd/d76/Cartesian3D_8h.html" title="MathUtils/Cartesian3D.h" alt="" coords="1013,676,1179,703"/>
+<area shape="rect" id="node29" href="$d0/dda/DataFormats_2Detectors_2TPC_2include_2DataFormatsTPC_2Constants_8h.html" title="DataFormatsTPC/Constants.h" alt="" coords="776,601,976,628"/>
+<area shape="rect" id="node31" href="$dc/d14/ROC_8h.html" title="TPCBase/ROC.h" alt="" coords="1018,452,1142,479"/>
+<area shape="rect" id="node33" href="$df/d26/CRU_8h.html" title="TPCBase/CRU.h" alt="" coords="914,377,1038,404"/>
+</map>

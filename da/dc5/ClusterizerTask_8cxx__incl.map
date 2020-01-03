@@ -1,0 +1,16 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/Detectors/EMCAL/reconstruction/src/ClusterizerTask.cxx" name="/home/travis/build/AliceO2Group/AliceO2/Detectors/EMCAL/reconstruction/src/ClusterizerTask.cxx">
+<area shape="rect" id="node4" href="$d8/dc0/ClusterizerTask_8h.html" title="Definition of the EMCAL clusterizer task. " alt="" coords="566,124,722,165"/>
+<area shape="rect" id="node5" href="$dc/d27/DataFormats_2Detectors_2EMCAL_2include_2DataFormatsEMCAL_2Cluster_8h.html" title="DataFormatsEMCAL/Cluster.h" alt="" coords="380,303,581,329"/>
+<area shape="rect" id="node14" href="$d3/d6e/DataFormats_2Detectors_2EMCAL_2include_2DataFormatsEMCAL_2Digit_8h.html" title="DataFormatsEMCAL/Digit.h" alt="" coords="700,303,887,329"/>
+<area shape="rect" id="node20" href="$dd/da8/EMCAL_2base_2include_2EMCALBase_2Geometry_8h.html" title="EMCALBase/Geometry.h" alt="" coords="1631,303,1802,329"/>
+<area shape="rect" id="node37" href="$d1/dff/DigitReader_8h.html" title="Definition of EMCAL digit reader. " alt="" coords="716,213,872,255"/>
+<area shape="rect" id="node39" href="$d2/d45/ClusterizerParameters_8h.html" title="Definition of the EMCAL clusterizer parameter class. " alt="" coords="53,213,220,255"/>
+<area shape="rect" id="node40" href="$d5/d67/Detectors_2EMCAL_2reconstruction_2include_2EMCALReconstruction_2Clusterizer_8h.html" title="EMCALReconstruction\l/Clusterizer.h" alt="" coords="405,213,561,255"/>
+<area shape="rect" id="node10" href="$df/d5d/common_2include_2CommonDataFormat_2TimeStamp_8h.html" title="CommonDataFormat/TimeStamp.h" alt="" coords="504,385,731,411"/>
+<area shape="rect" id="node13" href="$de/d64/RangeReference_8h.html" title="Class to refer to the 1st entry and N elements of some group in the continuous container. " alt="" coords="121,385,378,411"/>
+<area shape="rect" id="node11" href="$d2/d45/GPUCommonRtypes_8h.html" title="GPUCommonRtypes.h" alt="" coords="539,474,696,501"/>
+<area shape="rect" id="node16" href="$dd/dda/DataFormats_2Detectors_2EMCAL_2include_2DataFormatsEMCAL_2Constants_8h.html" title="DataFormatsEMCAL/Constants.h" alt="" coords="1174,385,1392,411"/>
+<area shape="rect" id="node27" href="$d5/d5e/GeometryBase_8h.html" title="EMCALBase/GeometryBase.h" alt="" coords="1467,385,1667,411"/>
+<area shape="rect" id="node28" href="$dd/d76/Cartesian3D_8h.html" title="MathUtils/Cartesian3D.h" alt="" coords="2276,385,2442,411"/>
+<area shape="rect" id="node34" href="$d2/dd0/Cartesian2D_8h.html" title="MathUtils/Cartesian2D.h" alt="" coords="2652,474,2818,501"/>
+</map>

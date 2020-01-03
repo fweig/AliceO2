@@ -1,0 +1,15 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/Detectors/PHOS/simulation/include/PHOSSimulation/Digitizer.h" name="/home/travis/build/AliceO2Group/AliceO2/Detectors/PHOS/simulation/include/PHOSSimulation/Digitizer.h">
+<area shape="rect" id="node2" href="$da/d14/Detectors_2PHOS_2base_2include_2PHOSBase_2Digit_8h.html" title="PHOSBase/Digit.h" alt="" coords="925,131,1057,158"/>
+<area shape="rect" id="node7" href="$db/dad/Detectors_2PHOS_2base_2include_2PHOSBase_2Hit_8h.html" title="PHOSBase/Hit.h" alt="" coords="1080,221,1203,247"/>
+<area shape="rect" id="node27" href="$d7/d7f/PHOS_2base_2include_2PHOSBase_2Geometry_8h.html" title="PHOSBase/Geometry.h" alt="" coords="1228,131,1391,158"/>
+<area shape="rect" id="node31" href="$d1/d73/Detectors_2PHOS_2simulation_2include_2PHOSSimulation_2MCLabel_8h.html" title="PHOSSimulation/MCLabel.h" alt="" coords="674,131,862,158"/>
+<area shape="rect" id="node32" href="$db/d14/MCTruthContainer_8h.html" title="Definition of a container to keep Monte Carlo truth external to simulation objects. " alt="" coords="1900,124,2052,165"/>
+<area shape="rect" id="node3" href="$df/d5d/common_2include_2CommonDataFormat_2TimeStamp_8h.html" title="CommonDataFormat/TimeStamp.h" alt="" coords="829,221,1056,247"/>
+<area shape="rect" id="node6" href="$d7/dcd/MCCompLabel_8h.html" title="SimulationDataFormat\l/MCCompLabel.h" alt="" coords="653,213,805,255"/>
+<area shape="rect" id="node4" href="$d2/d45/GPUCommonRtypes_8h.html" title="GPUCommonRtypes.h" alt="" coords="651,310,808,337"/>
+<area shape="rect" id="node8" href="$d4/d25/BaseHits_8h.html" title="SimulationDataFormat\l/BaseHits.h" alt="" coords="949,303,1101,344"/>
+<area shape="rect" id="node20" href="$d0/d91/ShmAllocator_8h.html" title="CommonUtils/ShmAllocator.h" alt="" coords="1695,310,1889,337"/>
+<area shape="rect" id="node9" href="$dd/d76/Cartesian3D_8h.html" title="MathUtils/Cartesian3D.h" alt="" coords="643,392,810,419"/>
+<area shape="rect" id="node17" href="$d2/dd0/Cartesian2D_8h.html" title="MathUtils/Cartesian2D.h" alt="" coords="314,474,481,501"/>
+<area shape="rect" id="node21" href="$de/d61/ShmManager_8h.html" title="CommonUtils/ShmManager.h" alt="" coords="1695,392,1889,419"/>
+</map>

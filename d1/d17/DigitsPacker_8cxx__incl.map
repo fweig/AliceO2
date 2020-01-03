@@ -1,0 +1,10 @@
+<map id="/home/travis/build/AliceO2Group/AliceO2/Detectors/MUON/MID/Simulation/src/DigitsPacker.cxx" name="/home/travis/build/AliceO2Group/AliceO2/Detectors/MUON/MID/Simulation/src/DigitsPacker.cxx">
+<area shape="rect" id="node2" href="$db/de4/DigitsPacker_8h.html" title="Digits sorter for MID. " alt="" coords="606,124,805,151"/>
+<area shape="rect" id="node4" href="$db/d14/MCTruthContainer_8h.html" title="Definition of a container to keep Monte Carlo truth external to simulation objects. " alt="" coords="373,199,525,240"/>
+<area shape="rect" id="node13" href="$d0/d00/ColumnDataMC_8h.html" title="Strip pattern (aka digits) for simulations. " alt="" coords="805,206,1022,233"/>
+<area shape="rect" id="node20" href="$de/da1/Detectors_2MUON_2MID_2Simulation_2include_2MIDSimulation_2MCLabel_8h.html" title="Label for MID. " alt="" coords="1163,206,1338,233"/>
+<area shape="rect" id="node14" href="$df/d5d/common_2include_2CommonDataFormat_2TimeStamp_8h.html" title="CommonDataFormat/TimeStamp.h" alt="" coords="1043,295,1269,322"/>
+<area shape="rect" id="node17" href="$d3/d53/ColumnData_8h.html" title="Strip pattern (aka digits) " alt="" coords="808,295,1019,322"/>
+<area shape="rect" id="node15" href="$d2/d45/GPUCommonRtypes_8h.html" title="GPUCommonRtypes.h" alt="" coords="1184,377,1341,404"/>
+<area shape="rect" id="node21" href="$d7/dcd/MCCompLabel_8h.html" title="SimulationDataFormat\l/MCCompLabel.h" alt="" coords="1293,288,1445,329"/>
+</map>
