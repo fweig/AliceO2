@@ -42,6 +42,7 @@ class Digit;
 namespace GPUCA_NAMESPACE::gpu
 {
 struct GPUTPCClusterMCInterim;
+struct TPCCFCalibration;
 
 struct ChargePos;
 
@@ -133,6 +134,7 @@ class GPUTPCClusterFinder : public GPUProcessor
   short mOutputId = -1;
 
   GPUdi() float getGainCorrection(tpccf::Row, tpccf::Pad) const;
+  GPUdi() const TPCCFCalibration* getCalibration() const;
 
 #ifndef GPUCA_GPUCODE
   void DumpDigits(std::ostream& out);

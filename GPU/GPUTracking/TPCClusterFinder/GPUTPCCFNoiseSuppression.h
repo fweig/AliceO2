@@ -20,6 +20,7 @@
 #include "GPUTPCClusterFinder.h"
 #include "Array2D.h"
 #include "PackedCharge.h"
+#include "TPCCFCalibration.h"
 
 namespace GPUCA_NAMESPACE::gpu
 {
@@ -57,7 +58,7 @@ class GPUTPCCFNoiseSuppression : public GPUKernelTemplate
   GPUd() static void Thread(int nBlocks, int nThreads, int iBlock, int iThread, GPUSharedMemory& smem, processorType& clusterer, Args... args);
 
  private:
-  static GPUd() void noiseSuppressionImpl(int, int, int, int, GPUSharedMemory&, const Array2D<PackedCharge>&, const Array2D<uchar>&, const ChargePos*, const uint, uchar*);
+  static GPUd() void noiseSuppressionImpl(int, int, int, int, GPUSharedMemory&, const TPCCFCalibration&, const Array2D<PackedCharge>&, const Array2D<uchar>&, const ChargePos*, const uint, uchar*);
 
   static GPUd() void updatePeaksImpl(int, int, int, int, const ChargePos*, const uchar*, const uint, Array2D<uchar>&);
 
@@ -69,7 +70,7 @@ class GPUTPCCFNoiseSuppression : public GPUKernelTemplate
 
   static GPUdi() bool keepPeak(ulong, ulong);
 
-  static GPUd() void findMinimaAndPeaks(const Array2D<PackedCharge>&, const Array2D<uchar>&, float, const ChargePos&, ChargePos*, PackedCharge*, ulong*, ulong*, ulong*);
+  static GPUd() void findMinimaAndPeaks(const Array2D<PackedCharge>&, const Array2D<uchar>&, const TPCCFCalibration&, float, const ChargePos&, ChargePos*, PackedCharge*, ulong*, ulong*, ulong*);
 };
 
 } // namespace GPUCA_NAMESPACE::gpu

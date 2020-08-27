@@ -26,6 +26,8 @@ class CalDet;
 namespace GPUCA_NAMESPACE::gpu
 {
 
+class GPUSettingsRec;
+
 template <typename T>
 struct TPCPadGainCorrectionStepNum {
 };
@@ -42,11 +44,20 @@ struct TPCPadGainCorrectionStepNum<unsigned short> {
 
 struct TPCCFCalibration {
  public:
+  // Calibration parameters for cluster finder
+  float qmaxCutoff = 3.f;
+  float qtotCutoff = 0.f;
+  float extendInnerChargeThreshold = 0.f;
+  float minSplitChargeNum = 1.f;
+  float noiseSuppressionEpsilon = 10.f;
+   
 #ifndef GPUCA_GPUCODE
   TPCCFCalibration();
-  TPCCFCalibration(const o2::tpc::CalDet<float>&);
+  TPCCFCalibration(const GPUSettingsRec&);
+  TPCCFCalibration(const GPUSettingsRec&, const o2::tpc::CalDet<float>&);
 #endif
 
+  // Deal with pad gain correction from here on
   GPUdi() void setGainCorrection(int sector, tpccf::Row row, tpccf::Pad pad, float c)
   {
     mGainCorrection[sector].set(globalPad(row, pad), c);

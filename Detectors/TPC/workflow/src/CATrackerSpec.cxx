@@ -202,12 +202,12 @@ DataProcessorSpec getCATrackerSpec(ca::Config const& specconfig, std::vector<int
       if (boost::filesystem::exists(confParam.gainCalibFile)) {
         LOG(INFO) << "Loading tpc gain correction from file " << confParam.gainCalibFile;
         const auto* gainMap = o2::tpc::utils::readCalPads(confParam.gainCalibFile, "GainMap")[0];
-        processAttributes->tpcCalibration.reset(new TPCCFCalibration{*gainMap});
+        processAttributes->tpcCalibration.reset(new TPCCFCalibration{config.configReconstruction, *gainMap});
       } else {
         if (not confParam.gainCalibFile.empty()) {
           LOG(WARN) << "Couldn't find tpc gain correction file " << confParam.gainCalibFile << ". Not applying any gain correction.";
         }
-        processAttributes->tpcCalibration.reset(new TPCCFCalibration{});
+        processAttributes->tpcCalibration.reset(new TPCCFCalibration{config.configReconstruction});
       }
       config.configCalib.tpcCalibration = processAttributes->tpcCalibration.get();
 

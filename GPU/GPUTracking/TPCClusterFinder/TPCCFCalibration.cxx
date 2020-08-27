@@ -16,6 +16,7 @@
 #include "GPUTPCGeometry.h"
 #include "DataFormatsTPC/Constants.h"
 #include "TPCBase/CalDet.h"
+#include "GPUSettings.h"
 
 using namespace GPUCA_NAMESPACE::gpu;
 
@@ -29,7 +30,16 @@ TPCCFCalibration::TPCCFCalibration()
   }
 }
 
-TPCCFCalibration::TPCCFCalibration(const o2::tpc::CalDet<float>& gainMap) : TPCCFCalibration()
+TPCCFCalibration::TPCCFCalibration(const GPUSettingsRec& rec) : TPCCFCalibration()
+{
+  qmaxCutoff = rec.tpcCFqmaxCutoff;
+  qtotCutoff = rec.tpcCFqtotCutoff;
+  extendInnerChargeThreshold = rec.tpcCFinnerThreshold;
+  minSplitChargeNum = rec.tpcCFminSplitNum;
+  noiseSuppressionEpsilon = rec.tpcCFnoiseSuppressionEpsilon;
+}
+
+TPCCFCalibration::TPCCFCalibration(const GPUSettingsRec& rec, const o2::tpc::CalDet<float>& gainMap) : TPCCFCalibration(rec)
 {
   for (int sector = 0; sector < o2::tpc::constants::MAXSECTOR; sector++) {
     for (int p = 0; p < TPC_PADS_IN_SECTOR; p++) {
