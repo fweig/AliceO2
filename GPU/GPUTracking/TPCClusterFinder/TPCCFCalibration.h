@@ -50,7 +50,7 @@ struct TPCCFCalibration {
   float extendInnerChargeThreshold = 0.f;
   float minSplitChargeNum = 1.f;
   float noiseSuppressionEpsilon = 10.f;
-   
+
 #ifndef GPUCA_GPUCODE
   TPCCFCalibration();
   TPCCFCalibration(const GPUSettingsRec&);
