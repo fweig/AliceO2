@@ -42,7 +42,6 @@ struct TPCPadGainCorrectionStepNum<unsigned short> {
 
 struct TPCCFCalibration {
  public:
-
 #ifndef GPUCA_GPUCODE
   TPCCFCalibration();
   TPCCFCalibration(const o2::tpc::CalDet<float>&);
