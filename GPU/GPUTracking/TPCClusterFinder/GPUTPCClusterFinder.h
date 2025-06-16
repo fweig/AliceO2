@@ -99,6 +99,7 @@ class GPUTPCClusterFinder : public GPUProcessor
   MinMaxCN* mMinMaxCN = nullptr;
   uint8_t* mPpadIsNoisy = nullptr;
   tpc::Digit* mPdigits = nullptr; // input digits, only set if ZS is skipped
+  CfChargePos *mPhipPositions = nullptr; // Peaks of Highly Ionizing Particles, already found during zero suppression
   CfChargePos* mPpositions = nullptr;
   CfChargePos* mPpeakPositions = nullptr;
   CfChargePos* mPfilteredPeakPositions = nullptr;

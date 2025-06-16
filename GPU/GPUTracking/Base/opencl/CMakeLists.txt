@@ -108,9 +108,10 @@ endif()
 
 if(ALIGPU_BUILD_TYPE STREQUAL "Standalone")
   add_library(${MODULE} SHARED ${SRCS})
-  target_link_libraries(${MODULE} GPUTracking OpenCL)
+  target_link_libraries(${MODULE} GPUTracking ${OpenCL_LIBRARY})
   install(TARGETS ${MODULE})
   set(targetName ${MODULE})
+  target_include_directories(${MODULE} PUBLIC ${OpenCL_INCLUDE_DIR})
 endif()
 
 install(FILES ${HDRS} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/GPU)
