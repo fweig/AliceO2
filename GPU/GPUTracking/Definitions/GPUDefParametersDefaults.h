@@ -274,9 +274,7 @@
 
   // Default settings for GPU, if not already set for selected GPU type
   #ifndef GPUCA_WARP_SIZE
-    // FIXME: HACK for POCL runtime as warp wide functions seem to broken in
-    // Zero Suppression decoding for values > 2...
-    #define GPUCA_WARP_SIZE 1
+    #define GPUCA_WARP_SIZE 32
   #endif
   #ifndef GPUCA_THREAD_COUNT_DEFAULT
     #define GPUCA_THREAD_COUNT_DEFAULT 256
