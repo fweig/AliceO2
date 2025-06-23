@@ -568,20 +568,18 @@ GPUd() void GPUTPCCFDecodeZSLinkBase::WriteCharge(processorType& clusterer, floa
 #endif
   CfArray2D<PackedCharge> chargeMap(reinterpret_cast<PackedCharge*>(clusterer.mPchargeMap));
 
-  GPUbarrier();
-
   CfChargePos pos(padAndRow.getRow(), padAndRow.getPad(), localTime);
   positions[positionOffset] = pos;
 
-  GPUbarrier();
+  GPUbarrierWarp();
 
   charge *= clusterer.GetConstantMem()->calibObjects.tpcPadGain->getGainCorrection(sector, padAndRow.getRow(), padAndRow.getPad());
 
-  GPUbarrier();
+  GPUbarrierWarp();
 
   chargeMap[pos] = PackedCharge(charge);
 
-  GPUbarrier();
+  GPUbarrierWarp();
 }
 
 GPUd() uint16_t GPUTPCCFDecodeZSLinkBase::FillWithInvalid(processorType& clusterer, int32_t iThread, int32_t nThreads, uint32_t pageDigitOffset, uint16_t nSamples)
@@ -750,7 +748,7 @@ GPUd() uint16_t GPUTPCCFDecodeZSDenseLink::DecodeTBMultiThread(
 
   uint16_t nSamplesInTB = 0;
 
-  GPUbarrier();
+  GPUbarrierWarp();
 
   // Read timebin link headers
   for (uint8_t iLink = 0; iLink < nLinksInTimebin; iLink++) {
@@ -760,7 +758,7 @@ GPUd() uint16_t GPUTPCCFDecodeZSDenseLink::DecodeTBMultiThread(
     if (iThread == 0) {
       smem.linkIds[iLink] = timebinLinkHeaderStart & 0b00011111;
     }
-    GPUbarrier();
+    GPUbarrierWarp();
     bool bitmaskIsFlat = timebinLinkHeaderStart & 0b00100000;
 
     uint16_t bitmaskL2 = 0x03FF;
@@ -781,15 +779,15 @@ GPUd() uint16_t GPUTPCCFDecodeZSDenseLink::DecodeTBMultiThread(
       uint8_t myChannelHasData = (chan < 80 && l2 ? TEST_BIT(PEEK_OVERFLOW(page, chanByteOffset), chan % 8) : 0);
       assert(myChannelHasData == 0 || myChannelHasData == 1);
 
-      GPUbarrier();
+      GPUbarrierWarp();
       int32_t nSamplesStep;
       int32_t threadSampleOffset = CfUtils::warpPredicateScan(myChannelHasData, &nSamplesStep);
-      GPUbarrier();
+      GPUbarrierWarp();
 
       if (myChannelHasData) {
         smem.rawFECChannels[nSamplesInTB + threadSampleOffset] = chan;
       }
-      GPUbarrier();
+      GPUbarrierWarp();
 
       nSamplesInTB += nSamplesStep;
     }
@@ -800,20 +798,20 @@ GPUd() uint16_t GPUTPCCFDecodeZSDenseLink::DecodeTBMultiThread(
     if (iThread == 0) {
       smem.samplesPerLinkEnd[iLink] = nSamplesInTB;
     }
-    GPUbarrier();
+    GPUbarrierWarp();
 
   } // for (uint8_t iLink = 0; iLink < nLinksInTimebin; iLink++)
-  GPUbarrier();
+  GPUbarrierWarp();
 
   const uint8_t* adcData = ConsumeBytes(page, (nSamplesInTB * DECODE_BITS + 7) / 8);
   MAYBE_PAGE_OVERFLOW(page); // TODO: We don't need this check?
-  GPUbarrier();
+  GPUbarrierWarp();
 
   if (not fragment.contains(timeBin)) {
     return FillWithInvalid(clusterer, iThread, NTHREADS, pageDigitOffset, nSamplesInTB);
   }
 
-  GPUbarrier();
+  GPUbarrierWarp();
 
   // Unpack ADC
   int32_t iLink = 0;
@@ -834,26 +832,26 @@ GPUd() uint16_t GPUTPCCFDecodeZSDenseLink::DecodeTBMultiThread(
     }
     byte >>= adcOffsetInByte;
 
-    GPUbarrier();
+    GPUbarrierWarp();
 
     while (smem.samplesPerLinkEnd[iLink] <= sample) {
       iLink++;
     }
 
-    GPUbarrier();
+    GPUbarrierWarp();
 
     int32_t rawFECChannelLink = smem.rawFECChannels[sample];
 
-    GPUbarrier();
+    GPUbarrierWarp();
 
     // Unpack data for cluster finder
     o2::tpc::PadPos padAndRow = GetPadAndRowFromFEC(clusterer, cru, rawFECChannelLink, smem.linkIds[iLink]);
-    GPUbarrier();
+    GPUbarrierWarp();
 
     float charge = ADCToFloat(byte, DECODE_MASK, DECODE_BITS_FACTOR);
     WriteCharge(clusterer, charge, padAndRow, fragment.toLocal(timeBin), pageDigitOffset + sample);
 
-    GPUbarrier();
+    GPUbarrierWarp();
 
   } // for (uint16_t sample = iThread; sample < nSamplesInTB; sample += NTHREADS)
 

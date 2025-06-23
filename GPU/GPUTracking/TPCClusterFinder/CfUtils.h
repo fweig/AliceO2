@@ -58,8 +58,11 @@ class CfUtils
     *sum = __popc(waveMask);
     return myOffset;
 #else // CPU / OpenCL fallback
-    int32_t myOffset = warp_scan_inclusive_add(pred ? 1 : 0);
+    GPUbarrier();
+    int32_t myOffset = warp_scan_inclusive_add(!!pred);
+    GPUbarrier();
     *sum = warp_broadcast(myOffset, GPUCA_WARP_SIZE - 1);
+    GPUbarrier();
     return myOffset - !!pred;
 #endif
   }
