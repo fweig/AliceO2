@@ -94,100 +94,100 @@ GPUdi() void GPUdEdx::checkSubThresh(int32_t roc)
 
 GPUdnii() void GPUdEdx::fillCluster(float qtot, float qmax, int32_t padRow, uint8_t sector, float trackSnp, float trackTgl, const GPUCalibObjectsConst& calib, float z, float pad, float relTime)
 {
-  if (mCount >= MAX_NCL) {
-    return;
-  }
+  /* if (mCount >= MAX_NCL) { */
+  /*   return; */
+  /* } */
 
-  // container containing all the dE/dx corrections
-  auto calibContainer = calib.dEdxCalibContainer;
-  constexpr GPUTPCGeometry geo;
+  /* // container containing all the dE/dx corrections */
+  /* auto calibContainer = calib.dEdxCalibContainer; */
+  /* constexpr GPUTPCGeometry geo; */
 
-  const int32_t roc = geo.GetROC(padRow);
-  checkSubThresh(roc);
-  float snp2 = trackSnp * trackSnp;
-  if (snp2 > GPUCA_MAX_SIN_PHI_LOW) {
-    snp2 = GPUCA_MAX_SIN_PHI_LOW;
-  }
+  /* const int32_t roc = geo.GetROC(padRow); */
+  /* checkSubThresh(roc); */
+  /* float snp2 = trackSnp * trackSnp; */
+  /* if (snp2 > GPUCA_MAX_SIN_PHI_LOW) { */
+  /*   snp2 = GPUCA_MAX_SIN_PHI_LOW; */
+  /* } */
 
-  // setting maximum for snp for which the calibration object was created
-  const float snp = CAMath::Abs(trackSnp);
+  /* // setting maximum for snp for which the calibration object was created */
+  /* const float snp = CAMath::Abs(trackSnp); */
 
-  // tanTheta local dip angle: z angle - dz/dx (cm/cm)
-  const float sec2 = 1.f / (1.f - snp2);
-  const float tgl2 = trackTgl * trackTgl;
-  const float tanTheta = CAMath::Sqrt(tgl2 * sec2);
+  /* // tanTheta local dip angle: z angle - dz/dx (cm/cm) */
+  /* const float sec2 = 1.f / (1.f - snp2); */
+  /* const float tgl2 = trackTgl * trackTgl; */
+  /* const float tanTheta = CAMath::Sqrt(tgl2 * sec2); */
 
-  // getting the topology correction
-  const uint32_t padPos = CAMath::Float2UIntRn(pad); // position of the pad is shifted half a pad ( pad=3 -> centre position of third pad)
-  const float absRelPad = CAMath::Abs(pad - padPos);
-  const int32_t region = geo.GetRegion(padRow);
-  z = CAMath::Abs(z);
-  const float threshold = calibContainer->getZeroSupressionThreshold(sector, padRow, padPos); // TODO: Use the mean zero supresion threshold of all pads in the cluster?
-  const bool useFullGainMap = calibContainer->isUsageOfFullGainMap();
-  float qTotIn = qtot;
-  const float fullGainMapGain = calibContainer->getGain(sector, padRow, padPos);
-  if (useFullGainMap) {
-    qmax /= fullGainMapGain;
-    qtot /= fullGainMapGain;
-  } else {
-    qTotIn *= fullGainMapGain;
-  }
+  /* // getting the topology correction */
+  /* const uint32_t padPos = CAMath::Float2UIntRn(pad); // position of the pad is shifted half a pad ( pad=3 -> centre position of third pad) */
+  /* const float absRelPad = CAMath::Abs(pad - padPos); */
+  /* const int32_t region = geo.GetRegion(padRow); */
+  /* z = CAMath::Abs(z); */
+  /* const float threshold = calibContainer->getZeroSupressionThreshold(sector, padRow, padPos); // TODO: Use the mean zero supresion threshold of all pads in the cluster? */
+  /* const bool useFullGainMap = calibContainer->isUsageOfFullGainMap(); */
+  /* float qTotIn = qtot; */
+  /* const float fullGainMapGain = calibContainer->getGain(sector, padRow, padPos); */
+  /* if (useFullGainMap) { */
+  /*   qmax /= fullGainMapGain; */
+  /*   qtot /= fullGainMapGain; */
+  /* } else { */
+  /*   qTotIn *= fullGainMapGain; */
+  /* } */
 
-  const float qMaxTopologyCorr = calibContainer->getTopologyCorrection(region, o2::tpc::ChargeType::Max, tanTheta, snp, z, absRelPad, relTime, threshold, qTotIn);
-  const float qTotTopologyCorr = calibContainer->getTopologyCorrection(region, o2::tpc::ChargeType::Tot, tanTheta, snp, z, absRelPad, relTime, threshold, qTotIn);
-  qmax /= qMaxTopologyCorr;
-  qtot /= qTotTopologyCorr;
+  /* const float qMaxTopologyCorr = calibContainer->getTopologyCorrection(region, o2::tpc::ChargeType::Max, tanTheta, snp, z, absRelPad, relTime, threshold, qTotIn); */
+  /* const float qTotTopologyCorr = calibContainer->getTopologyCorrection(region, o2::tpc::ChargeType::Tot, tanTheta, snp, z, absRelPad, relTime, threshold, qTotIn); */
+  /* qmax /= qMaxTopologyCorr; */
+  /* qtot /= qTotTopologyCorr; */
 
-  tpc::StackID stack{
-    sector,
-    static_cast<tpc::GEMstack>(roc)};
+  /* tpc::StackID stack{ */
+  /*   sector, */
+  /*   static_cast<tpc::GEMstack>(roc)}; */
 
-  const float qMaxResidualCorr = calibContainer->getResidualCorrection(stack, tpc::ChargeType::Max, trackTgl, trackSnp);
-  const float qTotResidualCorr = calibContainer->getResidualCorrection(stack, tpc::ChargeType::Tot, trackTgl, trackSnp);
-  qmax /= qMaxResidualCorr;
-  qtot /= qTotResidualCorr;
+  /* const float qMaxResidualCorr = calibContainer->getResidualCorrection(stack, tpc::ChargeType::Max, trackTgl, trackSnp); */
+  /* const float qTotResidualCorr = calibContainer->getResidualCorrection(stack, tpc::ChargeType::Tot, trackTgl, trackSnp); */
+  /* qmax /= qMaxResidualCorr; */
+  /* qtot /= qTotResidualCorr; */
 
-  const float residualGainMapGain = calibContainer->getResidualGain(sector, padRow, padPos);
-  qmax /= residualGainMapGain;
-  qtot /= residualGainMapGain;
+  /* const float residualGainMapGain = calibContainer->getResidualGain(sector, padRow, padPos); */
+  /* qmax /= residualGainMapGain; */
+  /* qtot /= residualGainMapGain; */
 
-  mChargeTot[mCount] = (GPUCA_PAR_DEDX_STORAGE_TYPE_A)(qtot * scalingFactor<GPUCA_PAR_DEDX_STORAGE_TYPE_A>::factor + scalingFactor<GPUCA_PAR_DEDX_STORAGE_TYPE_A>::round);
-  mChargeMax[mCount++] = (GPUCA_PAR_DEDX_STORAGE_TYPE_A)(qmax * scalingFactor<GPUCA_PAR_DEDX_STORAGE_TYPE_A>::factor + scalingFactor<GPUCA_PAR_DEDX_STORAGE_TYPE_A>::round);
-  mNClsROC[roc]++;
-  if (qtot < mSubThreshMinTot) {
-    mSubThreshMinTot = qtot;
-  }
-  if (qmax < mSubThreshMinMax) {
-    mSubThreshMinMax = qmax;
-  }
+  /* mChargeTot[mCount] = (GPUCA_PAR_DEDX_STORAGE_TYPE_A)(qtot * scalingFactor<GPUCA_PAR_DEDX_STORAGE_TYPE_A>::factor + scalingFactor<GPUCA_PAR_DEDX_STORAGE_TYPE_A>::round); */
+  /* mChargeMax[mCount++] = (GPUCA_PAR_DEDX_STORAGE_TYPE_A)(qmax * scalingFactor<GPUCA_PAR_DEDX_STORAGE_TYPE_A>::factor + scalingFactor<GPUCA_PAR_DEDX_STORAGE_TYPE_A>::round); */
+  /* mNClsROC[roc]++; */
+  /* if (qtot < mSubThreshMinTot) { */
+  /*   mSubThreshMinTot = qtot; */
+  /* } */
+  /* if (qmax < mSubThreshMinMax) { */
+  /*   mSubThreshMinMax = qmax; */
+  /* } */
 
-  GPUCA_DEBUG_STREAMER_CHECK(if (o2::utils::DebugStreamer::checkStream(o2::utils::StreamFlags::streamdEdx)) {
-    float padlx = geo.Row2X(padRow);
-    float padly = geo.LinearPad2Y(sector, padRow, padPos);
-    o2::utils::DebugStreamer::instance()->getStreamer("debug_dedx", "UPDATE") << o2::utils::DebugStreamer::instance()->getUniqueTreeName("tree_dedx").data()
-                                                                              << "qTot=" << mChargeTot[mCount - 1]
-                                                                              << "qMax=" << mChargeMax[mCount - 1]
-                                                                              << "region=" << region
-                                                                              << "padRow=" << padRow
-                                                                              << "sector=" << sector
-                                                                              << "lx=" << padlx
-                                                                              << "ly=" << padly
-                                                                              << "tanTheta=" << tanTheta
-                                                                              << "trackTgl=" << trackTgl
-                                                                              << "sinPhi=" << trackSnp
-                                                                              << "z=" << z
-                                                                              << "absRelPad=" << absRelPad
-                                                                              << "relTime=" << relTime
-                                                                              << "threshold=" << threshold
-                                                                              << "qTotIn=" << qTotIn
-                                                                              << "qMaxTopologyCorr=" << qMaxTopologyCorr
-                                                                              << "qTotTopologyCorr=" << qTotTopologyCorr
-                                                                              << "qMaxResidualCorr=" << qMaxResidualCorr
-                                                                              << "qTotResidualCorr=" << qTotResidualCorr
-                                                                              << "residualGainMapGain=" << residualGainMapGain
-                                                                              << "fullGainMapGain=" << fullGainMapGain
-                                                                              << "\n";
-  })
+  /* GPUCA_DEBUG_STREAMER_CHECK(if (o2::utils::DebugStreamer::checkStream(o2::utils::StreamFlags::streamdEdx)) { */
+  /*   float padlx = geo.Row2X(padRow); */
+  /*   float padly = geo.LinearPad2Y(sector, padRow, padPos); */
+  /*   o2::utils::DebugStreamer::instance()->getStreamer("debug_dedx", "UPDATE") << o2::utils::DebugStreamer::instance()->getUniqueTreeName("tree_dedx").data() */
+  /*                                                                             << "qTot=" << mChargeTot[mCount - 1] */
+  /*                                                                             << "qMax=" << mChargeMax[mCount - 1] */
+  /*                                                                             << "region=" << region */
+  /*                                                                             << "padRow=" << padRow */
+  /*                                                                             << "sector=" << sector */
+  /*                                                                             << "lx=" << padlx */
+  /*                                                                             << "ly=" << padly */
+  /*                                                                             << "tanTheta=" << tanTheta */
+  /*                                                                             << "trackTgl=" << trackTgl */
+  /*                                                                             << "sinPhi=" << trackSnp */
+  /*                                                                             << "z=" << z */
+  /*                                                                             << "absRelPad=" << absRelPad */
+  /*                                                                             << "relTime=" << relTime */
+  /*                                                                             << "threshold=" << threshold */
+  /*                                                                             << "qTotIn=" << qTotIn */
+  /*                                                                             << "qMaxTopologyCorr=" << qMaxTopologyCorr */
+  /*                                                                             << "qTotTopologyCorr=" << qTotTopologyCorr */
+  /*                                                                             << "qMaxResidualCorr=" << qMaxResidualCorr */
+  /*                                                                             << "qTotResidualCorr=" << qTotResidualCorr */
+  /*                                                                             << "residualGainMapGain=" << residualGainMapGain */
+  /*                                                                             << "fullGainMapGain=" << fullGainMapGain */
+  /*                                                                             << "\n"; */
+  /* }) */
 }
 
 GPUdi() void GPUdEdx::fillSubThreshold(int32_t padRow)
