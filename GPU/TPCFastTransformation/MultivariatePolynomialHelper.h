@@ -57,7 +57,7 @@ struct MultivariatePolynomialContainer {
 class MultivariatePolynomialParametersHelper
 {
  public:
-  /// \returns number of parameters for given dimension and degree of polynomials
+  /// \returns number of parameters for given dimension and degree of polynomials at compile time
   /// calculates the number of parameters for a multivariate polynomial for given degree: nParameters = (n+d-1 d) -> binomial coefficient
   /// see: https://mathoverflow.net/questions/225953/number-of-polynomial-terms-for-certain-degree-and-certain-number-of-variables
   template <uint32_t Degree, uint32_t Dim>
@@ -70,7 +70,19 @@ class MultivariatePolynomialParametersHelper
     }
   }
 
-  /// \returns the number of parameters for interaction terms only (see: https://en.wikipedia.org/wiki/Combination)
+  /// \returns number of parameters for given dimension and degree of polynomials
+  /// calculates the number of parameters for a multivariate polynomial for given degree: nParameters = (n+d-1 d) -> binomial coefficient
+  /// see: https://mathoverflow.net/questions/225953/number-of-polynomial-terms-for-certain-degree-and-certain-number-of-variables
+  GPUd() static constexpr uint32_t getNParametersAllTerms(uint32_t degree, uint32_t dim)
+  {
+    if (degree == 0) {
+      return binomialCoeff(dim - 1, 0);
+    } else {
+      return binomialCoeff(dim - 1 + degree, degree) + getNParametersAllTerms(degree - 1, dim);
+    }
+  }
+
+  /// \returns the number of parameters at compile time for interaction terms only (see: https://en.wikipedia.org/wiki/Combination)
   template <uint32_t Degree, uint32_t Dim>
   GPUd() static constexpr uint32_t getNParametersInteractionOnly()
   {
@@ -80,6 +92,17 @@ class MultivariatePolynomialParametersHelper
       return binomialCoeff<Dim, Degree>() + getNParametersInteractionOnly<Degree - 1, Dim>();
     }
   }
+
+  /// \returns the number of parameters for interaction terms only (see: https://en.wikipedia.org/wiki/Combination)
+  GPUd() static constexpr uint32_t getNParametersInteractionOnly(uint32_t degree, uint32_t dim)
+  {
+    if (degree == 0) {
+      return binomialCoeff(dim - 1, 0);
+    } else {
+      return binomialCoeff(dim, degree) + getNParametersInteractionOnly(degree - 1, dim);
+    }
+  }
+
 
   template <uint32_t Degree, uint32_t Dim, bool InteractionOnly>
   GPUd() static constexpr uint32_t getNParameters()
@@ -91,8 +114,18 @@ class MultivariatePolynomialParametersHelper
     }
   }
 
+  GPUd() static constexpr uint32_t getNParameters(uint32_t degree, uint32_t dim, bool interactionOnly)
+  {
+    if (interactionOnly) {
+      return getNParametersInteractionOnly(degree, dim);
+    } else {
+      return getNParametersAllTerms(degree, dim);
+    }
+  }
+
+
  private:
-  /// calculate factorial of n
+  /// calculate factorial of n at compile time
   /// \return returns n!
   template <uint32_t N>
   GPUd() static constexpr uint32_t factorial()
@@ -104,12 +137,23 @@ class MultivariatePolynomialParametersHelper
     }
   }
 
-  /// calculates binomial coefficient
+  /// calculate factorial of n
+  /// \return returns n!
+  GPUd() static constexpr uint32_t factorial(uint32_t n) { return n == 0 || n == 1 ? 1 : n * factorial(n - 1); }
+
+  /// calculates binomial coefficient at compile time
   /// \return returns (n k)
   template <uint32_t N, uint32_t K>
   GPUd() static constexpr uint32_t binomialCoeff()
   {
     return factorial<N>() / (factorial<K>() * factorial<N - K>());
+  }
+
+  /// calculates binomial coefficient
+  /// \return returns (n k)
+  GPUd() static constexpr uint32_t binomialCoeff(uint32_t n, uint32_t k)
+  {
+    return factorial(n) / (factorial(k) * factorial(n - k));
   }
 };
 
