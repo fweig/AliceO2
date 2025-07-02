@@ -103,7 +103,6 @@ class MultivariatePolynomialParametersHelper
     }
   }
 
-
   template <uint32_t Degree, uint32_t Dim, bool InteractionOnly>
   GPUd() static constexpr uint32_t getNParameters()
   {
@@ -122,7 +121,6 @@ class MultivariatePolynomialParametersHelper
       return getNParametersAllTerms(degree, dim);
     }
   }
-
 
  private:
   /// calculate factorial of n at compile time
