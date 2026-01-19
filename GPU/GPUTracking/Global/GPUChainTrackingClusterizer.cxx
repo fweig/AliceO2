@@ -188,6 +188,9 @@ std::pair<uint32_t, uint32_t> GPUChainTracking::TPCClusterizerDecodeZSCount(uint
       fragments.emplace_back(std::pair<CfFragment, TPCCFDecodeScanTmp>{fragments.back().first.next(), {0, 0, 0, 0, 0, -1}});
     }
     std::vector<bool> fragmentExtends(mCFContext->nFragments, false);
+    if (iSector == 0 && GetProcessingSettings().debugLevel >= 3) {
+      GPUInfo("TPC Clusterizer has %d fragments of length %d", fragments.size(), fragments.front().first.length);
+    }
 
     uint32_t firstPossibleFragment = 0;
     uint32_t pageCounter = 0;
@@ -961,7 +964,7 @@ int32_t GPUChainTracking::RunTPCClusterizer(bool synchronizeOutput)
         checkForNoisyPads &= !GetProcessingSettings().disableTPCNoisyPadFilter;
 
         if (checkForNoisyPads) {
-          int32_t nBlocks = TPC_PADS_IN_SECTOR / GPUTPCCFCheckPadBaseline::PadsPerCacheline;
+          int32_t nBlocks = TPC_PADS_IN_SECTOR / GPUTPCCFCheckPadBaseline::NumPadsInSmem;
 
           runKernel<GPUTPCCFCheckPadBaseline>({GetGridBlk(nBlocks, lane), {iSector}});
           getKernelTimer<GPUTPCCFCheckPadBaseline>(RecoStep::TPCClusterFinding, iSector, TPC_PADS_IN_SECTOR * fragment.lengthWithoutOverlap() * sizeof(PackedCharge), false);

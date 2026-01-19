@@ -22,6 +22,11 @@
 #include "utils/VcShim.h"
 #endif
 
+// Workaround for clangd
+#ifdef __clang__
+#define GPUCA_GPUCODE
+#endif
+
 using namespace o2::gpu;
 using namespace o2::gpu::tpccf;
 
@@ -31,7 +36,15 @@ GPUd() void GPUTPCCFCheckPadBaseline::Thread<0>(int32_t nBlocks, int32_t nThread
   const CfFragment& fragment = clusterer.mPmemory->fragment;
   CfArray2D<PackedCharge> chargeMap(reinterpret_cast<PackedCharge*>(clusterer.mPchargeMap));
 
-  int32_t basePad = iBlock * PadsPerCacheline;
+  const int32_t nCachedPads =
+#ifdef GPUCA_GPUCODE
+  NumPadsInSmem
+#else
+  PadsPerCacheline
+#endif
+  ;
+
+  int32_t basePad = iBlock * nCachedPads;
   CfChargePos basePos = padToCfChargePos(basePad, clusterer);
 
   if (not basePos.valid()) {
@@ -39,37 +52,60 @@ GPUd() void GPUTPCCFCheckPadBaseline::Thread<0>(int32_t nBlocks, int32_t nThread
   }
 
 #ifdef GPUCA_GPUCODE
-  static_assert(TPC_MAX_FRAGMENT_LEN_GPU % NumOfCachedTimebins == 0);
+  static_assert(TPC_MAX_FRAGMENT_LEN_GPU % TimebinsPerCacheline == 0);
+
+  // const int16_t iCacheline = iThread / ThreadsPerCacheline;
 
   int32_t totalCharges = 0;
   int32_t consecCharges = 0;
   int32_t maxConsecCharges = 0;
   Charge maxCharge = 0;
 
-  int16_t localPadId = iThread / NumOfCachedTimebins;
-  int16_t localTimeBin = iThread % NumOfCachedTimebins;
-  bool handlePad = localTimeBin == 0;
+  const int16_t iCacheline = iThread / ThreadsPerCacheline;
 
-  for (tpccf::TPCFragmentTime t = fragment.firstNonOverlapTimeBin(); t < fragment.lastNonOverlapTimeBin(); t += NumOfCachedTimebins) {
-    const CfChargePos pos = basePos.delta({localPadId, int16_t(t + localTimeBin)});
-    smem.charges[localPadId][localTimeBin] = (pos.valid()) ? chargeMap[pos].unpack() : 0;
+  int16_t pt = iThread % (PadsPerCacheline / PadsPerVector) * PadsPerVector + PadsPerCacheline * iCacheline; // Pad position of thread (within block)
+
+  int16_t tb;     // Timebin of block
+  int16_t tt = (iThread / (PadsPerCacheline / PadsPerVector)) % TimebinsPerCacheline; // (local) timebin of thread
+
+  const bool handlePad = iThread < NumPadsInSmem; // TODO: always true at the moment
+  const int16_t handlePadId = iThread;
+
+  // FIXME: Debug, remove
+  // if (iBlock == 0) {
+  //   printf("%d: pt = %d, tt = %d, ptvec = %d\n", iThread, pt, tt, pt / PadsPerVector);
+  // }
+
+  for (tb = fragment.firstNonOverlapTimeBin(); tb < fragment.lastNonOverlapTimeBin(); tb += TimebinsPerCacheline) {
+
+    const CfChargePos pos = basePos.delta({0, tb});
+    const auto* packedChargeStart = reinterpret_cast<Vec_t*>(&chargeMap[pos]);
+
+    auto qvec = packedChargeStart[iThread];
+
+    smem.asVec[tt][pt / PadsPerVector] = qvec;
+
     GPUbarrier();
+
     if (handlePad) {
-      for (int32_t i = 0; i < NumOfCachedTimebins; i++) {
-        const Charge q = smem.charges[localPadId][i];
+      for (int32_t t = 0; t < TimebinsPerCacheline; t++) {
+        const Charge q = smem.asPacked[t][handlePadId].unpack();
         totalCharges += (q > 0);
         consecCharges = (q > 0) ? consecCharges + 1 : 0;
         maxConsecCharges = CAMath::Max(consecCharges, maxConsecCharges);
         maxCharge = CAMath::Max<Charge>(q, maxCharge);
       }
     }
+
     GPUbarrier();
   }
 
-  GPUbarrier();
+  if (int p = basePad + handlePadId; p == 14157 || p == 14173) {
+    printf("%d: totalCharges = %d, maxConsecCharges = %d\n", p, totalCharges, maxConsecCharges);
+  }
 
   if (handlePad) {
-    updatePadBaseline(basePad + localPadId, clusterer, totalCharges, maxConsecCharges, maxCharge);
+    updatePadBaseline(basePad + handlePadId, clusterer, totalCharges, maxConsecCharges, maxCharge);
   }
 
 #else // CPU CODE
@@ -84,13 +120,13 @@ GPUd() void GPUTPCCFCheckPadBaseline::Thread<0>(int32_t nBlocks, int32_t nThread
   UShort8 maxConsecCharges{Vc::Zero};
   Charge8 maxCharge{Vc::Zero};
 
-  tpccf::TPCFragmentTime t = fragment.firstNonOverlapTimeBin();
+  TPCFragmentTime t = fragment.firstNonOverlapTimeBin();
 
   // Access packed charges as raw integers. We throw away the PackedCharge type here to simplify vectorization.
   const uint16_t* packedChargeStart = reinterpret_cast<uint16_t*>(&chargeMap[basePos.delta({0, t})]);
 
   for (; t < fragment.lastNonOverlapTimeBin(); t += TimebinsPerCacheline) {
-    for (tpccf::TPCFragmentTime localtime = 0; localtime < TimebinsPerCacheline; localtime++) {
+    for (TPCFragmentTime localtime = 0; localtime < TimebinsPerCacheline; localtime++) {
       const UShort8 packedCharges{packedChargeStart + PadsPerCacheline * localtime, Vc::Aligned};
       const UShort8::mask_type isCharge = packedCharges != 0;
 
@@ -116,13 +152,17 @@ GPUd() void GPUTPCCFCheckPadBaseline::Thread<0>(int32_t nBlocks, int32_t nThread
     packedChargeStart += ElemsInTileRow;
   }
 
-  for (tpccf::Pad localpad = 0; localpad < PadsPerCacheline; localpad++) {
+  for (Pad localpad = 0; localpad < PadsPerCacheline; localpad++) {
+    if (int p = basePad + localpad; p == 14157 || p == 14173) {
+      printf("%d: totalCharges = %d, maxConsecCharges = %d\n", p, int32_t(totalCharges[localpad]), int32_t(maxConsecCharges[localpad]));
+    }
+
     updatePadBaseline(basePad + localpad, clusterer, totalCharges[localpad], maxConsecCharges[localpad], maxCharge[localpad]);
   }
 #endif
 }
 
-GPUd() CfChargePos GPUTPCCFCheckPadBaseline::padToCfChargePos(int32_t& pad, const GPUTPCClusterFinder& clusterer)
+GPUd() CfChargePos GPUTPCCFCheckPadBaseline::padToCfChargePos(int32_t& pad,  const GPUTPCClusterFinder& clusterer)
 {
   constexpr GPUTPCGeometry geo;
 
@@ -150,6 +190,7 @@ GPUd() void GPUTPCCFCheckPadBaseline::updatePadBaseline(int32_t pad, const GPUTP
   const bool isNoisy = (!saturationThreshold || maxCharge < saturationThreshold) && ((totalChargesBaseline > 0 && totalCharges >= totalChargesBaseline) || (consecChargesBaseline > 0 && consecCharges >= consecChargesBaseline));
 
   if (isNoisy) {
+    printf("%d: Noisy!\n", pad);
     clusterer.mPpadIsNoisy[pad] = true;
   }
 }

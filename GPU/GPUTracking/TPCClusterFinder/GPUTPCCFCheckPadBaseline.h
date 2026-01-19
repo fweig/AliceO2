@@ -17,6 +17,7 @@
 
 #include "GPUGeneralKernels.h"
 #include "GPUConstantMem.h"
+#include "PackedCharge.h"
 
 #include "clusterFinderDefs.h"
 
@@ -27,14 +28,27 @@ class GPUTPCCFCheckPadBaseline : public GPUKernelTemplate
 {
 
  public:
+  // Base types
+  using Vec8 = uint4;
+  using Vec4 = uint64_t;
+  using Vec_t = Vec4; // FIXME: Vec4 for testing only, switch to Vec8
+
   enum {
     PadsPerCacheline = 8,
     TimebinsPerCacheline = 4,
-    NumOfCachedTimebins = GPUCA_GET_THREAD_COUNT(GPUCA_LB_GPUTPCCFCheckPadBaseline) / PadsPerCacheline,
+    EntriesPerCacheline = PadsPerCacheline * TimebinsPerCacheline,
+    EntriesPerVector = sizeof(Vec_t) / sizeof(PackedCharge),
+    TimebinsPerVector = 1,
+    PadsPerVector = EntriesPerVector / TimebinsPerVector,
+    ThreadsPerCacheline = EntriesPerCacheline / EntriesPerVector,
+    // FIXME: don't hardcode WarpSize
+    NumCachelinesInSmem = 64 / (EntriesPerCacheline / EntriesPerVector),
+    NumPadsInSmem = NumCachelinesInSmem * PadsPerCacheline,
   };
 
-  struct GPUSharedMemory {
-    tpccf::Charge charges[PadsPerCacheline][NumOfCachedTimebins];
+  union GPUSharedMemory {
+    Vec_t asVec[TimebinsPerCacheline][(PadsPerCacheline * NumCachelinesInSmem) / PadsPerVector];
+    PackedCharge asPacked[TimebinsPerCacheline][PadsPerCacheline * NumCachelinesInSmem];
   };
 
   typedef GPUTPCClusterFinder processorType;

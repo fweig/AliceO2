@@ -133,7 +133,7 @@
     #define GPUCA_LB_GPUTPCCompressionKernels_step1unattached 512, 2
     #define GPUCA_LB_GPUTPCDecompressionKernels_step0attached 128, 2
     #define GPUCA_LB_GPUTPCDecompressionKernels_step1unattached 64, 2
-    #define GPUCA_LB_GPUTPCCFCheckPadBaseline 64, 2
+    #define GPUCA_LB_GPUTPCCFCheckPadBaseline 64
     #define GPUCA_LB_GPUTPCCFChargeMapFiller_fillIndexMap 512
     #define GPUCA_LB_GPUTPCCFChargeMapFiller_fillFromDigits 512
     #define GPUCA_LB_GPUTPCCFChargeMapFiller_findFragmentStart 512
