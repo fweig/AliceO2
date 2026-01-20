@@ -444,7 +444,6 @@ int32_t SetupReconstruction()
     }
   }
 
-
   rec->SetSettings(&grp, &recSet, &procSet, &steps);
   if (configStandalone.proc.doublePipeline) {
     recPipeline->SetSettings(&grp, &recSet, &procSet, &steps);
