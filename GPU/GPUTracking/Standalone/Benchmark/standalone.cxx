@@ -413,6 +413,18 @@ int32_t SetupReconstruction()
     steps.steps.setBits(gpudatatypes::RecoStep::TPCClusterFinding, false);
   }
 
+  // Set settings for synchronous
+  GPUChainTracking::ApplySyncSettings(procSet, recSet, steps.steps, configStandalone.testSyncAsync || configStandalone.testSync, configStandalone.rundEdx);
+  int32_t runAsyncQA = procSet.runQA && !configStandalone.testSyncAsyncQcInSync ? procSet.runQA : 0;
+  if (configStandalone.testSyncAsync) {
+    procSet.eventDisplay = nullptr;
+    if (!configStandalone.testSyncAsyncQcInSync) {
+      procSet.runQA = false;
+    }
+  }
+
+  // Apply --recoSteps flag last so it takes precedence
+  // E.g. ApplySyncSettings might enable TPCdEdx, but might not be needed if only clusterizer was requested
   if (configStandalone.recoSteps >= 0) {
     steps.steps &= configStandalone.recoSteps;
   }
@@ -432,15 +444,6 @@ int32_t SetupReconstruction()
     }
   }
 
-  // Set settings for synchronous
-  GPUChainTracking::ApplySyncSettings(procSet, recSet, steps.steps, configStandalone.testSyncAsync || configStandalone.testSync, configStandalone.rundEdx);
-  int32_t runAsyncQA = procSet.runQA && !configStandalone.testSyncAsyncQcInSync ? procSet.runQA : 0;
-  if (configStandalone.testSyncAsync) {
-    procSet.eventDisplay = nullptr;
-    if (!configStandalone.testSyncAsyncQcInSync) {
-      procSet.runQA = false;
-    }
-  }
 
   rec->SetSettings(&grp, &recSet, &procSet, &steps);
   if (configStandalone.proc.doublePipeline) {
