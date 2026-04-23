@@ -34,6 +34,14 @@
 namespace o2::gpu
 {
 
+struct HIPTailDescriptor {
+  uint16_t row;
+  uint16_t pad;
+  uint16_t tailStart;
+  uint16_t tailEnd;
+  float qTot;
+};
+
 class GPUTPCCFCheckPadBaseline : public GPUKernelTemplate
 {
 
@@ -97,6 +105,7 @@ class GPUTPCCFCheckPadBaseline : public GPUKernelTemplate
     tpccf::Charge maxCharge = 0;
     int16_t HIPtb = -1;
     HipTailRange activeHIPTail{-1, -1};
+    float tailQTot = 0;
   };
 
   typedef GPUTPCClusterFinder processorType;
@@ -133,6 +142,31 @@ class GPUTPCCFCheckPadBaseline : public GPUKernelTemplate
   GPUd() static RowInfo GetRowInfo(int16_t row);
 
   GPUd() static void updatePadBaseline(int32_t pad, const GPUTPCClusterFinder&, int32_t totalCharges, int32_t consecCharges, tpccf::Charge maxCharge);
+};
+
+class GPUTPCCFHIPClusterizer : public GPUKernelTemplate
+{
+ public:
+  enum {
+    MaxHIPTails = 256,
+  };
+
+  struct GPUSharedMemory {
+  };
+
+  typedef GPUTPCClusterFinder processorType;
+  GPUhdi() static processorType* Processor(GPUConstantMem& processors)
+  {
+    return processors.tpcClusterer;
+  }
+
+  GPUhdi() constexpr static gpudatatypes::RecoStep GetRecoStep()
+  {
+    return gpudatatypes::RecoStep::TPCClusterFinding;
+  }
+
+  template <int32_t iKernel = defaultKernel>
+  GPUd() static void Thread(int32_t nBlocks, int32_t nThreads, int32_t iBlock, int32_t iThread, GPUSharedMemory& smem, processorType& clusterer);
 };
 
 } // namespace o2::gpu

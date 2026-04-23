@@ -1145,6 +1145,9 @@ int32_t GPUChainTracking::RunTPCClusterizer(bool synchronizeOutput)
         }
 
         if (checkForNoisyPads) {
+          if (rec()->GetParam().rec.tpc.hipTailFilter) {
+            runKernel<GPUMemClean16>({GetGridAutoStep(lane, RecoStep::TPCClusterFinding)}, clustererShadow.mPnHIPTails, sizeof(*clustererShadow.mPnHIPTails));
+          }
           const int32_t nBlocks = GPUTPCCFCheckPadBaseline::GetNBlocks(doGPU);
 
           runKernel<GPUTPCCFCheckPadBaseline>({GetGridBlk(nBlocks, lane), {iSector}});
@@ -1204,6 +1207,12 @@ int32_t GPUChainTracking::RunTPCClusterizer(bool synchronizeOutput)
             transferRunning[lane] = 2;
           }
           runKernel<GPUMemClean16>({GetGridAutoStep(lane, RecoStep::TPCClusterFinding), krnlRunRangeNone, {nullptr, waitEvent}}, clustererShadow.mPclusterInRow, GPUCA_ROW_COUNT * sizeof(*clustererShadow.mPclusterInRow));
+        }
+
+        // TODO: Move this right after CheckPadBaseline once tail zeroing is moved into this kernel.
+        // The mPnHIPTails counter zeroing will then also need to be adjusted accordingly.
+        if (rec()->GetParam().rec.tpc.hipTailFilter) {
+          runKernel<GPUTPCCFHIPClusterizer>({GetGridBlk(1, lane), {iSector}});
         }
 
         if (clusterer.mPmemory->counters.nClusters == 0) {
