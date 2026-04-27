@@ -104,7 +104,7 @@ static GPUdi() void ScanCachedCharges(Kernel::GPUSharedMemory& smem, uint16_t ti
     acc.maxCharge = CAMath::Max<Charge>(qs, acc.maxCharge);
 
     if constexpr (CheckHIPTrigger) {
-      if (qs >= Charge(Kernel::MaxADC)) {
+      if (acc.HIPtb < 0 && qs >= Charge(Kernel::MaxADC)) {
         acc.HIPtb = timeOffset + i;
         smem.tails[pad] = {acc.HIPtb, 0}; // Broadcast HIP start TB to neighboring pads / threads
       }
@@ -114,9 +114,9 @@ static GPUdi() void ScanCachedCharges(Kernel::GPUSharedMemory& smem, uint16_t ti
       // TODO: Charges from the chunk where the tail opens are missed (tail not yet open during that chunk).
       if (acc.activeHIPTail.IsOpen()) {
         acc.tailQTot += qs;
-      }
-      if (qs < hipTailThreshold) {
-        acc.activeHIPTail.end = timeOffset + i;
+        if (qs < hipTailThreshold) {
+          acc.activeHIPTail.end = timeOffset + i;
+        }
       }
     }
   }
