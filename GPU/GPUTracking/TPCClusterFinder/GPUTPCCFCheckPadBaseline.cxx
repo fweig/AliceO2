@@ -94,28 +94,40 @@ static GPUdi() uint16_t CloseHIPTails(
 }
 
 template <bool CheckHIPTrigger, bool CheckHIPTailEnd>
-static GPUdi() void ScanCachedCharges(Kernel::GPUSharedMemory& smem, uint16_t timeOffset, uint16_t pad, Charge hipTailThreshold, Kernel::PadChargeAccu& acc)
+static GPUdi() void ScanCachedCharges(Kernel::GPUSharedMemory& smem, uint16_t timeOffset, uint16_t pad, Charge hipTailThreshold, Kernel::PadChargeAccu& acc, int16_t firstNonOverlap, int16_t lastNonOverlap)
 {
   for (int32_t i = 0; i < Kernel::NumOfCachedTBs; i++) {
     const Charge qs = smem.charges[i][pad];
-    acc.totalCharges += qs > 0;
-    acc.consecCharges = qs > 0 ? acc.consecCharges + 1 : 0;
-    acc.maxConsecCharges = CAMath::Max(acc.consecCharges, acc.maxConsecCharges);
-    acc.maxCharge = CAMath::Max<Charge>(qs, acc.maxCharge);
+    const int16_t curTB = timeOffset + i;
+
+    // Noisy-pad stats only over non-overlap, so the noisy threshold (which is scaled by lengthWithoutOverlap) stays calibrated.
+    if (curTB >= firstNonOverlap && curTB < lastNonOverlap) {
+      acc.totalCharges += qs > 0;
+      acc.consecCharges = qs > 0 ? acc.consecCharges + 1 : 0;
+      acc.maxConsecCharges = CAMath::Max(acc.consecCharges, acc.maxConsecCharges);
+      acc.maxCharge = CAMath::Max<Charge>(qs, acc.maxCharge);
+    }
+
+    if (qs >= hipTailThreshold) {
+      if (acc.aboveThresholdStart < 0) {
+        acc.aboveThresholdStart = curTB;
+      }
+    } else {
+      acc.aboveThresholdStart = -1;
+    }
 
     if constexpr (CheckHIPTrigger) {
       if (acc.HIPtb < 0 && qs >= Charge(Kernel::MaxADC)) {
-        acc.HIPtb = timeOffset + i;
-        smem.tails[pad] = {acc.HIPtb, 0}; // Broadcast HIP start TB to neighboring pads / threads
+        acc.HIPtb = acc.aboveThresholdStart; // start of rising edge, not first sat TB
+        smem.tails[pad] = {acc.HIPtb, 0};    // Broadcast HIP start TB to neighboring pads / threads
       }
     }
 
     if constexpr (CheckHIPTailEnd) {
-      // TODO: Charges from the chunk where the tail opens are missed (tail not yet open during that chunk).
       if (acc.activeHIPTail.IsOpen()) {
         acc.tailQTot += qs;
         if (qs < hipTailThreshold) {
-          acc.activeHIPTail.end = timeOffset + i;
+          acc.activeHIPTail.end = curTB;
         }
       }
     }
@@ -170,8 +182,13 @@ GPUd() void GPUTPCCFCheckPadBaseline::CheckBaselineGPU(int32_t nBlocks, int32_t 
   uint32_t* nHIPTails = clusterer.mPnHIPTails;
   constexpr uint32_t maxHIPTails = GPUTPCCFHIPClusterizer::MaxHIPTails;
 
-  const auto firstTB = fragment.firstNonOverlapTimeBin();
-  const auto lastTB = fragment.lastNonOverlapTimeBin();
+  const auto firstNonOverlap = fragment.firstNonOverlapTimeBin();
+  const auto lastNonOverlap = fragment.lastNonOverlapTimeBin();
+  // Iterate the full fragment (incl. overlaps) for HIP detection so saturations near or in the
+  // overlap regions are zeroed in this fragment's chargeMap. Noisy-pad stats inside ScanCachedCharges
+  // are gated on [firstNonOverlap, lastNonOverlap) to keep their meaning.
+  const TPCFragmentTime firstTB = 0;
+  const TPCFragmentTime lastTB = fragment.length;
 
   for (uint16_t t = firstTB; t < lastTB; t += NumOfCachedTBs) {
 
@@ -192,15 +209,15 @@ GPUd() void GPUTPCCFCheckPadBaseline::CheckBaselineGPU(int32_t nBlocks, int32_t 
       // Why is the old version so much slower, when we just add short branches to the loop???
       if (!hasHIPTrigger) [[likely]] {
         if (!acc.activeHIPTail.IsOpen()) {
-          ScanCachedCharges<false, false>(smem, t, iPadHandle, hipTailThreshold, acc);
+          ScanCachedCharges<false, false>(smem, t, iPadHandle, hipTailThreshold, acc, firstNonOverlap, lastNonOverlap);
         } else {
-          ScanCachedCharges<false, true>(smem, t, iPadHandle, hipTailThreshold, acc);
+          ScanCachedCharges<false, true>(smem, t, iPadHandle, hipTailThreshold, acc, firstNonOverlap, lastNonOverlap);
         }
       } else {
         if (!acc.activeHIPTail.IsOpen()) {
-          ScanCachedCharges<true, false>(smem, t, iPadHandle, hipTailThreshold, acc);
+          ScanCachedCharges<true, false>(smem, t, iPadHandle, hipTailThreshold, acc, firstNonOverlap, lastNonOverlap);
         } else {
-          ScanCachedCharges<true, true>(smem, t, iPadHandle, hipTailThreshold, acc);
+          ScanCachedCharges<true, true>(smem, t, iPadHandle, hipTailThreshold, acc, firstNonOverlap, lastNonOverlap);
         }
       }
     }

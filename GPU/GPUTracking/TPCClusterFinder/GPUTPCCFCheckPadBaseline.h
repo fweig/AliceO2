@@ -104,6 +104,7 @@ class GPUTPCCFCheckPadBaseline : public GPUKernelTemplate
     int32_t maxConsecCharges = 0;
     tpccf::Charge maxCharge = 0;
     int16_t HIPtb = -1;
+    int16_t aboveThresholdStart = -1; // first TB of current above-hipTailThreshold streak; used to extend the tail back over the rising edge before saturation
     HipTailRange activeHIPTail{-1, -1};
     float tailQTot = 0;
   };
