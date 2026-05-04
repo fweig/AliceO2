@@ -94,19 +94,16 @@ static GPUdi() uint16_t CloseHIPTails(
 }
 
 template <bool CheckHIPTrigger, bool CheckHIPTailEnd>
-static GPUdi() void ScanCachedCharges(Kernel::GPUSharedMemory& smem, uint16_t timeOffset, uint16_t pad, Charge hipTailThreshold, Kernel::PadChargeAccu& acc, int16_t firstNonOverlap, int16_t lastNonOverlap)
+static GPUdi() void ScanCachedCharges(Kernel::GPUSharedMemory& smem, uint16_t timeOffset, uint16_t pad, Charge hipTailThreshold, Kernel::PadChargeAccu& acc)
 {
   for (int32_t i = 0; i < Kernel::NumOfCachedTBs; i++) {
     const Charge qs = smem.charges[i][pad];
     const int16_t curTB = timeOffset + i;
 
-    // Noisy-pad stats only over non-overlap, so the noisy threshold (which is scaled by lengthWithoutOverlap) stays calibrated.
-    if (curTB >= firstNonOverlap && curTB < lastNonOverlap) {
-      acc.totalCharges += qs > 0;
-      acc.consecCharges = qs > 0 ? acc.consecCharges + 1 : 0;
-      acc.maxConsecCharges = CAMath::Max(acc.consecCharges, acc.maxConsecCharges);
-      acc.maxCharge = CAMath::Max<Charge>(qs, acc.maxCharge);
-    }
+    acc.totalCharges += qs > 0;
+    acc.consecCharges = qs > 0 ? acc.consecCharges + 1 : 0;
+    acc.maxConsecCharges = CAMath::Max(acc.consecCharges, acc.maxConsecCharges);
+    acc.maxCharge = CAMath::Max<Charge>(qs, acc.maxCharge);
 
     if (qs >= hipTailThreshold) {
       if (acc.aboveThresholdStart < 0) {
@@ -182,11 +179,10 @@ GPUd() void GPUTPCCFCheckPadBaseline::CheckBaselineGPU(int32_t nBlocks, int32_t 
   uint32_t* nHIPTails = clusterer.mPnHIPTails;
   constexpr uint32_t maxHIPTails = GPUTPCCFHIPClusterizer::MaxHIPTails;
 
-  const auto firstNonOverlap = fragment.firstNonOverlapTimeBin();
-  const auto lastNonOverlap = fragment.lastNonOverlapTimeBin();
-  // Iterate the full fragment (incl. overlaps) for HIP detection so saturations near or in the
-  // overlap regions are zeroed in this fragment's chargeMap. Noisy-pad stats inside ScanCachedCharges
-  // are gated on [firstNonOverlap, lastNonOverlap) to keep their meaning.
+  // Pad filter scans the entire fragments including overlap.
+  // Minimal runtime overhead and prevents headaches later on as
+  // saturated signal in overlap region can create tails in the next fragment
+  // even when cleared in current fragment as they're decoded twice
   const TPCFragmentTime firstTB = 0;
   const TPCFragmentTime lastTB = fragment.length;
 
@@ -209,15 +205,15 @@ GPUd() void GPUTPCCFCheckPadBaseline::CheckBaselineGPU(int32_t nBlocks, int32_t 
       // Why is the old version so much slower, when we just add short branches to the loop???
       if (!hasHIPTrigger) [[likely]] {
         if (!acc.activeHIPTail.IsOpen()) {
-          ScanCachedCharges<false, false>(smem, t, iPadHandle, hipTailThreshold, acc, firstNonOverlap, lastNonOverlap);
+          ScanCachedCharges<false, false>(smem, t, iPadHandle, hipTailThreshold, acc);
         } else {
-          ScanCachedCharges<false, true>(smem, t, iPadHandle, hipTailThreshold, acc, firstNonOverlap, lastNonOverlap);
+          ScanCachedCharges<false, true>(smem, t, iPadHandle, hipTailThreshold, acc);
         }
       } else {
         if (!acc.activeHIPTail.IsOpen()) {
-          ScanCachedCharges<true, false>(smem, t, iPadHandle, hipTailThreshold, acc, firstNonOverlap, lastNonOverlap);
+          ScanCachedCharges<true, false>(smem, t, iPadHandle, hipTailThreshold, acc);
         } else {
-          ScanCachedCharges<true, true>(smem, t, iPadHandle, hipTailThreshold, acc, firstNonOverlap, lastNonOverlap);
+          ScanCachedCharges<true, true>(smem, t, iPadHandle, hipTailThreshold, acc);
         }
       }
     }
