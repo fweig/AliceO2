@@ -61,6 +61,7 @@ class GPUTPCCFCheckPadBaseline : public GPUKernelTemplate
     MaxADC = 1023,
 
     NThreads = GPUCA_GET_THREAD_COUNT(GPUCA_LB_GPUTPCCFCheckPadBaseline),
+    SSClusterPadWidth = 5,
   };
 
   union HipTailRange {

@@ -231,14 +231,14 @@ GPUd() void GPUTPCCFCheckPadBaseline::CheckBaselineGPU(int32_t nBlocks, int32_t 
       if (handlePad && acc.HIPtb < 0) {
 
         // Search neighboring pads for trigger
-        for (int16_t i = -3; i < 0; i++) {
+        for (int16_t i = -SSClusterPadWidth; i < 0; i++) {
           const auto p = iPadHandle + i;
           if (p > -1) {
             acc.HIPtb = CAMath::Max(smem.tails[p].start, acc.HIPtb);
           }
         }
 
-        for (int16_t i = 1; i < 4; i++) {
+        for (int16_t i = 1; i <= SSClusterPadWidth; i++) {
           const auto p = iPadHandle + i;
           if (p < MaxNPadsPerRow) {
             acc.HIPtb = CAMath::Max(smem.tails[p].start, acc.HIPtb);
