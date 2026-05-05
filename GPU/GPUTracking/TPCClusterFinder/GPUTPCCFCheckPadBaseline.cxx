@@ -41,6 +41,11 @@ using namespace o2::gpu::tpccf;
 
 using Kernel = GPUTPCCFCheckPadBaseline;
 
+static GPUdi() Charge UpdateHIPTailFilter(Charge filteredCharge, Charge charge, Charge alpha)
+{
+  return filteredCharge + alpha * (charge - filteredCharge);
+}
+
 // Collect tails marked for closing across the workgroup using a prefix scan,
 // then cooperatively zero the charge map entries for each closed tail.
 // Caller must set acc.activeHIPTail.end before calling if the tail is open.
@@ -74,6 +79,7 @@ static GPUdi() uint16_t CloseHIPTails(
       }
 
       acc.tailQTot = 0;
+      acc.tailFilterCharge = 0;
       acc.activeHIPTail.Reset();
     }
 
@@ -94,7 +100,7 @@ static GPUdi() uint16_t CloseHIPTails(
 }
 
 template <bool CheckHIPTrigger, bool CheckHIPTailEnd>
-static GPUdi() void ScanCachedCharges(Kernel::GPUSharedMemory& smem, uint16_t timeOffset, uint16_t pad, Charge hipTailThreshold, Kernel::PadChargeAccu& acc)
+static GPUdi() void ScanCachedCharges(Kernel::GPUSharedMemory& smem, uint16_t timeOffset, uint16_t pad, Charge hipTailThreshold, Charge hipTailFilterAlpha, Kernel::PadChargeAccu& acc)
 {
   for (int32_t i = 0; i < Kernel::NumOfCachedTBs; i++) {
     const Charge qs = smem.charges[i][pad];
@@ -123,7 +129,8 @@ static GPUdi() void ScanCachedCharges(Kernel::GPUSharedMemory& smem, uint16_t ti
     if constexpr (CheckHIPTailEnd) {
       if (acc.activeHIPTail.IsOpen()) {
         acc.tailQTot += qs;
-        if (qs < hipTailThreshold) {
+        acc.tailFilterCharge = UpdateHIPTailFilter(acc.tailFilterCharge, qs, hipTailFilterAlpha);
+        if (acc.tailFilterCharge < hipTailThreshold) {
           acc.activeHIPTail.end = curTB;
         }
       }
@@ -157,6 +164,7 @@ GPUd() void GPUTPCCFCheckPadBaseline::CheckBaselineGPU(int32_t nBlocks, int32_t 
   const CfFragment& fragment = clusterer.mPmemory->fragment;
   const bool hipFilterOn = clusterer.Param().rec.tpc.hipTailFilter;
   const Charge hipTailThreshold = clusterer.Param().rec.tpc.hipTailFilterThreshold;
+  const Charge hipTailFilterAlpha = clusterer.Param().rec.tpc.hipTailFilterAlpha;
   CfArray2D<PackedCharge> chargeMap(reinterpret_cast<PackedCharge*>(clusterer.mPchargeMap));
 
   const auto iRow = iBlock;
@@ -205,15 +213,15 @@ GPUd() void GPUTPCCFCheckPadBaseline::CheckBaselineGPU(int32_t nBlocks, int32_t 
       // Why is the old version so much slower, when we just add short branches to the loop???
       if (!hasHIPTrigger) [[likely]] {
         if (!acc.activeHIPTail.IsOpen()) {
-          ScanCachedCharges<false, false>(smem, t, iPadHandle, hipTailThreshold, acc);
+          ScanCachedCharges<false, false>(smem, t, iPadHandle, hipTailThreshold, hipTailFilterAlpha, acc);
         } else {
-          ScanCachedCharges<false, true>(smem, t, iPadHandle, hipTailThreshold, acc);
+          ScanCachedCharges<false, true>(smem, t, iPadHandle, hipTailThreshold, hipTailFilterAlpha, acc);
         }
       } else {
         if (!acc.activeHIPTail.IsOpen()) {
-          ScanCachedCharges<true, false>(smem, t, iPadHandle, hipTailThreshold, acc);
+          ScanCachedCharges<true, false>(smem, t, iPadHandle, hipTailThreshold, hipTailFilterAlpha, acc);
         } else {
-          ScanCachedCharges<true, true>(smem, t, iPadHandle, hipTailThreshold, acc);
+          ScanCachedCharges<true, true>(smem, t, iPadHandle, hipTailThreshold, hipTailFilterAlpha, acc);
         }
       }
     }
@@ -255,6 +263,7 @@ GPUd() void GPUTPCCFCheckPadBaseline::CheckBaselineGPU(int32_t nBlocks, int32_t 
       if (acc.HIPtb > -1) {
         DPRINT("%d: start = %d\n", iThread, acc.HIPtb);
         acc.activeHIPTail.SetOpen(acc.HIPtb);
+        acc.tailFilterCharge = Charge(MaxADC);
       }
 
       // Clear smem between iterations to prevent stale entries

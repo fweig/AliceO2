@@ -18,8 +18,8 @@
 ///
 /// Optionally detects Highly Ionising Particle (HIP) tails: when a saturated
 /// ADC value (1023) is found, the tail region on the triggering pad and its
-/// neighbors is zeroed in the charge map until charges drop below a
-/// configurable threshold.
+/// neighbors is zeroed in the charge map until an exponential charge filter
+/// drops below a configurable threshold.
 
 #ifndef O2_GPU_GPU_TPC_CF_CHECK_PAD_BASELINE_H
 #define O2_GPU_GPU_TPC_CF_CHECK_PAD_BASELINE_H
@@ -107,6 +107,7 @@ class GPUTPCCFCheckPadBaseline : public GPUKernelTemplate
     int16_t HIPtb = -1;
     int16_t aboveThresholdStart = -1; // first TB of current above-hipTailThreshold streak; used to extend the tail back over the rising edge before saturation
     HipTailRange activeHIPTail{-1, -1};
+    tpccf::Charge tailFilterCharge = 0;
     float tailQTot = 0;
   };
 
