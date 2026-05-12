@@ -151,7 +151,7 @@ class GPUTPCCFHIPClusterizer : public GPUKernelTemplate
 {
  public:
   enum {
-    MaxHIPTails = 256,
+    MaxHIPTails = 1 << 15,
   };
 
   struct GPUSharedMemory {

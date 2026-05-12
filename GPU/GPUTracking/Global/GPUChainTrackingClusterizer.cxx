@@ -1209,17 +1209,9 @@ int32_t GPUChainTracking::RunTPCClusterizer(bool synchronizeOutput)
           runKernel<GPUMemClean16>({GetGridAutoStep(lane, RecoStep::TPCClusterFinding), krnlRunRangeNone, {nullptr, waitEvent}}, clustererShadow.mPclusterInRow, GPUCA_ROW_COUNT * sizeof(*clustererShadow.mPclusterInRow));
         }
 
-        // TODO: Move this right after CheckPadBaseline once tail zeroing is moved into this kernel.
-        // The mPnHIPTails counter zeroing will then also need to be adjusted accordingly.
-        if (rec()->GetParam().rec.tpc.hipTailFilter) {
-          runKernel<GPUTPCCFHIPClusterizer>({GetGridBlk(1, lane), {iSector}});
-        }
-
-        if (clusterer.mPmemory->counters.nClusters == 0) {
-          return;
-        }
-
-        if (GetProcessingSettings().nn.applyNNclusterizer) {
+        const auto nRegularClusters = clusterer.mPmemory->counters.nClusters;
+        if (nRegularClusters != 0) {
+          if (GetProcessingSettings().nn.applyNNclusterizer) {
 #ifdef GPUCA_HAS_ONNX
           GPUTPCNNClusterizer& clustererNN = processors()->tpcNNClusterer[lane];
           GPUTPCNNClusterizer& clustererNNShadow = doGPU ? processorsShadow()->tpcNNClusterer[lane] : clustererNN;
@@ -1359,12 +1351,27 @@ int32_t GPUChainTracking::RunTPCClusterizer(bool synchronizeOutput)
           runKernel<GPUTPCCFClusterizer>({GetGrid(clusterer.mPmemory->counters.nClusters, lane), {iSector}}, 0);
         }
 
-        if (doGPU && propagateMCLabels) {
-          TransferMemoryResourceLinkToHost(RecoStep::TPCClusterFinding, clusterer.mScratchId, lane);
-          if (doGPU) {
+          if (doGPU && propagateMCLabels) {
+            TransferMemoryResourceLinkToHost(RecoStep::TPCClusterFinding, clusterer.mScratchId, lane);
+            if (doGPU) {
+              SynchronizeStream(lane);
+            }
+            runKernel<GPUTPCCFClusterizer>({GetGrid(clusterer.mPmemory->counters.nClusters, lane, GPUReconstruction::krnlDeviceType::CPU), {iSector}}, 1); // Computes MC labels
+          }
+        }
+
+        // TODO: Move this right after CheckPadBaseline once tail zeroing is moved into this kernel.
+        // The mPnHIPTails counter zeroing will then also need to be adjusted accordingly.
+        if (rec()->GetParam().rec.tpc.hipTailFilter) {
+          runKernel<GPUTPCCFHIPClusterizer>({GetGridBlk(1, lane), {iSector}});
+          if (doGPU && (nRegularClusters == 0 || GetProcessingSettings().debugLevel >= 3)) {
+            TransferMemoryResourceLinkToHost(RecoStep::TPCClusterFinding, clusterer.mMemoryId, lane);
             SynchronizeStream(lane);
           }
-          runKernel<GPUTPCCFClusterizer>({GetGrid(clusterer.mPmemory->counters.nClusters, lane, GPUReconstruction::krnlDeviceType::CPU), {iSector}}, 1); // Computes MC labels
+        }
+
+        if (clusterer.mPmemory->counters.nClusters == 0) {
+          return;
         }
 
         if (GetProcessingSettings().debugLevel >= 3) {

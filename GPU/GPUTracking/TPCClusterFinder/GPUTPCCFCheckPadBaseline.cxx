@@ -444,6 +444,7 @@ GPUd() void GPUTPCCFHIPClusterizer::Thread<0>(int32_t nBlocks, int32_t nThreads,
     merged[i] = false;
   }
 
+  tpccf::SizeT nCreatedClusters = 0;
   for (uint32_t i = 0; i < n; i++) {
     if (merged[i]) {
       continue;
@@ -511,6 +512,9 @@ GPUd() void GPUTPCCFHIPClusterizer::Thread<0>(int32_t nBlocks, int32_t nThreads,
     uint32_t index = CAMath::AtomicAdd(&clusterer.mPclusterInRow[row], 1u);
     if (index < clusterer.mNMaxClusterPerRow) {
       clusterer.mPclusterByRow[clusterer.mNMaxClusterPerRow * row + index] = cn;
+      nCreatedClusters++;
     }
   }
+
+  clusterer.mPmemory->counters.nClusters += nCreatedClusters;
 }
