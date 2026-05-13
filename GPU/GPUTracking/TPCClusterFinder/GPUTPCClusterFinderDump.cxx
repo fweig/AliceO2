@@ -154,7 +154,7 @@ void GPUTPCClusterFinder::DumpSuppressedPeaksCompacted(std::ostream& out)
 
 void GPUTPCClusterFinder::DumpClusters(std::ostream& out)
 {
-  out << "\nClusterer - Clusters - Sector " << mISector << " - Fragment " << mPmemory->fragment.index << "\n";
+  out << "\nClusterer - Clusters - Sector " << mISector << " - All Fragments\n";
 
   for (uint32_t i = 0; i < GPUCA_ROW_COUNT; i++) {
     size_t N = mPclusterInRow[i];
