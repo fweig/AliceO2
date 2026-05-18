@@ -115,7 +115,7 @@ class GPUTPCClusterFinder : public GPUProcessor
   GPUTPCClusterMCInterimArray* mPlabelsByRow = nullptr;
   int32_t* mPscanBuf = nullptr;
   HIPTailDescriptor* mPhipTails = nullptr;
-  uint32_t* mPnHIPTails = nullptr;
+  uint32_t* mPnHIPTails = nullptr; // one counter per row
   Memory* mPmemory = nullptr;
 
   GPUdi() int32_t* GetScanBuffer(int32_t iBuf) const { return mPscanBuf + iBuf * mBufSize; }

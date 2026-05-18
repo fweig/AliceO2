@@ -1146,7 +1146,7 @@ int32_t GPUChainTracking::RunTPCClusterizer(bool synchronizeOutput)
 
         if (checkForNoisyPads) {
           if (rec()->GetParam().rec.tpc.hipTailFilter) {
-            runKernel<GPUMemClean16>({GetGridAutoStep(lane, RecoStep::TPCClusterFinding)}, clustererShadow.mPnHIPTails, sizeof(*clustererShadow.mPnHIPTails));
+            runKernel<GPUMemClean16>({GetGridAutoStep(lane, RecoStep::TPCClusterFinding)}, clustererShadow.mPnHIPTails, GPUCA_ROW_COUNT * sizeof(*clustererShadow.mPnHIPTails));
           }
           const int32_t nBlocks = GPUTPCCFCheckPadBaseline::GetNBlocks(doGPU);
 
@@ -1361,9 +1361,8 @@ int32_t GPUChainTracking::RunTPCClusterizer(bool synchronizeOutput)
         }
 
         // TODO: Move this right after CheckPadBaseline once tail zeroing is moved into this kernel.
-        // The mPnHIPTails counter zeroing will then also need to be adjusted accordingly.
         if (rec()->GetParam().rec.tpc.hipTailFilter) {
-          runKernel<GPUTPCCFHIPClusterizer>({GetGridBlk(1, lane), {iSector}});
+          runKernel<GPUTPCCFHIPClusterizer>({GetGridBlk(GPUCA_ROW_COUNT, lane), {iSector}});
           if (doGPU && (nRegularClusters == 0 || GetProcessingSettings().debugLevel >= 3)) {
             TransferMemoryResourceLinkToHost(RecoStep::TPCClusterFinding, clusterer.mMemoryId, lane);
             SynchronizeStream(lane);

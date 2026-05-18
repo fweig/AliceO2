@@ -59,22 +59,30 @@ static GPUdi() uint16_t CloseHIPTails(
   bool shouldCloseTail,
   HIPTailDescriptor* hipTails,
   uint32_t* nHIPTails,
-  uint32_t maxHIPTails)
+  uint32_t maxHIPTailsPerRow)
 {
   uint16_t nClosedTails = work_group_count(shouldCloseTail);
 
   if (nClosedTails > 0) {
     int16_t iClosedTail = work_group_scan_inclusive_add((int16_t)shouldCloseTail) - 1;
+    if (hipTails != nullptr) {
+      const uint32_t row = basePos.row();
+      if (iThread == 0) {
+        smem.tailStoreBase = CAMath::AtomicAdd(&nHIPTails[row], (uint32_t)nClosedTails);
+      }
+      GPUbarrier();
+    }
     if (shouldCloseTail) {
       smem.tailsClosedPad[iClosedTail] = iPadHandle;
       smem.tailsClosed[iClosedTail] = acc.activeHIPTail;
 
       if (hipTails != nullptr) {
-        uint32_t idx = CAMath::AtomicAdd(nHIPTails, 1u);
-        if (idx < maxHIPTails) {
-          hipTails[idx] = {(uint16_t)basePos.row(), (uint16_t)iPadHandle,
-                           (uint16_t)acc.activeHIPTail.start, (uint16_t)acc.activeHIPTail.end,
-                           acc.tailQTot};
+        const uint32_t row = basePos.row();
+        const uint32_t idx = smem.tailStoreBase + iClosedTail;
+        if (idx < maxHIPTailsPerRow) {
+          hipTails[row * maxHIPTailsPerRow + idx] = {(uint16_t)row, (uint16_t)iPadHandle,
+                                                     (uint16_t)acc.activeHIPTail.start, (uint16_t)acc.activeHIPTail.end,
+                                                     acc.tailQTot};
         }
       }
 
@@ -185,7 +193,7 @@ GPUd() void GPUTPCCFCheckPadBaseline::CheckBaselineGPU(int32_t nBlocks, int32_t 
 
   HIPTailDescriptor* hipTails = clusterer.mPhipTails;
   uint32_t* nHIPTails = clusterer.mPnHIPTails;
-  constexpr uint32_t maxHIPTails = GPUTPCCFHIPClusterizer::MaxHIPTails;
+  constexpr uint32_t maxHIPTailsPerRow = GPUTPCCFHIPClusterizer::MaxHIPTailsPerRow;
 
   // Pad filter scans the entire fragments including overlap.
   // Minimal runtime overhead and prevents headaches later on as
@@ -256,7 +264,7 @@ GPUd() void GPUTPCCFCheckPadBaseline::CheckBaselineGPU(int32_t nBlocks, int32_t 
         acc.activeHIPTail.end = acc.HIPtb;
       }
 
-      CloseHIPTails(smem, iThread, nThreads, iPadHandle, basePos, chargeMap, acc, shouldCloseTail, hipTails, nHIPTails, maxHIPTails);
+      CloseHIPTails(smem, iThread, nThreads, iPadHandle, basePos, chargeMap, acc, shouldCloseTail, hipTails, nHIPTails, maxHIPTailsPerRow);
 
       GPUbarrier(); // TODO: not needed? Debug only
 
@@ -292,7 +300,7 @@ GPUd() void GPUTPCCFCheckPadBaseline::CheckBaselineGPU(int32_t nBlocks, int32_t 
       acc.activeHIPTail.end = lastTB;
     }
 
-    [[maybe_unused]] const uint16_t nClosedTails = CloseHIPTails(smem, iThread, nThreads, iPadHandle, basePos, chargeMap, acc, shouldCloseTail, hipTails, nHIPTails, maxHIPTails);
+    [[maybe_unused]] const uint16_t nClosedTails = CloseHIPTails(smem, iThread, nThreads, iPadHandle, basePos, chargeMap, acc, shouldCloseTail, hipTails, nHIPTails, maxHIPTailsPerRow);
 
     DPRINTB_IF(nClosedTails > 0, "%d: Close remaining tails (%d)\n", iBlock, nClosedTails);
   }
@@ -418,20 +426,25 @@ GPUd() void GPUTPCCFHIPClusterizer::Thread<0>(int32_t nBlocks, int32_t nThreads,
     return;
   }
 
-  const uint32_t nTails = *clusterer.mPnHIPTails;
+  if (iBlock >= GPUCA_ROW_COUNT) {
+    return;
+  }
+
+  const uint32_t row = iBlock;
+  const uint32_t nTails = clusterer.mPnHIPTails[row];
   if (nTails == 0) {
     return;
   }
 
-  HIPTailDescriptor* tails = clusterer.mPhipTails;
+  HIPTailDescriptor* tails = clusterer.mPhipTails + row * MaxHIPTailsPerRow;
   const auto& fragment = clusterer.mPmemory->fragment;
-  const uint32_t n = CAMath::Min(nTails, (uint32_t)MaxHIPTails);
+  const uint32_t n = CAMath::Min(nTails, (uint32_t)MaxHIPTailsPerRow);
 
-  // Insertion sort by (row, pad) - N is tiny
+  // Insertion sort by pad inside this row. N is tiny after row-local binning.
   for (uint32_t i = 1; i < n; i++) {
     HIPTailDescriptor key = tails[i];
     int32_t j = i - 1;
-    while (j >= 0 && (tails[j].row > key.row || (tails[j].row == key.row && tails[j].pad > key.pad))) {
+    while (j >= 0 && tails[j].pad > key.pad) {
       tails[j + 1] = tails[j];
       j--;
     }
@@ -439,7 +452,7 @@ GPUd() void GPUTPCCFHIPClusterizer::Thread<0>(int32_t nBlocks, int32_t nThreads,
   }
 
   // Greedy merge of neighboring tails and create clusters
-  bool merged[MaxHIPTails];
+  bool merged[MaxHIPTailsPerRow];
   for (uint32_t i = 0; i < n; i++) {
     merged[i] = false;
   }
@@ -454,7 +467,7 @@ GPUd() void GPUTPCCFHIPClusterizer::Thread<0>(int32_t nBlocks, int32_t nThreads,
     float padSum = tails[i].pad;
     float timeSum = tails[i].tailStart;
     int32_t count = 1;
-    uint16_t row = tails[i].row;
+    uint16_t clusterRow = tails[i].row;
     uint16_t minPad = tails[i].pad;
     uint16_t maxPad = tails[i].pad;
     uint16_t minTime = tails[i].tailStart;
@@ -464,7 +477,7 @@ GPUd() void GPUTPCCFHIPClusterizer::Thread<0>(int32_t nBlocks, int32_t nThreads,
     while (foundNew) {
       foundNew = false;
       for (uint32_t j = i + 1; j < n; j++) {
-        if (merged[j] || tails[j].row != row) {
+        if (merged[j]) {
           continue;
         }
         if (tails[j].pad + 1 < minPad || tails[j].pad > maxPad + 1) {
@@ -509,12 +522,16 @@ GPUd() void GPUTPCCFHIPClusterizer::Thread<0>(int32_t nBlocks, int32_t nThreads,
 
     // TODO: Deduplicate with GPUTPCCFClusterizer::sortIntoBuckets (can't call cross-kernel).
     // TODO: Add error reporting for row cluster overflow.
-    uint32_t index = CAMath::AtomicAdd(&clusterer.mPclusterInRow[row], 1u);
+    uint32_t index = CAMath::AtomicAdd(&clusterer.mPclusterInRow[clusterRow], 1u);
     if (index < clusterer.mNMaxClusterPerRow) {
-      clusterer.mPclusterByRow[clusterer.mNMaxClusterPerRow * row + index] = cn;
+      clusterer.mPclusterByRow[clusterer.mNMaxClusterPerRow * clusterRow + index] = cn;
       nCreatedClusters++;
     }
   }
 
-  clusterer.mPmemory->counters.nClusters += nCreatedClusters;
+#if defined(GPUCA_GPUCODE) && (defined(__CUDACC__) || defined(__HIPCC__))
+  CAMath::AtomicAdd(reinterpret_cast<unsigned long long*>(&clusterer.mPmemory->counters.nClusters), (unsigned long long)nCreatedClusters);
+#else
+  CAMath::AtomicAdd(&clusterer.mPmemory->counters.nClusters, nCreatedClusters);
+#endif
 }

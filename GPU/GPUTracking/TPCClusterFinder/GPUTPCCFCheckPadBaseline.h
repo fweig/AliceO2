@@ -96,6 +96,7 @@ class GPUTPCCFCheckPadBaseline : public GPUKernelTemplate
     HipTailRange tails[MaxNPadsPerRow];
     uint8_t tailsClosedPad[MaxNPadsPerRow];
     HipTailRange tailsClosed[MaxNPadsPerRow];
+    uint32_t tailStoreBase;
   };
 
   // Accumulated values from scanning cached charges in a pad
@@ -152,6 +153,7 @@ class GPUTPCCFHIPClusterizer : public GPUKernelTemplate
  public:
   enum {
     MaxHIPTails = 1 << 15,
+    MaxHIPTailsPerRow = MaxHIPTails,
   };
 
   struct GPUSharedMemory {
