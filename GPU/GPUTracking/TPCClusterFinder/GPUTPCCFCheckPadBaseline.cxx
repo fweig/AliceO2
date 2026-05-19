@@ -46,6 +46,18 @@ static GPUdi() Charge UpdateHIPTailFilter(Charge filteredCharge, Charge charge, 
   return filteredCharge + alpha * (charge - filteredCharge);
 }
 
+static GPUdi() float HIPTailTimeMean(const HIPTailDescriptor& tail)
+{
+  const float length = tail.tailEnd > tail.tailStart ? float(tail.tailEnd - tail.tailStart) : 1.f;
+  return tail.tailStart + 0.5f * (length - 1.f);
+}
+
+static GPUdi() float HIPTailTimeVariance(const HIPTailDescriptor& tail)
+{
+  const float length = tail.tailEnd > tail.tailStart ? float(tail.tailEnd - tail.tailStart) : 1.f;
+  return (length * length - 1.f) * (1.f / 12.f);
+}
+
 // Collect tails marked for closing across the workgroup using a prefix scan,
 // then cooperatively zero the charge map entries for each closed tail.
 // Caller must set acc.activeHIPTail.end before calling if the tail is open.
@@ -65,28 +77,35 @@ static GPUdi() uint16_t CloseHIPTails(
 
   if (nClosedTails > 0) {
     int16_t iClosedTail = work_group_scan_inclusive_add((int16_t)shouldCloseTail) - 1;
-    if (hipTails != nullptr) {
+    const bool shouldStoreTail = shouldCloseTail && acc.activeHIPTail.Length() > 0;
+    uint16_t nStoredTails = work_group_count(shouldStoreTail);
+    int16_t iStoredTail = work_group_scan_inclusive_add((int16_t)shouldStoreTail) - 1;
+
+    // Use exactly one atomic add per closing call to reduce differences in
+    // tail ordering between runs.
+    if (hipTails != nullptr && nStoredTails > 0) {
       const uint32_t row = basePos.row();
       if (iThread == 0) {
-        smem.tailStoreBase = CAMath::AtomicAdd(&nHIPTails[row], (uint32_t)nClosedTails);
+        smem.tailStoreBase = CAMath::AtomicAdd(&nHIPTails[row], (uint32_t)nStoredTails);
       }
       GPUbarrier();
     }
     if (shouldCloseTail) {
       smem.tailsClosedPad[iClosedTail] = iPadHandle;
       smem.tailsClosed[iClosedTail] = acc.activeHIPTail;
+      smem.tailsClosedStoreIdx[iClosedTail] = maxHIPTailsPerRow;
 
-      if (hipTails != nullptr) {
+      if (hipTails != nullptr && shouldStoreTail) {
         const uint32_t row = basePos.row();
-        const uint32_t idx = smem.tailStoreBase + iClosedTail;
+        const uint32_t idx = smem.tailStoreBase + iStoredTail;
+        smem.tailsClosedStoreIdx[iClosedTail] = idx;
         if (idx < maxHIPTailsPerRow) {
           hipTails[row * maxHIPTailsPerRow + idx] = {(uint16_t)row, (uint16_t)iPadHandle,
                                                      (uint16_t)acc.activeHIPTail.start, (uint16_t)acc.activeHIPTail.end,
-                                                     acc.tailQTot};
+                                                     0.f, 0.f};
         }
       }
 
-      acc.tailQTot = 0;
       acc.tailFilterCharge = 0;
       acc.activeHIPTail.Reset();
     }
@@ -98,9 +117,36 @@ static GPUdi() uint16_t CloseHIPTails(
   for (uint16_t iTail = 0; iTail < nClosedTails; iTail++) {
     const auto tailPad = smem.tailsClosedPad[iTail];
     const auto tail = smem.tailsClosed[iTail];
+    const uint32_t tailStoreIdx = smem.tailsClosedStoreIdx[iTail];
 
+    Charge qTot = 0.f;
+    Charge qMax = 0.f;
     for (uint16_t iTime = iThread; iTime < tail.Length(); iTime += nThreads) {
-      chargeMap[basePos.delta({tailPad, int16_t(tail.start + iTime)})] = PackedCharge{0};
+      const int16_t time = tail.start + iTime;
+      auto pos = basePos.delta({tailPad, time});
+      const Charge q = chargeMap[pos].unpack();
+      qTot += q;
+      qMax = CAMath::Max(qMax, q);
+      chargeMap[pos] = PackedCharge{0};
+    }
+
+    smem.tailQTotScratch[iThread] = qTot;
+    smem.tailQMaxScratch[iThread] = qMax;
+    GPUbarrier();
+    for (uint16_t active = nThreads; active > 1;) {
+      const uint16_t stride = (active + 1) / 2;
+      if (iThread < active - stride) {
+        smem.tailQTotScratch[iThread] += smem.tailQTotScratch[iThread + stride];
+        smem.tailQMaxScratch[iThread] = CAMath::Max(smem.tailQMaxScratch[iThread], smem.tailQMaxScratch[iThread + stride]);
+      }
+      active = stride;
+      GPUbarrier();
+    }
+
+    if (iThread == 0 && hipTails != nullptr && tailStoreIdx < maxHIPTailsPerRow) {
+      HIPTailDescriptor& tailDescriptor = hipTails[basePos.row() * maxHIPTailsPerRow + tailStoreIdx];
+      tailDescriptor.qTot = smem.tailQTotScratch[0];
+      tailDescriptor.qMax = smem.tailQMaxScratch[0];
     }
   }
 
@@ -136,7 +182,6 @@ static GPUdi() void ScanCachedCharges(Kernel::GPUSharedMemory& smem, uint16_t ti
 
     if constexpr (CheckHIPTailEnd) {
       if (acc.activeHIPTail.IsOpen()) {
-        acc.tailQTot += qs;
         acc.tailFilterCharge = UpdateHIPTailFilter(acc.tailFilterCharge, qs, hipTailFilterAlpha);
         if (acc.tailFilterCharge < hipTailThreshold) {
           acc.activeHIPTail.end = curTB;
@@ -440,7 +485,8 @@ GPUd() void GPUTPCCFHIPClusterizer::Thread<0>(int32_t nBlocks, int32_t nThreads,
   const auto& fragment = clusterer.mPmemory->fragment;
   const uint32_t n = CAMath::Min(nTails, (uint32_t)MaxHIPTailsPerRow);
 
-  // Insertion sort by pad inside this row. N is tiny after row-local binning.
+  // Insertion sort by pad inside this row. Keep this stable: the greedy merge
+  // depends on the original chronological order for tails on the same pad.
   for (uint32_t i = 1; i < n; i++) {
     HIPTailDescriptor key = tails[i];
     int32_t j = i - 1;
@@ -462,11 +508,20 @@ GPUd() void GPUTPCCFHIPClusterizer::Thread<0>(int32_t nBlocks, int32_t nThreads,
     if (merged[i]) {
       continue;
     }
+    if (tails[i].qTot <= 0.f || tails[i].qMax <= 0.f) {
+      continue;
+    }
 
     float qTot = tails[i].qTot;
-    float padSum = tails[i].pad;
-    float timeSum = tails[i].tailStart;
-    int32_t count = 1;
+    float qMax = tails[i].qMax;
+    const float firstWeight = tails[i].qTot;
+    const float firstPad = tails[i].pad;
+    const float firstTime = HIPTailTimeMean(tails[i]);
+    const float firstTimeVariance = HIPTailTimeVariance(tails[i]);
+    float padSum = firstWeight * firstPad;
+    float padSqSum = firstWeight * firstPad * firstPad;
+    float timeSum = firstWeight * firstTime;
+    float timeSqSum = firstWeight * (firstTime * firstTime + firstTimeVariance);
     uint16_t clusterRow = tails[i].row;
     uint16_t minPad = tails[i].pad;
     uint16_t maxPad = tails[i].pad;
@@ -480,6 +535,9 @@ GPUd() void GPUTPCCFHIPClusterizer::Thread<0>(int32_t nBlocks, int32_t nThreads,
         if (merged[j]) {
           continue;
         }
+        if (tails[j].qTot <= 0.f || tails[j].qMax <= 0.f) {
+          continue;
+        }
         if (tails[j].pad + 1 < minPad || tails[j].pad > maxPad + 1) {
           continue;
         }
@@ -489,10 +547,16 @@ GPUd() void GPUTPCCFHIPClusterizer::Thread<0>(int32_t nBlocks, int32_t nThreads,
         }
 
         merged[j] = true;
+        const float tailWeight = tails[j].qTot;
+        const float tailPad = tails[j].pad;
+        const float tailTime = HIPTailTimeMean(tails[j]);
+        const float tailTimeVariance = HIPTailTimeVariance(tails[j]);
         qTot += tails[j].qTot;
-        padSum += tails[j].pad;
-        timeSum += tails[j].tailStart;
-        count++;
+        qMax = CAMath::Max(qMax, tails[j].qMax);
+        padSum += tailWeight * tailPad;
+        padSqSum += tailWeight * tailPad * tailPad;
+        timeSum += tailWeight * tailTime;
+        timeSqSum += tailWeight * (tailTime * tailTime + tailTimeVariance);
         minPad = CAMath::Min(minPad, tails[j].pad);
         maxPad = CAMath::Max(maxPad, tails[j].pad);
         minTime = CAMath::Min(minTime, tails[j].tailStart);
@@ -501,21 +565,17 @@ GPUd() void GPUTPCCFHIPClusterizer::Thread<0>(int32_t nBlocks, int32_t nThreads,
       }
     }
 
-    float padMean = padSum / count;
-    float timeMean = timeSum / count;
-
-    float padSigma = 0;
-    float timeSigma = 0;
-    if (count > 1) {
-      padSigma = (float)(maxPad - minPad) * 0.5f;
-      timeSigma = (float)(maxTime - minTime) * 0.5f;
-    }
+    const float weightSum = CAMath::Max(qTot, 1.f);
+    float padMean = padSum / weightSum;
+    float timeMean = timeSum / weightSum;
+    float padSigma = CAMath::Sqrt(CAMath::Max(0.f, padSqSum / weightSum - padMean * padMean));
+    float timeSigma = CAMath::Sqrt(CAMath::Max(0.f, timeSqSum / weightSum - timeMean * timeMean));
 
     o2::tpc::ClusterNative cn;
-    cn.qMax = 1023;
+    cn.qMax = (uint16_t)CAMath::Min(qMax, 65535.f);
     cn.qTot = (uint16_t)CAMath::Min(qTot, 65535.f);
-    float time = fragment.start + timeMean - clusterer.Param().rec.tpc.clustersShiftTimebinsClusterizer;
-    cn.setTimeFlags(time, 0);
+    float clusterTime = fragment.start + timeMean - clusterer.Param().rec.tpc.clustersShiftTimebinsClusterizer;
+    cn.setTimeFlags(clusterTime, 0);
     cn.setPad(padMean);
     cn.setSigmaTime(timeSigma);
     cn.setSigmaPad(padSigma);

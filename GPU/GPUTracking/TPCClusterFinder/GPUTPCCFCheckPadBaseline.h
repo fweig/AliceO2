@@ -40,6 +40,7 @@ struct HIPTailDescriptor {
   uint16_t tailStart;
   uint16_t tailEnd;
   float qTot;
+  float qMax;
 };
 
 class GPUTPCCFCheckPadBaseline : public GPUKernelTemplate
@@ -96,6 +97,9 @@ class GPUTPCCFCheckPadBaseline : public GPUKernelTemplate
     HipTailRange tails[MaxNPadsPerRow];
     uint8_t tailsClosedPad[MaxNPadsPerRow];
     HipTailRange tailsClosed[MaxNPadsPerRow];
+    uint32_t tailsClosedStoreIdx[MaxNPadsPerRow];
+    tpccf::Charge tailQTotScratch[NThreads];
+    tpccf::Charge tailQMaxScratch[NThreads];
     uint32_t tailStoreBase;
   };
 
@@ -109,7 +113,6 @@ class GPUTPCCFCheckPadBaseline : public GPUKernelTemplate
     int16_t aboveThresholdStart = -1; // first TB of current above-hipTailThreshold streak; used to extend the tail back over the rising edge before saturation
     HipTailRange activeHIPTail{-1, -1};
     tpccf::Charge tailFilterCharge = 0;
-    float tailQTot = 0;
   };
 
   typedef GPUTPCClusterFinder processorType;
