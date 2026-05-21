@@ -41,6 +41,12 @@ using namespace o2::gpu::tpccf;
 
 using Kernel = GPUTPCCFCheckPadBaseline;
 
+static GPUdi() HIPTailDescriptor *GetHIPTails(GPUTPCClusterFinder &clusterer, int32_t row)
+{
+  // HIP TAILS: indexing starts at 1, so 0 index indicates no connection
+  return clusterer.mPhipTailsByRow + row * GPUTPCCFHIPClusterizer::MaxHIPTailsPerRow;
+}
+
 static GPUdi() Charge UpdateHIPTailFilter(Charge filteredCharge, Charge charge, Charge alpha)
 {
   return filteredCharge + alpha * (charge - filteredCharge);
@@ -63,17 +69,19 @@ static GPUdi() float HIPTailTimeVariance(const HIPTailDescriptor& tail)
 // Caller must set acc.activeHIPTail.end before calling if the tail is open.
 static GPUdi() uint16_t CloseHIPTails(
   Kernel::GPUSharedMemory& smem,
+  GPUTPCClusterFinder &clusterer,
   int32_t iThread, int32_t nThreads,
   int16_t iPadHandle,
   CfChargePos basePos,
   CfArray2D<PackedCharge>& chargeMap,
   Kernel::PadChargeAccu& acc,
-  bool shouldCloseTail,
-  HIPTailDescriptor* hipTails,
-  uint32_t* nHIPTails,
-  uint32_t maxHIPTailsPerRow)
+  bool shouldCloseTail)
 {
-  uint16_t nClosedTails = work_group_count(shouldCloseTail);
+  const uint32_t row = basePos.row();
+  const uint16_t nClosedTails = work_group_count(shouldCloseTail);
+
+  auto *nHIPTails = clusterer.mPnHIPTails;
+  auto *hipTails = GetHIPTails(clusterer, row);
 
   if (nClosedTails > 0) {
     int16_t iClosedTail = work_group_scan_inclusive_add((int16_t)shouldCloseTail) - 1;
@@ -83,8 +91,7 @@ static GPUdi() uint16_t CloseHIPTails(
 
     // Use exactly one atomic add per closing call to reduce differences in
     // tail ordering between runs.
-    if (hipTails != nullptr && nStoredTails > 0) {
-      const uint32_t row = basePos.row();
+    if (nStoredTails > 0) {
       if (iThread == 0) {
         smem.tailStoreBase = CAMath::AtomicAdd(&nHIPTails[row], (uint32_t)nStoredTails);
       }
@@ -93,14 +100,13 @@ static GPUdi() uint16_t CloseHIPTails(
     if (shouldCloseTail) {
       smem.tailsClosedPad[iClosedTail] = iPadHandle;
       smem.tailsClosed[iClosedTail] = acc.activeHIPTail;
-      smem.tailsClosedStoreIdx[iClosedTail] = maxHIPTailsPerRow;
+      smem.tailsClosedStoreIdx[iClosedTail] = GPUTPCCFHIPTailConnector::MaxHIPTailsPerRow;
 
-      if (hipTails != nullptr && shouldStoreTail) {
-        const uint32_t row = basePos.row();
-        const uint32_t idx = smem.tailStoreBase + iStoredTail;
+      if (shouldStoreTail) {
+        const uint32_t idx = smem.tailStoreBase + iStoredTail + 1;
         smem.tailsClosedStoreIdx[iClosedTail] = idx;
-        if (idx < maxHIPTailsPerRow) {
-          hipTails[row * maxHIPTailsPerRow + idx] = {(uint16_t)row, (uint16_t)iPadHandle,
+        if (idx < GPUTPCCFHIPTailConnector::MaxHIPTailsPerRow) {
+          hipTails[idx] = {0,0,(uint16_t)row, (uint16_t)iPadHandle,
                                                      (uint16_t)acc.activeHIPTail.start, (uint16_t)acc.activeHIPTail.end,
                                                      0.f, 0.f};
         }
@@ -143,8 +149,8 @@ static GPUdi() uint16_t CloseHIPTails(
       GPUbarrier();
     }
 
-    if (iThread == 0 && hipTails != nullptr && tailStoreIdx < maxHIPTailsPerRow) {
-      HIPTailDescriptor& tailDescriptor = hipTails[basePos.row() * maxHIPTailsPerRow + tailStoreIdx];
+    if (iThread == 0 && tailStoreIdx < GPUTPCCFHIPTailConnector::MaxHIPTailsPerRow) {
+      HIPTailDescriptor& tailDescriptor = hipTails[tailStoreIdx];
       tailDescriptor.qTot = smem.tailQTotScratch[0];
       tailDescriptor.qMax = smem.tailQMaxScratch[0];
     }
@@ -236,10 +242,6 @@ GPUd() void GPUTPCCFCheckPadBaseline::CheckBaselineGPU(int32_t nBlocks, int32_t 
   }
   GPUbarrier();
 
-  HIPTailDescriptor* hipTails = clusterer.mPhipTails;
-  uint32_t* nHIPTails = clusterer.mPnHIPTails;
-  constexpr uint32_t maxHIPTailsPerRow = GPUTPCCFHIPClusterizer::MaxHIPTailsPerRow;
-
   // Pad filter scans the entire fragments including overlap.
   // Minimal runtime overhead and prevents headaches later on as
   // saturated signal in overlap region can create tails in the next fragment
@@ -309,7 +311,7 @@ GPUd() void GPUTPCCFCheckPadBaseline::CheckBaselineGPU(int32_t nBlocks, int32_t 
         acc.activeHIPTail.end = acc.HIPtb;
       }
 
-      CloseHIPTails(smem, iThread, nThreads, iPadHandle, basePos, chargeMap, acc, shouldCloseTail, hipTails, nHIPTails, maxHIPTailsPerRow);
+      CloseHIPTails(smem, clusterer, iThread, nThreads, iPadHandle, basePos, chargeMap, acc, shouldCloseTail);
 
       GPUbarrier(); // TODO: not needed? Debug only
 
@@ -345,7 +347,7 @@ GPUd() void GPUTPCCFCheckPadBaseline::CheckBaselineGPU(int32_t nBlocks, int32_t 
       acc.activeHIPTail.end = lastTB;
     }
 
-    [[maybe_unused]] const uint16_t nClosedTails = CloseHIPTails(smem, iThread, nThreads, iPadHandle, basePos, chargeMap, acc, shouldCloseTail, hipTails, nHIPTails, maxHIPTailsPerRow);
+    [[maybe_unused]] const uint16_t nClosedTails = CloseHIPTails(smem, clusterer, iThread, nThreads, iPadHandle, basePos, chargeMap, acc, shouldCloseTail);
 
     DPRINTB_IF(nClosedTails > 0, "%d: Close remaining tails (%d)\n", iBlock, nClosedTails);
   }
@@ -462,117 +464,112 @@ GPUd() void GPUTPCCFCheckPadBaseline::updatePadBaseline(int32_t pad, const GPUTP
   }
 }
 
+// ======== HIP Tail Connector Kernel ========
+
+template <>
+GPUd() void GPUTPCCFHIPTailConnector::Thread<0>(int32_t nBlocks, int32_t nThreads, int32_t iBlock, int32_t iThread, GPUSharedMemory& smem, processorType& clusterer)
+{
+  if (iBlock >= GPUCA_ROW_COUNT) {
+    return;
+  }
+  const uint32_t row = iBlock;
+
+  const uint32_t nTails = CAMath::Min(clusterer.mPnHIPTails[row], (uint32_t)MaxHIPTailsPerRow - 1);
+
+  // HIP TAILS: indexing starts at 1, so 0 index indicates no connection
+  HIPTailDescriptor* tails = GetHIPTails(clusterer, row);
+
+  for (uint32_t iTail = iThread + 1; iTail <= nTails; iTail += nThreads) {
+    auto *tail = &tails[iTail];
+
+    // TODO: this is needed because tailStarts may vary due to rising edge
+    // Better approach would be to also track the triggered timebin and match that instead
+    uint16_t overlapWindowStart = tail->tailStart >= 5 ? tail->tailStart - 5 : 0;
+    uint16_t overlapWindowEnd   = tail->tailStart + 5;
+
+    for (uint32_t jTail = iTail + 1; jTail <= nTails; jTail++) {
+      auto *tailNext = &tails[jTail];
+      if (tailNext->iPrev > 0) {
+        continue;
+      }
+
+      const bool overlapPad  = tailNext->pad >= tail->pad - GPUTPCCFCheckPadBaseline::SSClusterPadWidth && tailNext->pad <= tail->pad + GPUTPCCFCheckPadBaseline::SSClusterPadWidth;
+      const bool overlapTime = tailNext->tailStart >= overlapWindowStart && tailNext->tailStart < overlapWindowEnd;
+
+      if (overlapPad && overlapTime) {
+        if (CAMath::AtomicCAS(&tailNext->iPrev, 0u, iTail)) {
+          tail->iNext = jTail;
+          break;
+        }
+      }
+
+    }
+
+  }
+
+}
+
 // ======== HIP Clusterizer Kernel ========
 
 template <>
 GPUd() void GPUTPCCFHIPClusterizer::Thread<0>(int32_t nBlocks, int32_t nThreads, int32_t iBlock, int32_t iThread, GPUSharedMemory& smem, processorType& clusterer)
 {
-  if (iThread != 0) {
-    return;
-  }
-
   if (iBlock >= GPUCA_ROW_COUNT) {
     return;
   }
 
   const uint32_t row = iBlock;
-  const uint32_t nTails = clusterer.mPnHIPTails[row];
-  if (nTails == 0) {
-    return;
-  }
+  uint32_t nTails = clusterer.mPnHIPTails[row];
+  nTails = CAMath::Min(nTails, (uint32_t)MaxHIPTailsPerRow - 1);
 
-  HIPTailDescriptor* tails = clusterer.mPhipTails + row * MaxHIPTailsPerRow;
+  HIPTailDescriptor* tails = GetHIPTails(clusterer, row);
   const auto& fragment = clusterer.mPmemory->fragment;
-  const uint32_t n = CAMath::Min(nTails, (uint32_t)MaxHIPTailsPerRow);
-
-  // Insertion sort by pad inside this row. Keep this stable: the greedy merge
-  // depends on the original chronological order for tails on the same pad.
-  for (uint32_t i = 1; i < n; i++) {
-    HIPTailDescriptor key = tails[i];
-    int32_t j = i - 1;
-    while (j >= 0 && tails[j].pad > key.pad) {
-      tails[j + 1] = tails[j];
-      j--;
-    }
-    tails[j + 1] = key;
-  }
-
-  // Greedy merge of neighboring tails and create clusters
-  bool merged[MaxHIPTailsPerRow];
-  for (uint32_t i = 0; i < n; i++) {
-    merged[i] = false;
-  }
 
   tpccf::SizeT nCreatedClusters = 0;
-  for (uint32_t i = 0; i < n; i++) {
-    if (merged[i]) {
-      continue;
-    }
-    if (tails[i].qTot <= 0.f || tails[i].qMax <= 0.f) {
+  for (uint32_t iTail = iThread + 1; iTail <= nTails; iTail += nThreads) {
+
+    auto *tail = &tails[iTail];
+
+    if (tail->iPrev != 0) {
       continue;
     }
 
-    float qTot = tails[i].qTot;
-    float qMax = tails[i].qMax;
-    const float firstWeight = tails[i].qTot;
-    const float firstPad = tails[i].pad;
-    const float firstTime = HIPTailTimeMean(tails[i]);
-    const float firstTimeVariance = HIPTailTimeVariance(tails[i]);
+    float qTot = tail->qTot;
+    float qMax = tail->qMax;
+    const float firstWeight = tail->qTot;
+    const float firstPad = tail->pad;
+    const float firstTime = HIPTailTimeMean(*tail);
+    const float firstTimeVariance = HIPTailTimeVariance(*tail);
     float padSum = firstWeight * firstPad;
     float padSqSum = firstWeight * firstPad * firstPad;
     float timeSum = firstWeight * firstTime;
     float timeSqSum = firstWeight * (firstTime * firstTime + firstTimeVariance);
-    uint16_t clusterRow = tails[i].row;
-    uint16_t minPad = tails[i].pad;
-    uint16_t maxPad = tails[i].pad;
-    uint16_t minTime = tails[i].tailStart;
-    uint16_t maxTime = tails[i].tailEnd;
+    // uint16_t clusterRow = tails[iTail].row;
 
-    bool foundNew = true;
-    while (foundNew) {
-      foundNew = false;
-      for (uint32_t j = i + 1; j < n; j++) {
-        if (merged[j]) {
-          continue;
-        }
-        if (tails[j].qTot <= 0.f || tails[j].qMax <= 0.f) {
-          continue;
-        }
-        if (tails[j].pad + 1 < minPad || tails[j].pad > maxPad + 1) {
-          continue;
-        }
-        // Overlapping time ranges
-        if (tails[j].tailEnd < minTime || tails[j].tailStart > maxTime) {
-          continue;
-        }
+    while (tail->iNext != 0) {
 
-        merged[j] = true;
-        const float tailWeight = tails[j].qTot;
-        const float tailPad = tails[j].pad;
-        const float tailTime = HIPTailTimeMean(tails[j]);
-        const float tailTimeVariance = HIPTailTimeVariance(tails[j]);
-        qTot += tails[j].qTot;
-        qMax = CAMath::Max(qMax, tails[j].qMax);
-        padSum += tailWeight * tailPad;
-        padSqSum += tailWeight * tailPad * tailPad;
-        timeSum += tailWeight * tailTime;
-        timeSqSum += tailWeight * (tailTime * tailTime + tailTimeVariance);
-        minPad = CAMath::Min(minPad, tails[j].pad);
-        maxPad = CAMath::Max(maxPad, tails[j].pad);
-        minTime = CAMath::Min(minTime, tails[j].tailStart);
-        maxTime = CAMath::Max(maxTime, tails[j].tailEnd);
-        foundNew = true;
-      }
+      tail = &tails[tail->iNext];
+
+      const float tailWeight = tail->qTot;
+      const float tailPad = tail->pad;
+      const float tailTime = HIPTailTimeMean(*tail);
+      const float tailTimeVariance = HIPTailTimeVariance(*tail);
+      qMax = CAMath::Max(qMax, tail->qMax);
+      qTot += tail->qTot;
+      padSum += tailWeight * tailPad;
+      padSqSum += tailWeight * tailPad * tailPad;
+      timeSum += tailWeight * tailTime;
+      timeSqSum += tailWeight * (tailTime * tailTime + tailTimeVariance);
     }
 
     const float weightSum = CAMath::Max(qTot, 1.f);
     float padMean = padSum / weightSum;
-    float timeMean = timeSum / weightSum;
+    float timeMean = timeSum / weightSum; // TODO: Use timebin of saturated signal instead! Time mean is biased for long tails.
     float padSigma = CAMath::Sqrt(CAMath::Max(0.f, padSqSum / weightSum - padMean * padMean));
     float timeSigma = CAMath::Sqrt(CAMath::Max(0.f, timeSqSum / weightSum - timeMean * timeMean));
 
     o2::tpc::ClusterNative cn;
-    cn.qMax = (uint16_t)CAMath::Min(qMax, 65535.f);
+    cn.qMax = qMax;
     cn.qTot = (uint16_t)CAMath::Min(qTot, 65535.f);
     float clusterTime = fragment.start + timeMean - clusterer.Param().rec.tpc.clustersShiftTimebinsClusterizer;
     cn.setTimeFlags(clusterTime, 0);
@@ -580,12 +577,15 @@ GPUd() void GPUTPCCFHIPClusterizer::Thread<0>(int32_t nBlocks, int32_t nThreads,
     cn.setSigmaTime(timeSigma);
     cn.setSigmaPad(padSigma);
 
-    // TODO: Deduplicate with GPUTPCCFClusterizer::sortIntoBuckets (can't call cross-kernel).
-    // TODO: Add error reporting for row cluster overflow.
-    uint32_t index = CAMath::AtomicAdd(&clusterer.mPclusterInRow[clusterRow], 1u);
-    if (index < clusterer.mNMaxClusterPerRow) {
-      clusterer.mPclusterByRow[clusterer.mNMaxClusterPerRow * clusterRow + index] = cn;
-      nCreatedClusters++;
+    if (cn.qMax >= 1023) {
+      // Cut off clusters where the tail connection failed for some reason
+      // TODO: Deduplicate with GPUTPCCFClusterizer::sortIntoBuckets (can't call cross-kernel).
+      // TODO: Add error reporting for row cluster overflow.
+      uint32_t index = CAMath::AtomicAdd(&clusterer.mPclusterInRow[row], 1u);
+      if (index < clusterer.mNMaxClusterPerRow) {
+        clusterer.mPclusterByRow[clusterer.mNMaxClusterPerRow * row + index] = cn;
+        nCreatedClusters++;
+      }
     }
   }
 

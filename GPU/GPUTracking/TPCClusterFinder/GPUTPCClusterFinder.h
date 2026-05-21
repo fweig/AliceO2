@@ -114,7 +114,7 @@ class GPUTPCClusterFinder : public GPUProcessor
   tpc::ClusterNative* mPclusterByRow = nullptr;
   GPUTPCClusterMCInterimArray* mPlabelsByRow = nullptr;
   int32_t* mPscanBuf = nullptr;
-  HIPTailDescriptor* mPhipTails = nullptr;
+  HIPTailDescriptor* mPhipTailsByRow = nullptr;
   uint32_t* mPnHIPTails = nullptr; // one counter per row
   Memory* mPmemory = nullptr;
 

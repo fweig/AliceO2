@@ -98,7 +98,7 @@ void* GPUTPCClusterFinder::SetPointersScratch(void* mem)
   }
   // TODO: Use memory scalers for MaxHIPTails.
   // NOTE: Always allocate since Param() is not available during size computation.
-  computePointerWithAlignment(mem, mPhipTails, (size_t)GPUCA_ROW_COUNT * GPUTPCCFHIPClusterizer::MaxHIPTailsPerRow);
+  computePointerWithAlignment(mem, mPhipTailsByRow, GPUCA_ROW_COUNT * GPUTPCCFHIPClusterizer::MaxHIPTailsPerRow);
   computePointerWithAlignment(mem, mPnHIPTails, GPUCA_ROW_COUNT);
   return mem;
 }
