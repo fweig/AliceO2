@@ -55,7 +55,7 @@ class GPUTPCCFCheckPadBaseline : public GPUKernelTemplate
     EntriesPerCacheline = PadsPerCacheline * TimebinsPerCacheline,
     NumOfCachedPads = GPUCA_WARP_SIZE / TimebinsPerCacheline,
     NumCLsPerWarp = GPUCA_WARP_SIZE / EntriesPerCacheline,
-    NumOfCachedTBs = TimebinsPerCacheline,
+    NumOfCachedTBs = TimebinsPerCacheline * 8,
     // Threads index shared memory as [iThread / MaxNPadsPerRow][iThread % MaxNPadsPerRow].
     // Rounding up to a multiple of PadsPerCacheline ensures iThread / MaxNPadsPerRow < NumOfCachedTBs
     // for all threads, avoiding out-of-bounds access.

@@ -251,14 +251,19 @@ GPUd() void GPUTPCCFCheckPadBaseline::CheckBaselineGPU(int32_t nBlocks, int32_t 
 
   for (uint16_t t = firstTB; t < lastTB; t += NumOfCachedTBs) {
 
-    const TPCFragmentTime iTimeLoad = t + iTimeOffset;
+    bool thisThreadHasTrigger = false;
+    for (uint16_t tt = 0; tt < NumOfCachedTBs; tt += TimebinsPerCacheline) {
+      const TPCFragmentTime iTimeLoad = t + tt + iTimeOffset;
 
-    const CfChargePos pos = basePos.delta({iPadOffset, iTimeLoad});
+      const CfChargePos pos = basePos.delta({iPadOffset, iTimeLoad});
 
-    const Charge ql = iTimeLoad < lastTB && iPadOffset < rowinfo.nPads ? chargeMap[pos].unpack() : 0;
-    smem.charges[iTimeOffset][iPadOffset] = ql;
+      const Charge ql = iTimeLoad < lastTB && iPadOffset < rowinfo.nPads ? chargeMap[pos].unpack() : 0;
+      smem.charges[tt + iTimeOffset][iPadOffset] = ql;
 
-    const bool hasHIPTrigger = hipFilterOn && work_group_any(ql >= Charge(MaxADC));
+      thisThreadHasTrigger |= ql >= Charge(MaxADC);
+    }
+
+    const bool hasHIPTrigger = hipFilterOn && work_group_any(thisThreadHasTrigger);
 
     acc.HIPtb = -1;
 
