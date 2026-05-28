@@ -53,7 +53,7 @@ GPUd() void GPUTPCCFMCLabelFlattener::Thread<GPUTPCCFMCLabelFlattener::setRowOff
   // but HIP clusters don't support MC labels yet and containers are missing for those clusters.
   // So append empty label container for each HIP cluster.
   // Note: This assumes that HIP cluster are store behind regular clusters!
-  auto &labels = clusterer.mPlabelsByRow[row].data;
+  auto& labels = clusterer.mPlabelsByRow[row].data;
   labels.resize(std::max(labels.size(), clusterInRow));
 
   uint32_t labelCount = 0;
