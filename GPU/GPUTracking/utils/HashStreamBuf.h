@@ -20,7 +20,6 @@
 #include <streambuf>
 #include <ostream>
 
-
 class HashStreamBuf : public std::streambuf
 {
  public:
@@ -46,8 +45,8 @@ class HashStreamBuf : public std::streambuf
     result.reserve(40);
 
     for (unsigned char byte : digest) {
-        result += hex[byte >> 4];
-        result += hex[byte & 0x0f];
+      result += hex[byte >> 4];
+      result += hex[byte & 0x0f];
     }
 
     return result;
@@ -106,10 +105,10 @@ class HashStreamBuf : public std::streambuf
   o2::framework::internal::SHA1_CTX mSHA1;
   bool mDoHash = false;
 
-  void updateHash(const char *data, size_t size)
+  void updateHash(const char* data, size_t size)
   {
     if (mDoHash) {
-      o2::framework::internal::SHA1Update(&mSHA1, reinterpret_cast<const unsigned char *>(data), size);
+      o2::framework::internal::SHA1Update(&mSHA1, reinterpret_cast<const unsigned char*>(data), size);
     }
   }
 };
